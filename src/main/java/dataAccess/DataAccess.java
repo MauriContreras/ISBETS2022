@@ -1058,7 +1058,11 @@ public class DataAccess {
 		try {
 			db.getTransaction().begin();
 
-			Event event1 = db.find(Event.class, evento.getEventDate());
+			// se ha cmbiado de evento.getEventDate() a evento.getEventNumber()
+			Event event1 = db.find(Event.class, evento.getEventNumber());
+			if (event1 == null) {
+				return false;
+			}
 			Query query1 = db.createQuery("DELETE FROM Event e WHERE e.getEventNumber()=?1");
 			query1.setParameter(1, evento.getEventNumber());
 
@@ -1076,11 +1080,7 @@ public class DataAccess {
 
 			int events = query1.executeUpdate();
 			db.getTransaction().commit();
-//			if (events == 0) {
 			System.out.println("Evento eliminado: " + evento);
-//			} else {
-//				System.out.println("No se ha eliminado ningun evento");
-//			}
 
 			return true;
 		} catch (Exception e) {

@@ -1,29 +1,16 @@
 
-DdataAccess.DataAccess#doLogin(Ljava/lang/String;Ljava/lang/String;)Zd
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaÒ	 Ò	("3"9"1*Ÿ
-3d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaÅ
- Å
-("n
-d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaÅ
- Å
-(
-""*Ÿ
-9d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java¯	 ¯	("n
-d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java¯	 ¯	(
-""*Ÿ
-1d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaÖ
-	 Ö
-("n
-d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaÖ
- Ö
-(
-"":
-usernamejava.lang.String:
-passjava.lang.StringB
-dataAccess.DataAccess
+@configuration.ConfigXML#getBusinessLogicName()Ljava/lang/String;f
+ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaó ó(#"1*∞
+1f
+ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaò	 ò(Ω
+∫
+f
+ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaò	 ò(
+%0java.lang.String"__id*2*0
+configuration.ConfigXML"
+businessLogicName"Ç
+f
+ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaò ò(
+
+%0java.lang.StringB
+configuration.ConfigXML

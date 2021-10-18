@@ -1,15 +1,16 @@
 
-dataAccess.DataAccess#editarPerfilUsuarioSinPass(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Zd
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java‚	 ‚	(*"3*Ù
-3d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaŒ	
- Œ	("n
-d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaŒ	 Œ	(
-"":
-	pUsernamejava.lang.String:
-pNombrejava.lang.String:
-	pApellidojava.lang.String:
-pEmailjava.lang.String:#
-pCuentaBancariajava.lang.StringB
-dataAccess.DataAccess
+>configuration.ConfigXML#getInstance()Lconfiguration/ConfigXML;f
+ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java‹ ‹($"1*¸
+1f
+ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaŒ	 Œ(¾
+»
+f
+ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaŒ	 Œ(
+%0configuration.ConfigXML"__id*,**
+configuration.ConfigXML"
+theInstance"‰
+f
+ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaŒ Œ(
+
+%0configuration.ConfigXMLB"
+configuration.ConfigXML

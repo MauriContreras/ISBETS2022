@@ -1,9 +1,32 @@
 
-0domain.RegularUser#getBalance()Ljava/lang/Float;_
-UC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/RegularUser.javaK K("1*œ
-1_
-UC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/RegularUser.javaL	 L("i
-_
-UC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/RegularUser.javaL L(
-""B
-domain.RegularUser
+7dataAccess.DataAccess#getMaxIdInDB()Ljava/lang/Integer;d
+XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaØ	 Ø	("6*á
+3d
+XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java∏	 ∏	(ì
+ê
+d
+XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java∏	 ∏	(
+maxidjava.lang.Integer"__id*
+""*
+3
+1*‹
+6d
+XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java±	 ±	(%“œ
+d
+XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java±	 ±	('
+%0"6dataAccess.DataAccess#getAllEvents()Ljava/util/Vector;*
+dataAccess.DataAccess2getAllEvents()ì
+ê
+d
+XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java≥	 ≥	(1
+maxidjava.lang.Integer"__id*
+""*
+3
+1*
+1d
+XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaº		 º	("Ñ
+d
+XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaº	 º	(
+
+maxidjava.lang.IntegerB
+dataAccess.DataAccess

@@ -1054,15 +1054,22 @@ public class DataAccess {
 		return false;
 	}
 
+	// en el if del for se comparaban los eventos con el operador == y no con el
+	// equals, por eso daba error.
 	public boolean deleteEvent(Event evento) {
 		try {
 			db.getTransaction().begin();
 
 			// se ha cmbiado de evento.getEventDate() a evento.getEventNumber()
-			Event event1 = db.find(Event.class, evento.getEventNumber());
-			if (event1 == null) {
+			try {
+				Event event1 = db.find(Event.class, evento.getEventNumber());
+				if (event1 == null) {
+					return false;
+				}
+			} catch (IllegalArgumentException ex) {
 				return false;
 			}
+
 			Query query1 = db.createQuery("DELETE FROM Event e WHERE e.getEventNumber()=?1");
 			query1.setParameter(1, evento.getEventNumber());
 
@@ -1070,9 +1077,9 @@ public class DataAccess {
 			List<Question> preguntasDB = query2.getResultList();
 
 			for (Question q : preguntasDB) {
-				if (q.getEvent() == evento) {
-					db.remove(q);
+				if (q.getEvent().equals(evento)) {
 					System.out.println("pregunta eliminada: " + q);
+					db.remove(q);
 				} else {
 					System.out.println("pregunta NO ELIMINADA");
 				}
@@ -1307,8 +1314,7 @@ public class DataAccess {
 		query.setParameter(1, pusername);
 		query.setParameter(2, ppassword);
 		List<User> usuarios = query.getResultList();
-
-		if (usuarios instanceof AdminUser) {
+		if (usuarios.get(0) instanceof AdminUser) {
 			return true;
 		} else {
 			return false;

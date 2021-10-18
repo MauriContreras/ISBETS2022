@@ -1,16 +1,23 @@
 
-6domain.Forecast#getForecastNumber()Ljava/lang/Integer;\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Forecast.javaH H(!"1*ˆ
-1\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Forecast.javaI	 I(©
-¦
-\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Forecast.javaI	 I(
-%0java.lang.Integer"__id*'*%
-domain.Forecast"
-forecastNumber"y
-\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Forecast.javaI I(
-
-%0java.lang.IntegerB
-domain.Forecast
+4domain.Event#DoesQuestionExists(Ljava/lang/String;)ZY
+OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.javal l(""5*Ã
+3Y
+OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.javao o("c
+Y
+OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.javao o(
+""*ž
+5Y
+OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.javam m(µ²
+Y
+OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.javam m('
+%0"-domain.Event#getQuestions()Ljava/util/Vector;*
+domain.Event2getQuestions()*
+3
+1*Ã
+1Y
+OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.javaq	 q("c
+Y
+OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.javaq q(
+"":
+questionjava.lang.StringB
+domain.Event

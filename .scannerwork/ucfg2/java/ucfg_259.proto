@@ -1,92 +1,96 @@
 
-(domain.Event#equals(Ljava/lang/Object;)Z[
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.java ("startingBlock*Ç
-2[
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.javaŠ
- Š("e
-[
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.javaŠ Š(
-""*Ô
-3[
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.javaˆ ˆ(˜
-•
-[
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.javaˆ ˆ(
-otherdomain.Event"__id*
-
-objjava.lang.Object¢
-Ÿ
-[
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.java‰ ‰(
-%2java.lang.Integer"__id*!*
-domain.Event"
-eventNumber©
+(domain.User#toString()Ljava/lang/String;X
+NC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/User.java9 9("1*»
+1X
+NC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/User.java; ;(š
+—
+X
+NC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/User.java; ;(*
+%0java.lang.String"__id**
+domain.User"
+
+userName©
 ¦
-[
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.java‰ ‰(&
-%3java.lang.Integer"__id*(*&
-
-otherdomain.Event"
-eventNumber*
-2
-1*±
-startingBlock[
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.java ("¥
-¢
-[
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.java€ €(
-
-%4"
-__annotate*
-java.lang.Override*
+X
+NC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/User.java; ;(*
+%1java.lang.String"__concat*
+
+userName: *
+
+%0java.lang.String«
+¨
+X
+NC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/User.java; ;(;
+%2java.lang.String"__concat*
+
+%1java.lang.String*
+\nuserPass: š
+—
+X
+NC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/User.java;> ;(K
+%3java.lang.String"__id**
+domain.User"
+
+userPass³
+°
+X
+NC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/User.java; ;(K
+%4java.lang.String"__concat*
+
+%2java.lang.String*
+
+%3java.lang.String¬
+©
+X
+NC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/User.java; ;(]
+%5java.lang.String"__concat*
+
+%4java.lang.String*
+\nfirstName: ›
+˜
+X
+NC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/User.java;` ;(n
+%6java.lang.String"__id**
+domain.User"
+	firstName³
+°
+X
+NC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/User.java; ;(n
+%7java.lang.String"__concat*
+
+%5java.lang.String*
+
+%6java.lang.String«
+¨
+X
+NC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/User.java; <(
+%8java.lang.String"__concat*
+
+%7java.lang.String*
+\nlastName: š
+—
+X
+NC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/User.java< <($
+%9java.lang.String"__id**
+domain.User"
+
+lastName´
+±
+X
+NC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/User.java; <($
+%10java.lang.String"__concat*
+
+%8java.lang.String*
+
+%9java.lang.String–
+“
+X
+NC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/User.java; <(%
+stjava.lang.String"__id*
 
-objjava.lang.Object
-Œ
-[
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.java (!
-objjava.lang.Object"__annotation*
-
-%4*	
-5
-6
-8*Ç
-4[
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.java‡
- ‡("e
-[
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.java‡ ‡(
-""*ý
-5[
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.java† †(ÃÀ
-[
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.java† †(
-%0java.lang.Class",java.lang.Object#getClass()Ljava/lang/Class;*
-domain.Event2
-getClass()ÌÉ
-[
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.java† †("
-%1java.lang.Class",java.lang.Object#getClass()Ljava/lang/Class;*
-
-objjava.lang.Object2
-getClass()*
-3
-4*Ç
-6[
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.java…
- …("e
-[
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.java… …(
-""*Ç
-8[
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.javaƒ
- ƒ("e
-[
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.javaƒ ƒ(
-""*Ç
-1[
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.java‹	 ‹("e
-[
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.java‹ ‹(
-"":
-objjava.lang.ObjectB
-domain.Event
+%10java.lang.String"t
+X
+NC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/User.java= =(
+
+stjava.lang.StringB
+domain.User

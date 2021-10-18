@@ -1,18 +1,16 @@
 
-?dataAccess.DataAccess#getMaxIdForecastInDB()Ljava/lang/Integer;d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java∞	 ∞	($"1*Ú
-1d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java≤	 ≤	(/Ä~
-d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java≤	 ≤	(-
-%0"java.util.Vectorì
-ê
-d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java≤	 ≤	(/
-%1"java.util.Vector#<init>()V*
-
-%0"n
-d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java∂	 ∂	(A
-""B
-dataAccess.DataAccess
+@configuration.ConfigXML#getBusinessLogicPort()Ljava/lang/String;f
+ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaì ì(#"1*∞
+1f
+ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaî	 î(Ω
+∫
+f
+ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaî	 î(
+%0java.lang.String"__id*2*0
+configuration.ConfigXML"
+businessLogicPort"Ç
+f
+ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaî î(
+
+%0java.lang.StringB
+configuration.ConfigXML

@@ -1,8 +1,8 @@
 package test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.text.ParseException;
@@ -10,9 +10,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Vector;
 
-
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import businessLogic.BLFacadeImplementation;
@@ -27,11 +24,10 @@ import utility.TestUtilityFacadeImplementation;
 class CreateQuestionBLTest {
 	private DataAccess da = new DataAccess(ConfigXML.getInstance().getDataBaseOpenMode().equals("open"));
 
-	private  BLFacadeImplementation sut= new BLFacadeImplementation(da);
-	private  TestUtilityFacadeImplementation testBL= new TestUtilityFacadeImplementation();
+	private BLFacadeImplementation sut = new BLFacadeImplementation(da);
+	private TestUtilityFacadeImplementation testBL = new TestUtilityFacadeImplementation();
 
 	private Event ev;
-
 
 	@Test
 	// sut.createQuestion: The event has one question with a queryText.
@@ -41,7 +37,7 @@ class CreateQuestionBLTest {
 			String eventText = "Event Text";
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 			Date oneDate = sdf.parse("05/10/2022");
-			String queryText = "Query Text";
+			String queryText = "Query Text BL1";
 			Float betMinimum = 2f;
 
 			ev = testBL.addEventWithQuestion(eventText, oneDate, queryText, betMinimum);
@@ -66,10 +62,10 @@ class CreateQuestionBLTest {
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 			Date oneDate = sdf.parse("05/10/2022");
 
-			ev = testBL.addEventWithQuestion(eventText, oneDate, "One", 3f);
+			ev = testBL.addEventWithQuestion(eventText, oneDate, "One BL2.1", 3f);
 
 			// invoke System Under Test (sut)
-			String queryText = "Query Text";
+			String queryText = "Query Text BL2.2";
 			Float betMinimum = 2f;
 			try {
 				Question q = sut.createQuestion(ev, queryText, betMinimum);
@@ -78,7 +74,7 @@ class CreateQuestionBLTest {
 				assertNotNull(q);
 				assertEquals(queryText, q.getQuestion());
 				assertEquals(betMinimum, q.getBetMinimum());
-				
+
 				// verify DB
 				Vector<Event> es = testBL.getEvents(oneDate);
 
@@ -86,7 +82,6 @@ class CreateQuestionBLTest {
 				assertEquals(2, es.get(0).getQuestions().size());
 				assertEquals(queryText, es.get(0).getQuestions().get(1).getQuestion());
 				assertEquals(betMinimum, es.get(0).getQuestions().get(1).getBetMinimum());
-
 
 				// Remove the created objects in the database (cascade removing)
 				boolean b = testBL.removeEvent(ev);
@@ -98,7 +93,7 @@ class CreateQuestionBLTest {
 			} catch (EventFinished e) {
 				// if the program goes to this point fail
 				fail("The event date is later than the current date");
-			} 
+			}
 		} catch (ParseException e) {
 			fail("It should be correct: check the date format");
 		}

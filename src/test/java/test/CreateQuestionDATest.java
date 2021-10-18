@@ -37,7 +37,7 @@ class CreateQuestionDATest {
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 			Date oneDate = sdf.parse("05/10/2022");
 			String eventText = "Event Text";
-			String queryText = "Query Text";
+			String queryText = "Query Text DA1";
 			Float betMinimum = 2f;
 
 			testDA.open();
@@ -55,6 +55,10 @@ class CreateQuestionDATest {
 		testDA.open();
 		boolean b = testDA.removeEvent(ev);
 		System.out.println("Removed event " + b);
+		testDA.removeQuestion(2);
+		testDA.removeQuestion(4);
+		testDA.removeQuestion(5);
+		testDA.removeQuestion(7);
 		testDA.close();
 
 	}
@@ -71,10 +75,10 @@ class CreateQuestionDATest {
 			Float betMinimum = 2f;
 
 			testDA.open();
-			ev = testDA.addEventWithQuestion(eventText, oneDate, "otra", 10.0f);
+			ev = testDA.addEventWithQuestion(eventText, oneDate, "otra DA2.1", 10.0f);
 			testDA.close();
 
-			String queryText = "Query Text";
+			String queryText = "Query Text DA2.2";
 			try {
 				// invoke System Under Test (sut)
 				Question q = sut.createQuestion(ev, queryText, betMinimum);
@@ -100,6 +104,8 @@ class CreateQuestionDATest {
 				// Remove the created objects in the database (cascade removing)
 				testDA.open();
 				boolean b = testDA.removeEvent(ev);
+				testDA.removeQuestion(9);
+				testDA.removeQuestion(10);
 				testDA.close();
 				System.out.println("Finally " + b);
 			}
@@ -142,7 +148,7 @@ class CreateQuestionDATest {
 			Float betMinimum = 2f;
 
 			testDA.open();
-			ev = testDA.addEventWithQuestion(eventText, oneDate, "una", 0.0f);
+			ev = testDA.addEventWithQuestion(eventText, oneDate, "una DA4.1", 0.0f);
 			System.out.println("**************" + ev.getEventNumber());
 			testDA.close();
 
@@ -171,6 +177,7 @@ class CreateQuestionDATest {
 				testDA.open();
 				boolean b = testDA.removeEvent(ev);
 				System.out.println("Finally " + b);
+				testDA.removeQuestion(12);
 				testDA.close();
 			}
 		} catch (ParseException e) {
@@ -191,10 +198,10 @@ class CreateQuestionDATest {
 			Float betMinimum = -2f;
 
 			testDA.open();
-			ev = testDA.addEventWithQuestion(eventText, oneDate, "otra", 0.0f);
+			ev = testDA.addEventWithQuestion(eventText, oneDate, "otra DA5.1", 0.0f);
 			testDA.close();
 
-			String queryText = "Query Text";
+			String queryText = "Query Text DA5.2";
 			try {
 				// invoke System Under Test (sut)
 				Question q = sut.createQuestion(ev, queryText, betMinimum);
@@ -219,6 +226,8 @@ class CreateQuestionDATest {
 				// Remove the created objects in the database (cascade removing)
 				testDA.open();
 				boolean b = testDA.removeEvent(ev);
+				testDA.removeQuestion(14);
+				testDA.removeQuestion(15);
 				testDA.close();
 				System.out.println("Finally " + b);
 			}

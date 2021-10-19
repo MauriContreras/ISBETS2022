@@ -1,12 +1,16 @@
 
-null#isCellEditable(II)Zb
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/AdministrationGUI.javaZ Z("1*Õ
-1b
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/AdministrationGUI.java[
- [("l
-b
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/AdministrationGUI.java[ [(
-"":
-"":
-""B 
-Lgui/AdministrationGUI$3052;
+6domain.Forecast#getForecastNumber()Ljava/lang/Integer;i
+_C:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/domain/Forecast.javaG G(!"1*°
+1i
+_C:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/domain/Forecast.javaH	 H(¶
+³
+i
+_C:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/domain/Forecast.javaH	 H(
+%0java.lang.Integer"__id*'*%
+domain.Forecast"
+forecastNumber"†
+i
+_C:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/domain/Forecast.javaH H(
+
+%0java.lang.IntegerB
+domain.Forecast

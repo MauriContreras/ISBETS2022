@@ -1,7 +1,7 @@
-organization=mauricontreras
-projectKey=ISBets21MAUBRY
+organization=jorshuabr
+projectKey=ISBets21BRYMAUJOR
 serverUrl=https://sonarcloud.io
-serverVersion=8.0.0.23630
-dashboardUrl=https://sonarcloud.io/dashboard?id=ISBets21MAUBRY
-ceTaskId=AXxIBMmssmRyimx49ruW
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXxIBMmssmRyimx49ruW
+serverVersion=8.0.0.23912
+dashboardUrl=https://sonarcloud.io/dashboard?id=ISBets21BRYMAUJOR
+ceTaskId=AXyVWXxXujezI92cDHrY
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXyVWXxXujezI92cDHrY

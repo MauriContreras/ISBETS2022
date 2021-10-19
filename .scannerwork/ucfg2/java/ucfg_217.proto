@@ -1,16 +1,16 @@
 
-/domain.RegularUser#getEmail()Ljava/lang/String;_
-UC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/RegularUser.java+ +("1*â
-1_
-UC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/RegularUser.java,	 ,(•
-¢
-_
-UC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/RegularUser.java,	 ,(
-%0java.lang.String"__id*!*
-domain.RegularUser"
-email"{
-_
-UC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/RegularUser.java, ,(
+?configuration.ConfigXML#getDataBaseOpenMode()Ljava/lang/String;s
+gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaü ü(""1*÷
+1s
+gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java†	 †(…
+∆
+s
+gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java†	 †(
+%0java.lang.String"__id*1*/
+configuration.ConfigXML"
+dataBaseOpenMode"è
+s
+gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java† †(
 
-%0java.lang.StringB
-domain.RegularUser
+%0java.lang.StringB
+configuration.ConfigXML

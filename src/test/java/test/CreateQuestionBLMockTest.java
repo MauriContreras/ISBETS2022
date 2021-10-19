@@ -28,7 +28,6 @@ class CreateQuestionBLMockTest {
 
 	BLFacade sut = new BLFacadeImplementation(dataAccess);
 
-	@SuppressWarnings("unchecked")
 	@DisplayName("sut.createQuestion: The event has one question with a queryText.")
 	@Test
 	void test1() {

@@ -1,12 +1,16 @@
 
-IdataAccess.DataAccess#recargarSaldo(Ljava/lang/String;Ljava/lang/Float;)Zd
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaï ï("2*Ÿ
-2d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaú
- ú("n
-d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaú ú(
-"":
-userjava.lang.String:
-importejava.lang.FloatB
-dataAccess.DataAccess
+@configuration.ConfigXML#getBusinessLogicNode()Ljava/lang/String;s
+gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaè è(#"1*◊
+1s
+gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaê	 ê( 
+«
+s
+gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaê	 ê(
+%0java.lang.String"__id*2*0
+configuration.ConfigXML"
+businessLogicNode"è
+s
+gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaê ê(
+
+%0java.lang.StringB
+configuration.ConfigXML

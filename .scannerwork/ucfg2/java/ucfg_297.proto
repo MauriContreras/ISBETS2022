@@ -1,16 +1,16 @@
 
-6domain.Forecast#getForecastNumber()Ljava/lang/Integer;\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Forecast.javaG G(!"1*ˆ
-1\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Forecast.javaH	 H(©
-¦
-\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Forecast.javaH	 H(
-%0java.lang.Integer"__id*'*%
-domain.Forecast"
-forecastNumber"y
-\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Forecast.javaH H(
-
-%0java.lang.IntegerB
-domain.Forecast
++domain.Event#getEventDate()Ljava/util/Date;f
+\C:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/domain/Event.javaK K("1*™
+1f
+\C:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/domain/Event.javaL	 L(¨
+¥
+f
+\C:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/domain/Event.javaL	 L(
+%0java.util.Date"__id**
+domain.Event"
+	eventDate"€
+f
+\C:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/domain/Event.javaL L(
+
+%0java.util.DateB
+domain.Event

@@ -1,16 +1,15 @@
 
-,domain.Forecast#toString()Ljava/lang/String;\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Forecast.javaX X("1*Ó
-1\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Forecast.javaY	 Y(¢
-ü
-\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Forecast.javaY Y( 
-%0java.lang.String"__id*!*
-domain.Forecast"
-
-forecast"f
-\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Forecast.javaY Y(L
-""B
-domain.Forecast
+domain.Event#hashCode()If
+\C:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/domain/Event.javau u("1*ç
+1f
+\C:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/domain/Event.javav v(≠
+™
+f
+\C:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/domain/Event.javax x('
+%0java.lang.Integer"__id*!*
+domain.Event"
+eventNumber"p
+f
+\C:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/domain/Event.javay y(
+""B
+domain.Event

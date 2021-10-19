@@ -2,7 +2,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>Bets21</groupId>
+	<groupId>betsCI_</groupId>
 	<artifactId>ISBets21BRYMAUJOR</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
@@ -29,9 +29,10 @@
 	<properties>
 		<maven.compiler.target>11</maven.compiler.target>
 		<maven.compiler.source>11</maven.compiler.source>
-		<sonar.organization>mauricontreras</sonar.organization>
+		<sonar.organization>jorshuabr</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-		<sonar.login>4bba6f1ccd69904f879c1984ca40a37c1e9cdb1f</sonar.login>
+		<sonar.login>8ad8b0a3322a491bfe8cf20483015a846865c0b6</sonar.login>
+		<sonar.coverage.jacoco.xmlReportPaths>coverage.xml</sonar.coverage.jacoco.xmlReportPaths>
 	</properties>
 
 	<!-- https://mvnrepository.com/artifact/junit/junit -->

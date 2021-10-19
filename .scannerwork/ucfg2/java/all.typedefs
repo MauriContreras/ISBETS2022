@@ -292,12 +292,13 @@ CcomputeIfPresent(Ljava/lang/Object;Ljava/util/function/BiFunction;)gjava.util.
 afterNodeInsertion(Z)(java.util.HashMap#afterNodeInsertion(Z)Vi
 )afterNodeAccess(Ljava/util/HashMap$Node;)<java.util.HashMap#afterNodeAccess(Ljava/util/HashMap$Node;)Vi
 )writeObject(Ljava/io/ObjectOutputStream;)<java.util.HashMap#writeObject(Ljava/io/ObjectOutputStream;)V#
-size()java.util.HashMap#size()Iˇ
-test.CreateQuestionBLMockTestjava.lang.Object1
-test3()&test.CreateQuestionBLMockTest#test3()V3
-<init>()'test.CreateQuestionBLMockTest#<init>()V1
-test1()&test.CreateQuestionBLMockTest#test1()V1
-test2()&test.CreateQuestionBLMockTest#test2()Vï
+size()java.util.HashMap#size()Iî
+test.DeleteEventMockTestjava.lang.Object,
+test5()!test.DeleteEventMockTest#test5()V,
+test6()!test.DeleteEventMockTest#test6()V.
+<init>()"test.DeleteEventMockTest#<init>()V,
+test4()!test.DeleteEventMockTest#test4()V,
+test1()!test.DeleteEventMockTest#test1()Vï
 java.text.Formatjava.lang.Cloneablejava.lang.Objectjava.io.Serializable”
 KcreateAttributedCharacterIterator([Ljava/text/AttributedCharacterIterator;)Éjava.text.Format#createAttributedCharacterIterator([Ljava/text/AttributedCharacterIterator;)Ljava/text/AttributedCharacterIterator;¶
 5createAttributedCharacterIterator(Ljava/lang/String;)mjava.text.Format#createAttributedCharacterIterator(Ljava/lang/String;)Ljava/text/AttributedCharacterIterator;&
@@ -383,7 +384,12 @@ KmatchString(Ljava/lang/String;IILjava/util/Map;Ljava/text/CalendarBuilder;)gja
 &initializeCalendar(Ljava/util/Locale;)Bjava.text.SimpleDateFormat#initializeCalendar(Ljava/util/Locale;)V†
 -formatToCharacterIterator(Ljava/lang/Object;)ojava.text.SimpleDateFormat#formatToCharacterIterator(Ljava/lang/Object;)Ljava/text/AttributedCharacterIterator;?
 clone()4java.text.SimpleDateFormat#clone()Ljava/lang/Object;æ
-OmatchString(Ljava/lang/String;II[Ljava/lang/String;Ljava/text/CalendarBuilder;)kjava.text.SimpleDateFormat#matchString(Ljava/lang/String;II[Ljava/lang/String;Ljava/text/CalendarBuilder;)I√
+OmatchString(Ljava/lang/String;II[Ljava/lang/String;Ljava/text/CalendarBuilder;)kjava.text.SimpleDateFormat#matchString(Ljava/lang/String;II[Ljava/lang/String;Ljava/text/CalendarBuilder;)Iˇ
+test.CreateQuestionBLMockTestjava.lang.Object1
+test3()&test.CreateQuestionBLMockTest#test3()V3
+<init>()'test.CreateQuestionBLMockTest#<init>()V1
+test1()&test.CreateQuestionBLMockTest#test1()V1
+test2()&test.CreateQuestionBLMockTest#test2()V√
 java.lang.Throwablejava.lang.Objectjava.io.Serializable;
 printStackTrace()&java.lang.Throwable#printStackTrace()VZ
 getOurStackTrace()Djava.lang.Throwable#getOurStackTrace()[Ljava/lang/StackTraceElement;¡
@@ -3553,7 +3559,16 @@ updateUI()javax.swing.JPanel#updateUI()V(
 
 gui.Render*javax.swing.table.DefaultTableCellRenderer 
 <init>()gui.Render#<init>()Vµ
-IgetTableCellRendererComponent(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)hgui.Render#getTableCellRendererComponent(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;º
+IgetTableCellRendererComponent(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)hgui.Render#getTableCellRendererComponent(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;å
+test.DeleteEventDATestjava.lang.Object*
+test5()test.DeleteEventDATest#test5()V*
+test6()test.DeleteEventDATest#test6()V*
+test3()test.DeleteEventDATest#test3()V,
+<init>() test.DeleteEventDATest#<init>()V*
+test4()test.DeleteEventDATest#test4()V*
+test1()test.DeleteEventDATest#test1()V*
+test2()test.DeleteEventDATest#test2()V*
+setUp()test.DeleteEventDATest#setUp()Vº
 'utility.TestUtilityFacadeImplementationjava.lang.Object=
 <init>()1utility.TestUtilityFacadeImplementation#<init>()Vt
 getEvents(Ljava/util/Date;)Uutility.TestUtilityFacadeImplementation#getEvents(Ljava/util/Date;)Ljava/util/Vector;…
@@ -3563,7 +3578,14 @@ KaddEventWithQuestion(Ljava/lang/String;Ljava/util/Date;Ljava/lang/String;F)zut
 <init>(Ljava/lang/String;)4exceptions.EventFinished#<init>(Ljava/lang/String;)VŒ
 !exceptions.IncorrectPassExceptionjava.lang.Exception7
 <init>()+exceptions.IncorrectPassException#<init>()V[
-<init>(Ljava/lang/String;)=exceptions.IncorrectPassException#<init>(Ljava/lang/String;)Vº
+<init>(Ljava/lang/String;)=exceptions.IncorrectPassException#<init>(Ljava/lang/String;)Vﬁ
+test.CreateApuestaDAMockTestjava.lang.Object0
+test5()%test.CreateApuestaDAMockTest#test5()V0
+test3()%test.CreateApuestaDAMockTest#test3()V2
+<init>()&test.CreateApuestaDAMockTest#<init>()V0
+test4()%test.CreateApuestaDAMockTest#test4()V0
+test1()%test.CreateApuestaDAMockTest#test1()V0
+test2()%test.CreateApuestaDAMockTest#test2()Vº
 test.CreateQuestionBLTestjava.lang.Object/
 <init>()#test.CreateQuestionBLTest#<init>()V-
 test1()"test.CreateQuestionBLTest#test1()V-
@@ -3913,7 +3935,14 @@ IgetTableCellRendererComponent(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)bnull
 IgetTableCellRendererComponent(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)bnull#getTableCellRendererComponent(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;“
 Lgui/CreateForecastGUI$11671;java.awt.event.ActionListenerjava.lang.Object
 <init>()null#<init>()Vd
--actionPerformed(Ljava/awt/event/ActionEvent;)3null#actionPerformed(Ljava/awt/event/ActionEvent;)V»
+-actionPerformed(Ljava/awt/event/ActionEvent;)3null#actionPerformed(Ljava/awt/event/ActionEvent;)V¬
+test.CreateApuestaDATestjava.lang.Object,
+test5()!test.CreateApuestaDATest#test5()V,
+test3()!test.CreateApuestaDATest#test3()V.
+<init>()"test.CreateApuestaDATest#<init>()V,
+test4()!test.CreateApuestaDATest#test4()V,
+test1()!test.CreateApuestaDATest#test1()V,
+test2()!test.CreateApuestaDATest#test2()V»
 exceptions.QuestionAlreadyExistjava.lang.Exception5
 <init>())exceptions.QuestionAlreadyExist#<init>()VY
 <init>(Ljava/lang/String;);exceptions.QuestionAlreadyExist#<init>(Ljava/lang/String;)V.
@@ -4333,12 +4362,13 @@ canWrite()java.io.File#canWrite()Z2
 org.w3c.dom.Nodejava.lang.Object:
 org.w3c.dom.Documentorg.w3c.dom.Nodejava.lang.Object9
 org.w3c.dom.Elementorg.w3c.dom.Nodejava.lang.Object(
-org.w3c.dom.NodeListjava.lang.ObjectÑ
+org.w3c.dom.NodeListjava.lang.Object¿
 dataAccess.DataAccessjava.lang.ObjectY
 getMaxIdForecastInDB()?dataAccess.DataAccess#getMaxIdForecastInDB()Ljava/lang/Integer;à
 veditarPerfilUsuarioSinPass(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)çdataAccess.DataAccess#editarPerfilUsuarioSinPass(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z^
 getEventosMedioCerrados()AdataAccess.DataAccess#getEventosMedioCerrados()Ljava/util/Vector;l
- getEventsMonth(Ljava/util/Date;)HdataAccess.DataAccess#getEventsMonth(Ljava/util/Date;)Ljava/util/Vector;C
+ getEventsMonth(Ljava/util/Date;)HdataAccess.DataAccess#getEventsMonth(Ljava/util/Date;)Ljava/util/Vector;B
+findForecast(I)/dataAccess.DataAccess#findForecast(I)LForecast;C
 getNumberForecasts()+dataAccess.DataAccess#getNumberForecasts()Iá
 Øregistrar(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;F)“dataAccess.DataAccess#registrar(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;F)LRegularUser;7
 initializeDB()%dataAccess.DataAccess#initializeDB()VH
@@ -4351,12 +4381,15 @@ veditarPerfilUsuarioSinPass(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Strin
 getAllQuestions()9dataAccess.DataAccess#getAllQuestions()Ljava/util/Vector;)
 close()dataAccess.DataAccess#close()Vu
 -doLogin(Ljava/lang/String;Ljava/lang/String;)DdataAccess.DataAccess#doLogin(Ljava/lang/String;Ljava/lang/String;)ZH
-getAllEvents()6dataAccess.DataAccess#getAllEvents()Ljava/util/Vector;u
+getAllEvents()6dataAccess.DataAccess#getAllEvents()Ljava/util/Vector;X
+findUser(Ljava/lang/String;)8dataAccess.DataAccess#findUser(Ljava/lang/String;)LUser;u
 -isAdmin(Ljava/lang/String;Ljava/lang/String;)DdataAccess.DataAccess#isAdmin(Ljava/lang/String;Ljava/lang/String;)Z
 2recargarSaldo(Ljava/lang/String;Ljava/lang/Float;)IdataAccess.DataAccess#recargarSaldo(Ljava/lang/String;Ljava/lang/Float;)Z]
 !validoUsuario(Ljava/lang/String;)8dataAccess.DataAccess#validoUsuario(Ljava/lang/String;)Z=
-getNumberEvents()(dataAccess.DataAccess#getNumberEvents()II
-getMaxIdInDB()7dataAccess.DataAccess#getMaxIdInDB()Ljava/lang/Integer;m
+getNumberEvents()(dataAccess.DataAccess#getNumberEvents()IC
+deleteAllQuestions()+dataAccess.DataAccess#deleteAllQuestions()VI
+getMaxIdInDB()7dataAccess.DataAccess#getMaxIdInDB()Ljava/lang/Integer;W
+deleteUser(Ljava/lang/String;)5dataAccess.DataAccess#deleteUser(Ljava/lang/String;)Vm
 )aplicarBonoBienvenida(Ljava/lang/String;)@dataAccess.DataAccess#aplicarBonoBienvenida(Ljava/lang/String;)ZF
 getAllUsers()5dataAccess.DataAccess#getAllUsers()Ljava/util/Vector;y
 *getAdminUserByUsername(Ljava/lang/String;)KdataAccess.DataAccess#getAdminUserByUsername(Ljava/lang/String;)LAdminUser;-
@@ -5109,16 +5142,16 @@ $setContentPane(Ljava/awt/Container;);javax.swing.JRootPane#setContentPane(Ljav
 paramString()5javax.swing.JRootPane#paramString()Ljava/lang/String;T
 createContentPane()=javax.swing.JRootPane#createContentPane()Ljava/awt/Container;V
 createRootLayout()@javax.swing.JRootPane#createRootLayout()Ljava/awt/LayoutManager;Z
-createLayeredPane()Cjavax.swing.JRootPane#createLayeredPane()Ljavax/swing/JLayeredPane;å
-test.deleteEventDATestjava.lang.Object*
-test3()test.deleteEventDATest#test3()V,
-<init>() test.deleteEventDATest#<init>()V*
-test4()test.deleteEventDATest#test4()V*
-test1()test.deleteEventDATest#test1()V*
-test2()test.deleteEventDATest#test2()V*
-Test6()test.deleteEventDATest#Test6()V*
-Test5()test.deleteEventDATest#Test5()V*
-setUp()test.deleteEventDATest#setUp()V◊
+createLayeredPane()Cjavax.swing.JRootPane#createLayeredPane()Ljavax/swing/JLayeredPane;€
+test.CreateApuestaDAUtilityTestjava.lang.Object3
+test5()(test.CreateApuestaDAUtilityTest#test5()V1
+setQ()'test.CreateApuestaDAUtilityTest#setQ()V3
+test3()(test.CreateApuestaDAUtilityTest#test3()V5
+<init>())test.CreateApuestaDAUtilityTest#<init>()V3
+test4()(test.CreateApuestaDAUtilityTest#test4()V3
+test1()(test.CreateApuestaDAUtilityTest#test1()V3
+test2()(test.CreateApuestaDAUtilityTest#test2()V3
+setUp()(test.CreateApuestaDAUtilityTest#setUp()V◊
 $exceptions.UserDoesNotExistExceptionjava.lang.Exception:
 <init>().exceptions.UserDoesNotExistException#<init>()V^
 <init>(Ljava/lang/String;)@exceptions.UserDoesNotExistException#<init>(Ljava/lang/String;)Vu
@@ -5210,13 +5243,7 @@ IgetTableCellRendererComponent(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)bnull
 -actionPerformed(Ljava/awt/event/ActionEvent;)3null#actionPerformed(Ljava/awt/event/ActionEvent;)V€
 Lgui/CreateQuestionGUI$5065;!java.beans.PropertyChangeListenerjava.lang.Object
 <init>()null#<init>()Vj
-0propertyChange(Ljava/beans/PropertyChangeEvent;)6null#propertyChange(Ljava/beans/PropertyChangeEvent;)Vî
-test.deleteEventMockTestjava.lang.Object,
-test3()!test.deleteEventMockTest#test3()V.
-<init>()"test.deleteEventMockTest#<init>()V,
-test4()!test.deleteEventMockTest#test4()V,
-test1()!test.deleteEventMockTest#test1()V,
-test2()!test.deleteEventMockTest#test2()V…
+0propertyChange(Ljava/beans/PropertyChangeEvent;)6null#propertyChange(Ljava/beans/PropertyChangeEvent;)V…
 test.CreateQuestionDATestjava.lang.Object-
 test5()"test.CreateQuestionDATest#test5()V-
 test3()"test.CreateQuestionDATest#test3()V/

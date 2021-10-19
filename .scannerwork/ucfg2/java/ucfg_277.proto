@@ -1,15 +1,17 @@
 
-domain.Event#hashCode()IY
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.javau u("1*Ê
-1Y
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.javav v(†
-ù
-Y
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.javax x('
-%0java.lang.Integer"__id*!*
-domain.Event"
-eventNumber"c
-Y
-OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Event.javay y(
-""B
-domain.Event
++domain.User#getUserPass()Ljava/lang/String;e
+[C:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/domain/User.java   ("1*ò
+1e
+[C:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/domain/User.java!	 !(ß
+§
+e
+[C:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/domain/User.java!	 !(
+%0java.lang.String"__id**
+domain.User"
+
+userPass"Å
+e
+[C:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/domain/User.java! !(
+
+%0java.lang.StringB
+domain.User

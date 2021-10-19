@@ -1,16 +1,16 @@
 
-òdataAccess.DataAccess#editarPerfilUsuario(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Zd
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaˇ ˇ(#"3*Ÿ
-3d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaä	
- ä	("n
-d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaä	 ä	(
-"": 
-pContrase√±ajava.lang.String:
-	pUsernamejava.lang.String:
-pNombrejava.lang.String:
-	pApellidojava.lang.String:
-pEmailjava.lang.String:#
-pCuentaBancariajava.lang.StringB
-dataAccess.DataAccess
+3configuration.ConfigXML#getUser()Ljava/lang/String;q
+gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java9 9("1*ƒ
+1q
+gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java:	 :(ª
+∏
+q
+gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java:	 :(
+%0java.lang.String"__id*%*#
+configuration.ConfigXML"
+user"ç
+q
+gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java: :(
+
+%0java.lang.StringB
+configuration.ConfigXML

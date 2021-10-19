@@ -60,6 +60,7 @@ class DeleteEventDATest {
 
 			testDA.open();
 			boolean eliminado = testDA.removeEvent(ev);
+			
 			testDA.close();
 			assertFalse(eliminado);
 
@@ -71,6 +72,9 @@ class DeleteEventDATest {
 		testDA.open();
 		boolean b = testDA.removeEvent(ev);
 		System.out.println("Removed event " + b);
+
+		sut.deleteAllQuestions();
+		
 		testDA.close();
 
 	}
@@ -124,6 +128,7 @@ class DeleteEventDATest {
 		System.out.println("Removed event " + b2);
 		boolean b3 = testDA.removeQuestion(19);
 		System.out.println("Removed event " + b3);
+		sut.deleteAllQuestions();
 		testDA.close();
 
 	}
@@ -153,6 +158,7 @@ class DeleteEventDATest {
 			assertTrue(sut.deleteEvent(ev));
 			assertEquals(vecti, sut.getAllEvents());
 			assertEquals(vecti2, sut.getAllQuestions());
+			
 
 		} catch (ParseException e) {
 			fail("It should be correct: check the date format");
@@ -162,6 +168,7 @@ class DeleteEventDATest {
 		testDA.open();
 		boolean b = testDA.removeEvent(ev);
 		System.out.println("Removed event " + b);
+		sut.deleteAllQuestions();
 		testDA.close();
 
 	}
@@ -196,6 +203,7 @@ class DeleteEventDATest {
 			assertTrue(sut.deleteEvent(ev));
 			assertEquals(1, sut.getAllEvents().size());
 			assertEquals(1, sut.getAllQuestions().size());
+			
 
 		} catch (ParseException e) {
 			fail("It should be correct: check the date format");
@@ -208,6 +216,9 @@ class DeleteEventDATest {
 		boolean b2 = testDA.removeEvent(ev2);
 		System.out.println("Removed event " + b2);
 		testDA.removeQuestion(25);
+		testDA.removeQuestion(21);
+		testDA.removeQuestion(23);
+		sut.deleteAllQuestions();
 		testDA.close();
 
 	}
@@ -396,7 +407,7 @@ class DeleteEventDATest {
 		} catch (ParseException e) {
 			fail("It should be correct: check the date format");
 		}
-
+		sut.deleteAllQuestions();
 		// Remove the created objects in the database (cascade removing)
 //		testDA.open();
 //		boolean b = testDA.removeEvent(ev);
@@ -424,6 +435,7 @@ class DeleteEventDATest {
 		} catch (ParseException e) {
 			fail("It should be correct: check the date format");
 		}
+		sut.deleteAllQuestions();
 	}
 
 }

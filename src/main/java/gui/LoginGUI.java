@@ -1,9 +1,7 @@
 package gui;
 
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.Frame;
-import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -22,6 +20,8 @@ import javax.swing.border.EmptyBorder;
 import businessLogic.BLFacade;
 import domain.AdminUser;
 import domain.RegularUser;
+import java.awt.Color;
+import java.awt.SystemColor;
 
 public class LoginGUI extends JFrame {
 
@@ -156,7 +156,6 @@ public class LoginGUI extends JFrame {
 
 		btnInvitado = new JButton("Invitado");
 		btnInvitado.addActionListener(new ActionListener() {
-			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				Frame reg = new FindQuestionsInvitadoGUI();
 				reg.setAlwaysOnTop(true);

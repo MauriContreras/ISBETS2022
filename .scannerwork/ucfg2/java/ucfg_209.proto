@@ -1,18 +1,9 @@
 
-?dataAccess.DataAccess#getMaxIdForecastInDB()Ljava/lang/Integer;d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaø	 ø	($"1*Ú
-1d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java¡	 ¡	(/Ä~
-d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java¡	 ¡	(-
-%0"java.util.Vectorì
-ê
-d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java¡	 ¡	(/
-%1"java.util.Vector#<init>()V*
-
-%0"n
-d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java≈	 ≈	(A
-""B
-dataAccess.DataAccess
+/configuration.ConfigXML#isBusinessLogicLocal()Zq
+gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaE E($"1*Û
+1q
+gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaF	 F("{
+q
+gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaF F(
+""B
+configuration.ConfigXML

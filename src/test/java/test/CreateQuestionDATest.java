@@ -55,10 +55,7 @@ class CreateQuestionDATest {
 		testDA.open();
 		boolean b = testDA.removeEvent(ev);
 		System.out.println("Removed event " + b);
-		testDA.removeQuestion(2);
-		testDA.removeQuestion(4);
-		testDA.removeQuestion(5);
-		testDA.removeQuestion(7);
+		testDA.deleteAllQuestions();
 		testDA.close();
 
 	}
@@ -104,8 +101,7 @@ class CreateQuestionDATest {
 				// Remove the created objects in the database (cascade removing)
 				testDA.open();
 				boolean b = testDA.removeEvent(ev);
-				testDA.removeQuestion(9);
-				testDA.removeQuestion(10);
+				testDA.deleteAllQuestions();
 				testDA.close();
 				System.out.println("Finally " + b);
 			}
@@ -159,7 +155,7 @@ class CreateQuestionDATest {
 
 				// verify the results returned
 				assertNull(q);
-
+//
 				// verify DB
 				// puede que en algun momento de la llamada a createQuestión la BD se cierre,
 				// por ello la vuelvo a abrir, puede ser porque en la linea 147 se cierre?
@@ -177,7 +173,7 @@ class CreateQuestionDATest {
 				testDA.open();
 				boolean b = testDA.removeEvent(ev);
 				System.out.println("Finally " + b);
-				testDA.removeQuestion(12);
+				testDA.deleteAllQuestions();
 				testDA.close();
 			}
 		} catch (ParseException e) {
@@ -226,8 +222,7 @@ class CreateQuestionDATest {
 				// Remove the created objects in the database (cascade removing)
 				testDA.open();
 				boolean b = testDA.removeEvent(ev);
-				testDA.removeQuestion(14);
-				testDA.removeQuestion(15);
+				testDA.deleteAllQuestions();
 				testDA.close();
 				System.out.println("Finally " + b);
 			}

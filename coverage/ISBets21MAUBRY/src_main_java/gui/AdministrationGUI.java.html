@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>AdministrationGUI.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">deleteEventDa2Test (19 Oct 2021 10:47:35)</a> &gt; <a href="../../index.html" class="el_group">ISBets21MAUBRY</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">gui</a> &gt; <span class="el_source">AdministrationGUI.java</span></div><h1>AdministrationGUI.java</h1><pre class="source lang-java linenums">package gui;
+
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.EventQueue;
+import java.awt.Frame;
+import java.awt.Rectangle;
+import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ResourceBundle;
+import java.util.Vector;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+
+import businessLogic.BLFacade;
+import domain.AdminUser;
+import domain.Bet;
+import domain.Event;
+import domain.Forecast;
+import domain.Question;
+import domain.RegularUser;
+import domain.User;
+
+import javax.swing.JTextArea;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.JSlider;
+import javax.swing.JFormattedTextField;
+import javax.swing.JSpinner;
+import javax.swing.JTextPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.JSeparator;
+import java.awt.Font;
+
+public class AdministrationGUI extends JFrame {
+
+<span class="nc" id="L50">	private static BLFacade facade = LoginGUI.getBusinessLogic();</span>
+<span class="nc" id="L51">	private DefaultListModel modelopreguntas = new DefaultListModel();</span>
+<span class="nc" id="L52">	private Vector&lt;Question&gt; preguntas = new Vector&lt;Question&gt;();</span>
+<span class="nc" id="L53">	private DefaultListModel modeloPronosticos = new DefaultListModel();</span>
+	private Event eventoSeleccionado;
+	private Question preguntaSeleccionada;
+<span class="nc" id="L56">	private DefaultListModel modelousuarios = new DefaultListModel();</span>
+<span class="nc" id="L57">	private Vector&lt;User&gt; usuarios = facade.getAllUsers();</span>
+<span class="nc" id="L58">	private AdminUser userlog = null;</span>
+	private JButton btnAtras;
+<span class="nc" id="L60">	private DefaultListModel modeloApuestas = new DefaultListModel();</span>
+<span class="nc" id="L61">	private Vector&lt;Bet&gt; apuestas = new Vector&lt;Bet&gt;();</span>
+<span class="nc" id="L62">	private JScrollPane scrollPaneApuestas = new JScrollPane();</span>
+	private JTable tablaApuestas;
+<span class="nc" id="L64">	private String[] nombresColumnasApuestas = { &quot;Fecha&quot;, &quot;Evento&quot;, &quot;Pregunta&quot;, &quot;Apuesta a &quot;, &quot;Cant. apostada&quot;, &quot;Cuota&quot;,</span>
+<span class="nc" id="L65">			&quot;Estado&quot;, &quot;Usuario&quot; };</span>
+
+<span class="nc" id="L67">	private DefaultTableModel tableModelApuestas = new DefaultTableModel(null, nombresColumnasApuestas) {</span>
+		@Override
+		public boolean isCellEditable(int row, int column) {
+<span class="nc" id="L70">			return false;</span>
+		}
+	};
+
+<span class="nc" id="L74">	private JScrollPane scrollPaneEventos = new JScrollPane();</span>
+	private JTable tablaEventos;
+<span class="nc" id="L76">	private String[] nombresColumnasEventos = { &quot;Id&quot;, &quot;Fecha&quot;, &quot;Evento&quot; };</span>
+
+<span class="nc" id="L78">	private DefaultTableModel tableModelEventos = new DefaultTableModel(null, nombresColumnasEventos) {</span>
+		@Override
+		public boolean isCellEditable(int row, int column) {
+<span class="nc" id="L81">			return false;</span>
+		}
+	};
+
+<span class="nc" id="L85">	private String[] nombresColumnasPreguntas = { &quot;Id&quot;, &quot;Pregunta&quot;, &quot;Evento&quot; };</span>
+<span class="nc" id="L86">	private JScrollPane scrollPanePreguntas = new JScrollPane();</span>
+	private JTable tablaPreguntas;
+<span class="nc" id="L88">	private DefaultTableModel tableModelPreguntas = new DefaultTableModel(null, nombresColumnasPreguntas) {</span>
+		@Override
+		public boolean isCellEditable(int row, int column) {
+<span class="nc" id="L91">			return false;</span>
+		}
+	};
+
+<span class="nc" id="L95">	private String[] nombresColumnas = { &quot;Username&quot;, &quot;UserPass&quot;, &quot;FirstName&quot;, &quot;LastName &quot;, &quot;BirthDate&quot;, &quot;Email&quot;,</span>
+<span class="nc" id="L96">			&quot;BankAccount&quot;, &quot;PhoneNumber&quot;, &quot;Address&quot;, &quot;Balance&quot; };</span>
+<span class="nc" id="L97">	private JScrollPane scrollPaneUsuarios = new JScrollPane();</span>
+	private JTable tabla;
+<span class="nc" id="L99">	private DefaultTableModel tableModelUsuarios = new DefaultTableModel(null, nombresColumnas) {</span>
+		@Override
+		public boolean isCellEditable(int row, int column) {
+<span class="nc" id="L102">			return false;</span>
+		}
+	};
+	private JLabel lblInfo;
+	private JLabel lblInfo2;
+	private JLabel lblIcono;
+	private JSeparator separator;
+	private JLabel lblApuestas;
+	private JLabel lblPreguntas;
+	private JLabel lblUsuarios;
+	private JLabel lblEventos;
+
+	public static void setBusinessLogic(BLFacade pfacade) {
+<span class="nc" id="L115">		facade = pfacade;</span>
+<span class="nc" id="L116">	}</span>
+
+	public static BLFacade getBusinessLogic() {
+<span class="nc" id="L119">		return facade;</span>
+	}
+
+<span class="nc" id="L122">	public AdministrationGUI(AdminUser u) {</span>
+<span class="nc" id="L123">		getContentPane().setBackground(Color.WHITE);</span>
+
+<span class="nc" id="L125">		userlog = u;</span>
+
+<span class="nc" id="L127">		this.setTitle(ResourceBundle.getBundle(&quot;Etiquetas&quot;).getString(&quot;MainAdminGUI.buttonAdmin.text&quot;));</span>
+<span class="nc" id="L128">		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</span>
+<span class="nc" id="L129">		setBounds(100, 100, 1600, 650);</span>
+<span class="nc" id="L130">		getContentPane().setLayout(null);</span>
+
+<span class="nc" id="L132">		Vector&lt;Event&gt; eventos = facade.getAllEvents();</span>
+
+<span class="nc bnc" id="L134" title="All 2 branches missed.">		for (Event e : eventos) {</span>
+
+<span class="nc" id="L136">			Vector&lt;Object&gt; row = new Vector&lt;Object&gt;();</span>
+<span class="nc" id="L137">			row.add(e.getEventNumber());</span>
+<span class="nc" id="L138">			row.add(e.getEventDate().toString().substring(0, 11));</span>
+<span class="nc" id="L139">			row.add(e.getDescription());</span>
+
+<span class="nc" id="L141">			tableModelEventos.addRow(row);</span>
+
+		}
+
+<span class="nc" id="L145">		tablaEventos = new JTable(tableModelEventos) {</span>
+			@Override
+			public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
+<span class="nc" id="L148">				Component component = super.prepareRenderer(renderer, row, column);</span>
+<span class="nc" id="L149">				int rendererWidth = component.getPreferredSize().width;</span>
+<span class="nc" id="L150">				TableColumn tableColumn = getColumnModel().getColumn(column);</span>
+<span class="nc" id="L151">				tableColumn.setPreferredWidth(</span>
+<span class="nc" id="L152">						Math.max(rendererWidth + getIntercellSpacing().width, tableColumn.getPreferredWidth()));</span>
+<span class="nc" id="L153">				return component;</span>
+			}
+
+		};
+
+<span class="nc" id="L158">		tablaEventos.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {</span>
+			@Override
+			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
+					boolean hasFocus, int row, int column) {
+<span class="nc" id="L162">				final Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row,</span>
+<span class="nc" id="L163">						column);</span>
+
+<span class="nc bnc" id="L165" title="All 2 branches missed.">				c.setBackground(row % 2 != 0 ? new Color(233, 233, 233) : Color.WHITE);</span>
+
+<span class="nc" id="L167">				return c;</span>
+			}
+		});
+
+<span class="nc" id="L171">		scrollPaneEventos.setBounds(new Rectangle(865, 165, 503, 119));</span>
+<span class="nc" id="L172">		scrollPaneEventos.setViewportView(tablaEventos);</span>
+<span class="nc" id="L173">		this.getContentPane().add(scrollPaneEventos);</span>
+
+<span class="nc bnc" id="L175" title="All 2 branches missed.">		for (User user : usuarios) {</span>
+<span class="nc bnc" id="L176" title="All 2 branches missed.">			if (user instanceof RegularUser) {</span>
+<span class="nc" id="L177">				Vector&lt;Bet&gt; apuestasUsuario = facade.getApuestasByUser((RegularUser) user);</span>
+
+<span class="nc bnc" id="L179" title="All 2 branches missed.">				for (Bet bet : apuestasUsuario) {</span>
+
+<span class="nc" id="L181">					Vector&lt;Object&gt; row = new Vector&lt;Object&gt;();</span>
+<span class="nc" id="L182">					row.add(bet.getForecast().getQuestion().getEvent().getEventDate().toString().substring(0, 11));</span>
+<span class="nc" id="L183">					row.add(bet.getForecast().getQuestion().getEvent().getDescription());</span>
+<span class="nc" id="L184">					row.add(bet.getForecast().getQuestion().getQuestion());</span>
+<span class="nc" id="L185">					row.add(bet.getForecast().getForecast());</span>
+<span class="nc" id="L186">					row.add(bet.getAmount());</span>
+<span class="nc" id="L187">					row.add(bet.getForecast().getFee());</span>
+<span class="nc" id="L188">					row.add(bet.getEstadoApuesta());</span>
+<span class="nc" id="L189">					row.add(bet.getUser().getUserName());</span>
+<span class="nc" id="L190">					tableModelApuestas.addRow(row);</span>
+
+				}
+
+			}
+
+		}
+
+<span class="nc" id="L198">		tablaApuestas = new JTable(tableModelApuestas) {</span>
+			@Override
+			public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
+<span class="nc" id="L201">				Component component = super.prepareRenderer(renderer, row, column);</span>
+<span class="nc" id="L202">				int rendererWidth = component.getPreferredSize().width;</span>
+<span class="nc" id="L203">				TableColumn tableColumn = getColumnModel().getColumn(column);</span>
+<span class="nc" id="L204">				tableColumn.setPreferredWidth(</span>
+<span class="nc" id="L205">						Math.max(rendererWidth + getIntercellSpacing().width, tableColumn.getPreferredWidth()));</span>
+<span class="nc" id="L206">				return component;</span>
+			}
+
+		};
+
+<span class="nc" id="L211">		tablaApuestas.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {</span>
+			@Override
+			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
+					boolean hasFocus, int row, int column) {
+<span class="nc" id="L215">				final Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row,</span>
+<span class="nc" id="L216">						column);</span>
+
+<span class="nc bnc" id="L218" title="All 2 branches missed.">				c.setBackground(row % 2 != 0 ? new Color(233, 233, 233) : Color.WHITE);</span>
+
+<span class="nc" id="L220">				return c;</span>
+			}
+		});
+
+<span class="nc" id="L224">		scrollPaneApuestas.setBounds(new Rectangle(40, 355, 774, 119));</span>
+<span class="nc" id="L225">		scrollPaneApuestas.setViewportView(tablaApuestas);</span>
+<span class="nc" id="L226">		this.getContentPane().add(scrollPaneApuestas);</span>
+
+<span class="nc" id="L228">		preguntas = facade.getAllQuestions();</span>
+<span class="nc bnc" id="L229" title="All 2 branches missed.">		for (Question q : preguntas) {</span>
+<span class="nc" id="L230">			modelopreguntas.addElement(q);</span>
+		}
+
+<span class="nc" id="L233">		btnAtras = new JButton(&quot;Atrás&quot;);</span>
+<span class="nc" id="L234">		btnAtras.setFont(new Font(&quot;Dialog&quot;, Font.BOLD, 14));</span>
+<span class="nc" id="L235">		btnAtras.setForeground(Color.WHITE);</span>
+<span class="nc" id="L236">		btnAtras.setBackground(SystemColor.controlShadow);</span>
+<span class="nc" id="L237">		btnAtras.setText(ResourceBundle.getBundle(&quot;Etiquetas&quot;).getString(&quot;Close&quot;));</span>
+
+<span class="nc" id="L239">		btnAtras.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent arg0) {
+
+<span class="nc" id="L242">				JFrame a = new MainAdminGUI(userlog);</span>
+<span class="nc" id="L243">				a.setAlwaysOnTop(true);</span>
+<span class="nc" id="L244">				a.setVisible(true);</span>
+<span class="nc" id="L245">				dispose();</span>
+
+<span class="nc" id="L247">			}</span>
+		});
+<span class="nc" id="L249">		btnAtras.setBounds(40, 550, 99, 26);</span>
+<span class="nc" id="L250">		getContentPane().add(btnAtras);</span>
+<span class="nc" id="L251">		modelousuarios.addElement(&quot;Usuarios:\n&quot;);</span>
+<span class="nc" id="L252">		modelousuarios.addElement(&quot;\n&quot;);</span>
+<span class="nc" id="L253">		usuarios = facade.getAllUsers();</span>
+<span class="nc bnc" id="L254" title="All 2 branches missed.">		for (User e : usuarios) {</span>
+<span class="nc" id="L255">			modelousuarios.addElement(e.toString());</span>
+		}
+
+<span class="nc bnc" id="L258" title="All 2 branches missed.">		for (User us : usuarios) {</span>
+
+<span class="nc" id="L260">			Vector&lt;Object&gt; row = new Vector&lt;Object&gt;();</span>
+
+<span class="nc bnc" id="L262" title="All 2 branches missed.">			if (us instanceof AdminUser) {</span>
+
+<span class="nc" id="L264">				row.add(us.getUserName());</span>
+<span class="nc" id="L265">				row.add(us.getUserPass());</span>
+<span class="nc" id="L266">				row.add(us.getFirstName());</span>
+<span class="nc" id="L267">				row.add(us.getLastName());</span>
+<span class="nc" id="L268">				tableModelUsuarios.addRow(row);</span>
+
+<span class="nc bnc" id="L270" title="All 2 branches missed.">			} else if (us instanceof RegularUser) {</span>
+<span class="nc" id="L271">				row.add(us.getUserName());</span>
+<span class="nc" id="L272">				row.add(us.getUserPass());</span>
+<span class="nc" id="L273">				row.add(us.getFirstName());</span>
+<span class="nc" id="L274">				row.add(us.getLastName());</span>
+<span class="nc" id="L275">				row.add(((RegularUser) us).getBirthDate());</span>
+<span class="nc" id="L276">				row.add(((RegularUser) us).getEmail());</span>
+<span class="nc" id="L277">				row.add(((RegularUser) us).getBankAccount());</span>
+<span class="nc" id="L278">				row.add(((RegularUser) us).getPhoneNumb());</span>
+<span class="nc" id="L279">				row.add(((RegularUser) us).getAddress());</span>
+<span class="nc" id="L280">				row.add(((RegularUser) us).getBalance() + &quot;€&quot;);</span>
+
+<span class="nc" id="L282">				tableModelUsuarios.addRow(row);</span>
+			}
+
+		}
+<span class="nc" id="L286">		tabla = new JTable(tableModelUsuarios) {</span>
+			@Override
+			public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
+<span class="nc" id="L289">				Component component = super.prepareRenderer(renderer, row, column);</span>
+<span class="nc" id="L290">				int rendererWidth = component.getPreferredSize().width;</span>
+<span class="nc" id="L291">				TableColumn tableColumn = getColumnModel().getColumn(column);</span>
+<span class="nc" id="L292">				tableColumn.setPreferredWidth(</span>
+<span class="nc" id="L293">						Math.max(rendererWidth + getIntercellSpacing().width, tableColumn.getPreferredWidth()));</span>
+<span class="nc" id="L294">				return component;</span>
+			}
+
+		};
+
+<span class="nc" id="L299">		tabla.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {</span>
+			@Override
+			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
+					boolean hasFocus, int row, int column) {
+<span class="nc" id="L303">				final Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row,</span>
+<span class="nc" id="L304">						column);</span>
+
+<span class="nc bnc" id="L306" title="All 2 branches missed.">				c.setBackground(row % 2 != 0 ? new Color(233, 233, 233) : Color.WHITE);</span>
+
+<span class="nc" id="L308">				return c;</span>
+			}
+		});
+
+<span class="nc" id="L312">		scrollPaneUsuarios.setBounds(new Rectangle(40, 165, 774, 119));</span>
+<span class="nc" id="L313">		scrollPaneUsuarios.setViewportView(tabla);</span>
+
+<span class="nc" id="L315">		this.getContentPane().add(scrollPaneUsuarios);</span>
+
+<span class="nc" id="L317">		Vector&lt;Question&gt; preguntas = facade.getAllQuestions();</span>
+
+<span class="nc bnc" id="L319" title="All 2 branches missed.">		for (Question q : preguntas) {</span>
+
+<span class="nc" id="L321">			Vector&lt;Object&gt; row = new Vector&lt;Object&gt;();</span>
+<span class="nc" id="L322">			row.add(q.getQuestionNumber());</span>
+<span class="nc" id="L323">			row.add(q.getQuestion());</span>
+<span class="nc" id="L324">			row.add(q.getEvent().getDescription());</span>
+
+<span class="nc" id="L326">			tableModelPreguntas.addRow(row);</span>
+
+		}
+
+<span class="nc" id="L330">		tablaPreguntas = new JTable(tableModelPreguntas) {</span>
+			@Override
+			public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
+<span class="nc" id="L333">				Component component = super.prepareRenderer(renderer, row, column);</span>
+<span class="nc" id="L334">				int rendererWidth = component.getPreferredSize().width;</span>
+<span class="nc" id="L335">				TableColumn tableColumn = getColumnModel().getColumn(column);</span>
+<span class="nc" id="L336">				tableColumn.setPreferredWidth(</span>
+<span class="nc" id="L337">						Math.max(rendererWidth + getIntercellSpacing().width, tableColumn.getPreferredWidth()));</span>
+<span class="nc" id="L338">				return component;</span>
+			}
+
+		};
+
+<span class="nc" id="L343">		tablaPreguntas.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {</span>
+			@Override
+			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
+					boolean hasFocus, int row, int column) {
+<span class="nc" id="L347">				final Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row,</span>
+<span class="nc" id="L348">						column);</span>
+
+<span class="nc bnc" id="L350" title="All 2 branches missed.">				c.setBackground(row % 2 != 0 ? new Color(233, 233, 233) : Color.WHITE);</span>
+
+<span class="nc" id="L352">				return c;</span>
+			}
+		});
+
+<span class="nc" id="L356">		scrollPanePreguntas.setBounds(new Rectangle(865, 355, 689, 113));</span>
+<span class="nc" id="L357">		scrollPanePreguntas.setViewportView(tablaPreguntas);</span>
+<span class="nc" id="L358">		this.getContentPane().add(scrollPanePreguntas);</span>
+
+<span class="nc" id="L360">		lblInfo = new JLabel(&quot;Panel de control del administrador.&quot;);</span>
+<span class="nc" id="L361">		lblInfo.setBounds(58, 34, 544, 16);</span>
+<span class="nc" id="L362">		getContentPane().add(lblInfo);</span>
+
+<span class="nc" id="L364">		lblInfo2 = new JLabel(</span>
+<span class="nc" id="L365">				&quot;Se pueden ver todos los usuarios registrados, todas las apuestas realizadas, todos los eventos y todas las preguntas.&quot;);</span>
+<span class="nc" id="L366">		lblInfo2.setBounds(58, 63, 746, 16);</span>
+<span class="nc" id="L367">		getContentPane().add(lblInfo2);</span>
+
+		
+<span class="nc" id="L370">		ImageIcon icon = new ImageIcon(&quot;imagenes/info.png&quot;);</span>
+<span class="nc" id="L371">		lblIcono = new JLabel(icon);</span>
+<span class="nc" id="L372">		lblIcono.setBounds(27, 27, 30, 30);</span>
+<span class="nc" id="L373">		getContentPane().add(lblIcono);</span>
+		
+<span class="nc" id="L375">		separator = new JSeparator();</span>
+<span class="nc" id="L376">		separator.setBounds(58, 91, 672, 16);</span>
+<span class="nc" id="L377">		getContentPane().add(separator);</span>
+
+<span class="nc" id="L379">		lblApuestas = new JLabel(&quot;Apuestas:&quot;);</span>
+<span class="nc" id="L380">		lblApuestas.setBounds(40, 327, 73, 16);</span>
+<span class="nc" id="L381">		getContentPane().add(lblApuestas);</span>
+
+<span class="nc" id="L383">		lblPreguntas = new JLabel(&quot;Preguntas:&quot;);</span>
+<span class="nc" id="L384">		lblPreguntas.setBounds(865, 327, 73, 16);</span>
+<span class="nc" id="L385">		getContentPane().add(lblPreguntas);</span>
+
+<span class="nc" id="L387">		lblUsuarios = new JLabel(&quot;Usuarios:&quot;);</span>
+<span class="nc" id="L388">		lblUsuarios.setBounds(40, 137, 55, 16);</span>
+<span class="nc" id="L389">		getContentPane().add(lblUsuarios);</span>
+
+<span class="nc" id="L391">		lblEventos = new JLabel(&quot;Eventos:&quot;);</span>
+<span class="nc" id="L392">		lblEventos.setBounds(865, 137, 73, 16);</span>
+<span class="nc" id="L393">		getContentPane().add(lblEventos);</span>
+
+<span class="nc" id="L395">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span>deleteEventDa2Test (19 Oct 2021 10:47:35)</div></body></html>

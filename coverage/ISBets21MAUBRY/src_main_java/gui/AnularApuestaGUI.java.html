@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>AnularApuestaGUI.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">deleteEventDa2Test (19 Oct 2021 10:47:35)</a> &gt; <a href="../../index.html" class="el_group">ISBets21MAUBRY</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">gui</a> &gt; <span class="el_source">AnularApuestaGUI.java</span></div><h1>AnularApuestaGUI.java</h1><pre class="source lang-java linenums">package gui;
+
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Font;
+import java.awt.Rectangle;
+import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ResourceBundle;
+import java.util.Vector;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
+
+import businessLogic.BLFacade;
+import domain.Bet;
+import domain.RegularUser;
+
+public class AnularApuestaGUI extends JFrame {
+
+	private JPanel contentPane;
+<span class="nc" id="L36">	private JScrollPane scrollPaneApuestas = new JScrollPane();</span>
+	private JTable tabla;
+<span class="nc" id="L38">	private String[] nombresColumnas = { &quot;Fecha&quot;, &quot;Evento&quot;, &quot;Pregunta&quot;, &quot;Apuesta a &quot;, &quot;Cant. apostada&quot;, &quot;Cuota&quot;, &quot;&quot; };</span>
+<span class="nc" id="L39">	private DefaultTableModel tableModelApuestas = new DefaultTableModel(null, nombresColumnas) {</span>
+		@Override
+		public boolean isCellEditable(int row, int column) {
+<span class="nc" id="L42">			return false;</span>
+		}
+	};
+
+<span class="nc" id="L46">	private static BLFacade facade = LoginGUI.getBusinessLogic();</span>
+
+	private RegularUser userlog;
+	private JButton btnAtras;
+	private JLabel lblApuestas;
+	private JLabel lblInfo;
+	private JSeparator separator;
+	private JLabel lblSaldo;
+	private RegularUser newUserActualizado;
+	private JLabel lblNewLabel_1;
+<span class="nc" id="L56">	private static final String eti = &quot;Etiquetas&quot;;</span>
+
+<span class="nc" id="L58">	public AnularApuestaGUI(RegularUser ru) {</span>
+<span class="nc" id="L59">		getContentPane().setBackground(Color.WHITE);</span>
+<span class="nc" id="L60">		userlog = ru;</span>
+<span class="nc" id="L61">		newUserActualizado = ru;</span>
+
+<span class="nc" id="L63">		setTitle(ResourceBundle.getBundle(eti).getString(&quot;MainGUI.btnAnularApuesta.text&quot;)</span>
+<span class="nc" id="L64">				+ &quot;                                                                                                      &quot;</span>
+<span class="nc" id="L65">				+ userlog.getUserName());</span>
+
+<span class="nc" id="L67">		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</span>
+<span class="nc" id="L68">		setBounds(100, 100, 1100, 500);</span>
+<span class="nc" id="L69">		getContentPane().setLayout(null);</span>
+
+<span class="nc" id="L71">		JButton btnEliminar = new JButton(&quot;Anular&quot;);</span>
+<span class="nc" id="L72">		btnEliminar.setName(&quot;Anular&quot;);</span>
+<span class="nc" id="L73">		Vector&lt;Bet&gt; apuestasUsuario = facade.getApuestasAbiertas(userlog);</span>
+<span class="nc" id="L74">		Vector&lt;Bet&gt; apuestasAbiertas = new Vector&lt;Bet&gt;();</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">		for (Bet bet : apuestasUsuario) {</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">			if (bet.getEstadoApuesta().equals(&quot;Pendiente&quot;)) {</span>
+<span class="nc" id="L77">				Vector&lt;Object&gt; row = new Vector&lt;Object&gt;();</span>
+<span class="nc" id="L78">				row.add(bet.getForecast().getQuestion().getEvent().getEventDate().toString().substring(0, 11));</span>
+<span class="nc" id="L79">				row.add(bet.getForecast().getQuestion().getEvent().getDescription());</span>
+<span class="nc" id="L80">				row.add(bet.getForecast().getQuestion().getQuestion());</span>
+<span class="nc" id="L81">				row.add(bet.getForecast().getForecast());</span>
+<span class="nc" id="L82">				row.add(bet.getAmount());</span>
+<span class="nc" id="L83">				row.add(bet.getForecast().getFee());</span>
+<span class="nc" id="L84">				row.addElement(btnEliminar);</span>
+<span class="nc" id="L85">				apuestasAbiertas.addElement(bet);</span>
+<span class="nc" id="L86">				tableModelApuestas.addRow(row);</span>
+			}
+		}
+
+		// OVERRIDE DE METODO PARA QUE SE AJUSTEN AUTOMATICAMENTE LAS COLUMNAS DE LA
+		// TABLA SEGUN EL CONTENIDO
+<span class="nc" id="L92">		tabla = new JTable(tableModelApuestas) {</span>
+			@Override
+			public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
+<span class="nc" id="L95">				Component component = super.prepareRenderer(renderer, row, column);</span>
+<span class="nc" id="L96">				int rendererWidth = component.getPreferredSize().width;</span>
+<span class="nc" id="L97">				TableColumn tableColumn = getColumnModel().getColumn(column);</span>
+<span class="nc" id="L98">				tableColumn.setPreferredWidth(</span>
+<span class="nc" id="L99">						Math.max(rendererWidth + getIntercellSpacing().width, tableColumn.getPreferredWidth()));</span>
+<span class="nc" id="L100">				return component;</span>
+			}
+
+		};
+
+<span class="nc" id="L105">		tabla.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {</span>
+			@Override
+			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
+					boolean hasFocus, int row, int column) {
+<span class="nc" id="L109">				final Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row,</span>
+<span class="nc" id="L110">						column);</span>
+
+<span class="nc bnc" id="L112" title="All 2 branches missed.">				c.setBackground(row % 2 != 0 ? new Color(233, 233, 233) : Color.WHITE);</span>
+
+<span class="nc" id="L114">				return c;</span>
+			}
+		});
+
+<span class="nc" id="L118">		tabla.addMouseListener(new MouseAdapter() {</span>
+			@Override
+			public void mouseClicked(MouseEvent ev) {
+
+<span class="nc" id="L122">				int column = tabla.getColumnModel().getColumnIndexAtX(ev.getX());</span>
+<span class="nc" id="L123">				int row = ev.getY() / tabla.getRowHeight();</span>
+
+<span class="nc bnc" id="L125" title="All 8 branches missed.">				if (row &lt; tabla.getRowCount() &amp;&amp; row &gt;= 0 &amp;&amp; column &lt; tabla.getColumnCount() &amp;&amp; column &gt;= 0) {</span>
+<span class="nc" id="L126">					Object value = tabla.getValueAt(row, column);</span>
+<span class="nc bnc" id="L127" title="All 2 branches missed.">					if (value instanceof JButton) {</span>
+<span class="nc" id="L128">						((JButton) value).doClick();</span>
+<span class="nc" id="L129">						JButton boton = (JButton) value;</span>
+						try {
+<span class="nc" id="L131">							int i = tabla.getSelectedRow();</span>
+<span class="nc" id="L132">							Bet apu = apuestasAbiertas.get(i);</span>
+
+//							int dialogButton = JOptionPane.YES_NO_OPTION;
+//							JOptionPane.showConfirmDialog(getContentPane(), &quot;¿Seguro que quieres anular la apuesta?&quot;,
+//									&quot;CUIDADO!&quot;, dialogButton);
+//							if (dialogButton == JOptionPane.YES_OPTION) {
+//								System.out.println(&quot;CLIC EN SI&quot;);
+
+<span class="nc" id="L140">							System.out.println(&quot;Anulando la apuesta: &quot; + apu.getForecast().getForecast() + &quot; / &quot;</span>
+<span class="nc" id="L141">									+ apu.getForecast().getQuestion() + &quot; / &quot;</span>
+<span class="nc" id="L142">									+ apu.getForecast().getQuestion().getEvent().getDescription() + &quot;de la tabla&quot;);</span>
+<span class="nc" id="L143">							tableModelApuestas.removeRow(row);</span>
+<span class="nc" id="L144">							apuestasAbiertas.remove(i);</span>
+<span class="nc bnc" id="L145" title="All 2 branches missed.">							if (facade.anularApuesta(apu)) {</span>
+
+<span class="nc" id="L147">								JOptionPane.showMessageDialog(getContentPane(),</span>
+<span class="nc" id="L148">										&quot;La apuesta a &quot; + apu.getForecast().getForecast()</span>
+<span class="nc" id="L149">												+ &quot; ha sido anulada. \nEl importe de &quot; + apu.getAmount() + &quot;€&quot;</span>
+<span class="nc" id="L150">												+ &quot; será reintegrado inmediatamente...&quot;);</span>
+
+<span class="nc" id="L152">								System.out.println(&quot;APUESTA ANULADA&quot;);</span>
+<span class="nc" id="L153">								lblSaldo.setText(ResourceBundle.getBundle(&quot;Etiquetas&quot;).getString(&quot;MainGUI.lblSaldo&quot;)</span>
+<span class="nc" id="L154">										+ &quot; &quot; + (newUserActualizado.getBalance() + apu.getAmount()) + &quot;€&quot;);</span>
+							}
+
+//							}
+//							if (dialogButton == JOptionPane.NO_OPTION) {
+//								System.out.println(&quot;CLIC EN NO&quot;);
+//								remove(dialogButton);
+//							}
+
+<span class="nc" id="L163">							newUserActualizado = facade.getRegularUserByUsername(userlog.getUserName());</span>
+
+<span class="nc" id="L165">						} catch (Exception e) {</span>
+						}
+
+					}
+				}
+
+<span class="nc" id="L171">			}</span>
+		});
+
+<span class="nc" id="L174">		tabla.setDefaultRenderer(Object.class, new Render());</span>
+
+<span class="nc" id="L176">		scrollPaneApuestas.setBounds(new Rectangle(40, 190, 996, 119));</span>
+<span class="nc" id="L177">		scrollPaneApuestas.setViewportView(tabla);</span>
+<span class="nc" id="L178">		this.getContentPane().add(scrollPaneApuestas);</span>
+
+<span class="nc" id="L180">		btnAtras = new JButton();</span>
+<span class="nc" id="L181">		btnAtras.setForeground(Color.WHITE);</span>
+<span class="nc" id="L182">		btnAtras.setFont(new Font(&quot;Dialog&quot;, Font.BOLD, 14));</span>
+<span class="nc" id="L183">		btnAtras.setBackground(SystemColor.controlShadow);</span>
+<span class="nc" id="L184">		btnAtras.setText(ResourceBundle.getBundle(&quot;Etiquetas&quot;).getString(&quot;Close&quot;));</span>
+
+<span class="nc" id="L186">		btnAtras.addActionListener(new ActionListener() {</span>
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+
+<span class="nc" id="L190">				RegularUser usuarioActualizado = facade.getRegularUserByUsername(userlog.getUserName());</span>
+
+<span class="nc" id="L192">				JFrame a = new MainGUI(usuarioActualizado);</span>
+<span class="nc" id="L193">				a.setAlwaysOnTop(true);</span>
+<span class="nc" id="L194">				a.setVisible(true);</span>
+<span class="nc" id="L195">				dispose();</span>
+
+<span class="nc" id="L197">			}</span>
+		});
+<span class="nc" id="L199">		btnAtras.setBounds(52, 376, 99, 26);</span>
+<span class="nc" id="L200">		getContentPane().add(btnAtras);</span>
+
+<span class="nc" id="L202">		lblApuestas = new JLabel(&quot;Apuestas abiertas:&quot;);</span>
+<span class="nc" id="L203">		lblApuestas.setBounds(40, 156, 135, 16);</span>
+<span class="nc" id="L204">		getContentPane().add(lblApuestas);</span>
+
+<span class="nc" id="L206">		lblInfo = new JLabel(</span>
+<span class="nc" id="L207">				&quot;Aquí podrás cancelar una apuesta que aún sigue en curso. Se te devolverá el dinero apostado.&quot;);</span>
+<span class="nc" id="L208">		lblInfo.setBounds(66, 48, 666, 47);</span>
+<span class="nc" id="L209">		getContentPane().add(lblInfo);</span>
+
+<span class="nc" id="L211">		separator = new JSeparator();</span>
+<span class="nc" id="L212">		separator.setBounds(64, 94, 535, 26);</span>
+<span class="nc" id="L213">		getContentPane().add(separator);</span>
+
+<span class="nc" id="L215">		JPanel panel = new JPanel();</span>
+<span class="nc" id="L216">		panel.setBackground(new Color(0, 0, 128));</span>
+<span class="nc" id="L217">		panel.setBounds(655, 26, 136, 36);</span>
+<span class="nc" id="L218">		getContentPane().add(panel);</span>
+<span class="nc" id="L219">		panel.setLayout(null);</span>
+
+<span class="nc" id="L221">		lblSaldo = new JLabel(ResourceBundle.getBundle(&quot;Etiquetas&quot;).getString(&quot;MainGUI.lblSaldo&quot;) //$NON-NLS-1$ //$NON-NLS-2$</span>
+<span class="nc" id="L222">				+ &quot; &quot; + userlog.getBalance() + &quot;€&quot;);</span>
+<span class="nc" id="L223">		lblSaldo.setBounds(10, 8, 197, 19);</span>
+<span class="nc" id="L224">		panel.add(lblSaldo);</span>
+<span class="nc" id="L225">		lblSaldo.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 14));</span>
+<span class="nc" id="L226">		lblSaldo.setForeground(Color.WHITE);</span>
+
+<span class="nc" id="L228">		ImageIcon icon = new ImageIcon(&quot;imagenes/info.png&quot;);</span>
+<span class="nc" id="L229">		lblNewLabel_1 = new JLabel(icon);</span>
+<span class="nc" id="L230">		lblNewLabel_1.setBounds(23, 48, 55, 40);</span>
+<span class="nc" id="L231">		getContentPane().add(lblNewLabel_1);</span>
+
+<span class="nc" id="L233">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span>deleteEventDa2Test (19 Oct 2021 10:47:35)</div></body></html>

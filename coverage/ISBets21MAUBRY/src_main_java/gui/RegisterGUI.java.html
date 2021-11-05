@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>RegisterGUI.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">deleteEventDa2Test (19 Oct 2021 10:47:35)</a> &gt; <a href="../../index.html" class="el_group">ISBets21MAUBRY</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">gui</a> &gt; <span class="el_source">RegisterGUI.java</span></div><h1>RegisterGUI.java</h1><pre class="source lang-java linenums">package gui;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+import businessLogic.BLFacade;
+import domain.User;
+
+public class RegisterGUI extends JFrame {
+	private JLabel lblNombre;
+	private JLabel lblApellidos;
+	private JLabel lblFechaNacimiento;
+	private JLabel lblEmail;
+	private JLabel lblCuentaBancaria;
+	private JLabel lblTelfono;
+	private JLabel lblDireccin;
+	private JTextField textUser;
+	private JTextField textName;
+	private JTextField textLastName;
+	private JTextField textBirth;
+	private JTextField textEmail;
+	private JTextField textBank;
+	private JTextField textPhoneNumber;
+	private JTextField textAddress;
+	private JPasswordField textPass;
+<span class="nc" id="L46">	private static BLFacade facade = LoginGUI.getBusinessLogic();</span>
+<span class="nc" id="L47">	private static User user;</span>
+<span class="nc" id="L48">	JButton buttonRegistrarse = new JButton(&quot;Registrarse&quot;);</span>
+	private JButton btnAtras;
+	private JLabel lblInfoNombre;
+	private JLabel lblInfoNombre_1;
+	private JLabel lblIcono2;
+	private JLabel lblInfoDir;
+
+<span class="nc" id="L55">	public RegisterGUI() {</span>
+<span class="nc" id="L56">		getContentPane().setBackground(Color.WHITE);</span>
+		try {
+<span class="nc" id="L58">			initialize();</span>
+<span class="nc" id="L59">		} catch (Exception e) {</span>
+<span class="nc" id="L60">			e.printStackTrace();</span>
+		}
+<span class="nc" id="L62">	}</span>
+
+	public static void setBusinessLogic(BLFacade pfacade) {
+<span class="nc" id="L65">		facade = pfacade;</span>
+<span class="nc" id="L66">	}</span>
+
+	public static BLFacade getBusinessLogic() {
+<span class="nc" id="L69">		return facade;</span>
+	}
+
+	public void initialize() throws ParseException {
+<span class="nc" id="L73">		setTitle(&quot;Registro&quot;);</span>
+<span class="nc" id="L74">		getContentPane().setLayout(null);</span>
+<span class="nc" id="L75">		setBounds(100, 100, 763, 450);</span>
+<span class="nc" id="L76">		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</span>
+
+<span class="nc" id="L78">		JLabel lblUser = new JLabel(&quot;Usuario:&quot;);</span>
+<span class="nc" id="L79">		lblUser.setBounds(5, 55, 100, 14);</span>
+<span class="nc" id="L80">		lblUser.setFont(new Font(&quot;Tahoma&quot;, Font.PLAIN, 13));</span>
+<span class="nc" id="L81">		lblUser.setHorizontalAlignment(SwingConstants.RIGHT);</span>
+<span class="nc" id="L82">		getContentPane().add(lblUser);</span>
+
+<span class="nc" id="L84">		JLabel lblUser_1 = new JLabel(&quot;Contraseña:&quot;);</span>
+<span class="nc" id="L85">		lblUser_1.setBounds(5, 84, 100, 14);</span>
+<span class="nc" id="L86">		lblUser_1.setHorizontalAlignment(SwingConstants.RIGHT);</span>
+<span class="nc" id="L87">		lblUser_1.setFont(new Font(&quot;Tahoma&quot;, Font.PLAIN, 13));</span>
+<span class="nc" id="L88">		getContentPane().add(lblUser_1);</span>
+
+<span class="nc" id="L90">		lblNombre = new JLabel(&quot;Nombre:&quot;);</span>
+<span class="nc" id="L91">		lblNombre.setBounds(285, 56, 100, 14);</span>
+<span class="nc" id="L92">		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);</span>
+<span class="nc" id="L93">		lblNombre.setFont(new Font(&quot;Tahoma&quot;, Font.PLAIN, 13));</span>
+<span class="nc" id="L94">		getContentPane().add(lblNombre);</span>
+
+<span class="nc" id="L96">		lblApellidos = new JLabel(&quot;Apellidos:&quot;);</span>
+<span class="nc" id="L97">		lblApellidos.setBounds(285, 96, 100, 14);</span>
+<span class="nc" id="L98">		lblApellidos.setHorizontalAlignment(SwingConstants.RIGHT);</span>
+<span class="nc" id="L99">		lblApellidos.setFont(new Font(&quot;Tahoma&quot;, Font.PLAIN, 13));</span>
+<span class="nc" id="L100">		getContentPane().add(lblApellidos);</span>
+
+<span class="nc" id="L102">		lblFechaNacimiento = new JLabel(&quot;Fecha nacimiento:&quot;);</span>
+<span class="nc" id="L103">		lblFechaNacimiento.setBounds(268, 133, 117, 14);</span>
+<span class="nc" id="L104">		lblFechaNacimiento.setHorizontalAlignment(SwingConstants.RIGHT);</span>
+<span class="nc" id="L105">		lblFechaNacimiento.setFont(new Font(&quot;Tahoma&quot;, Font.PLAIN, 13));</span>
+<span class="nc" id="L106">		getContentPane().add(lblFechaNacimiento);</span>
+
+<span class="nc" id="L108">		lblEmail = new JLabel(&quot;Email:&quot;);</span>
+<span class="nc" id="L109">		lblEmail.setBounds(285, 173, 100, 14);</span>
+<span class="nc" id="L110">		lblEmail.setHorizontalAlignment(SwingConstants.RIGHT);</span>
+<span class="nc" id="L111">		lblEmail.setFont(new Font(&quot;Tahoma&quot;, Font.PLAIN, 13));</span>
+<span class="nc" id="L112">		getContentPane().add(lblEmail);</span>
+
+<span class="nc" id="L114">		lblCuentaBancaria = new JLabel(&quot;Cuenta bancaria:&quot;);</span>
+<span class="nc" id="L115">		lblCuentaBancaria.setBounds(285, 213, 100, 14);</span>
+<span class="nc" id="L116">		lblCuentaBancaria.setHorizontalAlignment(SwingConstants.RIGHT);</span>
+<span class="nc" id="L117">		lblCuentaBancaria.setFont(new Font(&quot;Tahoma&quot;, Font.PLAIN, 13));</span>
+<span class="nc" id="L118">		getContentPane().add(lblCuentaBancaria);</span>
+
+<span class="nc" id="L120">		lblTelfono = new JLabel(&quot;Teléfono:&quot;);</span>
+<span class="nc" id="L121">		lblTelfono.setBounds(285, 252, 100, 14);</span>
+<span class="nc" id="L122">		lblTelfono.setHorizontalAlignment(SwingConstants.RIGHT);</span>
+<span class="nc" id="L123">		lblTelfono.setFont(new Font(&quot;Tahoma&quot;, Font.PLAIN, 13));</span>
+<span class="nc" id="L124">		getContentPane().add(lblTelfono);</span>
+
+<span class="nc" id="L126">		lblDireccin = new JLabel(&quot;Dirección:&quot;);</span>
+<span class="nc" id="L127">		lblDireccin.setBounds(285, 292, 100, 14);</span>
+<span class="nc" id="L128">		lblDireccin.setHorizontalAlignment(SwingConstants.RIGHT);</span>
+<span class="nc" id="L129">		lblDireccin.setFont(new Font(&quot;Tahoma&quot;, Font.PLAIN, 13));</span>
+<span class="nc" id="L130">		getContentPane().add(lblDireccin);</span>
+
+<span class="nc" id="L132">		textUser = new JTextField();</span>
+<span class="nc" id="L133">		textUser.setBounds(115, 51, 131, 20);</span>
+<span class="nc" id="L134">		textUser.setFont(new Font(&quot;Liberation Sans&quot;, Font.PLAIN, 13));</span>
+<span class="nc" id="L135">		textUser.setColumns(10);</span>
+<span class="nc" id="L136">		getContentPane().add(textUser);</span>
+
+<span class="nc" id="L138">		textName = new JTextField();</span>
+<span class="nc" id="L139">		textName.setBounds(395, 55, 131, 20);</span>
+<span class="nc" id="L140">		textName.setFont(new Font(&quot;Liberation Sans&quot;, Font.PLAIN, 13));</span>
+<span class="nc" id="L141">		textName.setColumns(10);</span>
+<span class="nc" id="L142">		getContentPane().add(textName);</span>
+
+<span class="nc" id="L144">		textLastName = new JTextField();</span>
+<span class="nc" id="L145">		textLastName.setBounds(395, 95, 131, 20);</span>
+<span class="nc" id="L146">		textLastName.setFont(new Font(&quot;Liberation Sans&quot;, Font.PLAIN, 13));</span>
+<span class="nc" id="L147">		textLastName.setColumns(10);</span>
+<span class="nc" id="L148">		getContentPane().add(textLastName);</span>
+
+<span class="nc" id="L150">		textBirth = new JTextField();</span>
+<span class="nc" id="L151">		textBirth.setBounds(395, 132, 131, 20);</span>
+<span class="nc" id="L152">		textBirth.setFont(new Font(&quot;Liberation Sans&quot;, Font.PLAIN, 13));</span>
+<span class="nc" id="L153">		textBirth.setColumns(10);</span>
+<span class="nc" id="L154">		getContentPane().add(textBirth);</span>
+
+<span class="nc" id="L156">		textEmail = new JTextField();</span>
+<span class="nc" id="L157">		textEmail.setBounds(395, 172, 159, 20);</span>
+<span class="nc" id="L158">		textEmail.setFont(new Font(&quot;Liberation Sans&quot;, Font.PLAIN, 13));</span>
+<span class="nc" id="L159">		textEmail.setColumns(10);</span>
+<span class="nc" id="L160">		getContentPane().add(textEmail);</span>
+
+<span class="nc" id="L162">		textBank = new JTextField();</span>
+<span class="nc" id="L163">		textBank.setBounds(395, 212, 153, 20);</span>
+<span class="nc" id="L164">		textBank.setFont(new Font(&quot;Liberation Sans&quot;, Font.PLAIN, 13));</span>
+<span class="nc" id="L165">		textBank.setColumns(10);</span>
+<span class="nc" id="L166">		getContentPane().add(textBank);</span>
+
+<span class="nc" id="L168">		textPhoneNumber = new JTextField();</span>
+<span class="nc" id="L169">		textPhoneNumber.setBounds(395, 251, 131, 20);</span>
+<span class="nc" id="L170">		textPhoneNumber.setFont(new Font(&quot;Liberation Sans&quot;, Font.PLAIN, 13));</span>
+<span class="nc" id="L171">		textPhoneNumber.setColumns(10);</span>
+<span class="nc" id="L172">		getContentPane().add(textPhoneNumber);</span>
+
+<span class="nc" id="L174">		textAddress = new JTextField();</span>
+<span class="nc" id="L175">		textAddress.setBounds(395, 291, 227, 20);</span>
+<span class="nc" id="L176">		textAddress.setFont(new Font(&quot;Liberation Sans&quot;, Font.PLAIN, 13));</span>
+<span class="nc" id="L177">		textAddress.setColumns(10);</span>
+<span class="nc" id="L178">		getContentPane().add(textAddress);</span>
+
+<span class="nc" id="L180">		textPass = new JPasswordField();</span>
+<span class="nc" id="L181">		textPass.setBounds(115, 82, 131, 19);</span>
+<span class="nc" id="L182">		textPass.setFont(new Font(&quot;Liberation Sans&quot;, Font.PLAIN, 13));</span>
+<span class="nc" id="L183">		textPass.setColumns(10);</span>
+<span class="nc" id="L184">		getContentPane().add(textPass);</span>
+<span class="nc" id="L185">		buttonRegistrarse.setForeground(Color.WHITE);</span>
+<span class="nc" id="L186">		buttonRegistrarse.setBackground(SystemColor.textHighlight);</span>
+<span class="nc" id="L187">		buttonRegistrarse.setFont(new Font(&quot;Dialog&quot;, Font.BOLD, 14));</span>
+
+<span class="nc" id="L189">		buttonRegistrarse.setBounds(440, 348, 140, 23);</span>
+<span class="nc" id="L190">		getContentPane().add(buttonRegistrarse);</span>
+
+<span class="nc" id="L192">		JLabel lblNewLabel = new JLabel(&quot;dd/mm/aaaa&quot;);</span>
+<span class="nc" id="L193">		lblNewLabel.setForeground(Color.GRAY);</span>
+<span class="nc" id="L194">		lblNewLabel.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD | Font.ITALIC, 11));</span>
+<span class="nc" id="L195">		lblNewLabel.setBounds(530, 132, 79, 16);</span>
+<span class="nc" id="L196">		getContentPane().add(lblNewLabel);</span>
+
+<span class="nc" id="L198">		JLabel lblEsxxXxxxXxxx = new JLabel(&quot;ESXX XXXX XXXX XXXX &quot;);</span>
+<span class="nc" id="L199">		lblEsxxXxxxXxxx.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD | Font.ITALIC, 11));</span>
+<span class="nc" id="L200">		lblEsxxXxxxXxxx.setForeground(Color.GRAY);</span>
+<span class="nc" id="L201">		lblEsxxXxxxXxxx.setBounds(553, 212, 146, 16);</span>
+<span class="nc" id="L202">		getContentPane().add(lblEsxxXxxxXxxx);</span>
+
+<span class="nc" id="L204">		JLabel lblXxxxxxxxx = new JLabel(&quot;(+34) XXXXXXXXX&quot;);</span>
+<span class="nc" id="L205">		lblXxxxxxxxx.setForeground(Color.GRAY);</span>
+<span class="nc" id="L206">		lblXxxxxxxxx.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD | Font.ITALIC, 11));</span>
+<span class="nc" id="L207">		lblXxxxxxxxx.setBounds(530, 251, 146, 16);</span>
+<span class="nc" id="L208">		getContentPane().add(lblXxxxxxxxx);</span>
+
+<span class="nc" id="L210">		JLabel lblAlMenos = new JLabel(&quot;Al menos:&quot;);</span>
+<span class="nc" id="L211">		lblAlMenos.setForeground(Color.GRAY);</span>
+<span class="nc" id="L212">		lblAlMenos.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD | Font.ITALIC, 12));</span>
+
+<span class="nc" id="L214">		lblAlMenos.setBounds(81, 113, 146, 16);</span>
+<span class="nc" id="L215">		getContentPane().add(lblAlMenos);</span>
+
+<span class="nc" id="L217">		JLabel lblCaracteres = new JLabel(&quot;8 caracteres&quot;);</span>
+<span class="nc" id="L218">		lblCaracteres.setForeground(Color.GRAY);</span>
+<span class="nc" id="L219">		lblCaracteres.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD | Font.ITALIC, 10));</span>
+
+<span class="nc" id="L221">		lblCaracteres.setBounds(101, 133, 146, 16);</span>
+<span class="nc" id="L222">		getContentPane().add(lblCaracteres);</span>
+
+<span class="nc" id="L224">		JLabel lblUnaMayscula = new JLabel(&quot;Una mayúscula&quot;);</span>
+<span class="nc" id="L225">		lblUnaMayscula.setForeground(Color.GRAY);</span>
+<span class="nc" id="L226">		lblUnaMayscula.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD | Font.ITALIC, 10));</span>
+
+<span class="nc" id="L228">		lblUnaMayscula.setBounds(101, 152, 146, 16);</span>
+<span class="nc" id="L229">		getContentPane().add(lblUnaMayscula);</span>
+
+<span class="nc" id="L231">		JLabel lblUnaMin = new JLabel(&quot;Una minúscula&quot;);</span>
+<span class="nc" id="L232">		lblUnaMin.setForeground(Color.GRAY);</span>
+<span class="nc" id="L233">		lblUnaMin.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD | Font.ITALIC, 10));</span>
+
+		// lblUnaMin.setFont(new Font(&quot;Dialog&quot;, Font.BOLD, 10));
+<span class="nc" id="L236">		lblUnaMin.setBounds(102, 171, 146, 16);</span>
+<span class="nc" id="L237">		getContentPane().add(lblUnaMin);</span>
+
+<span class="nc" id="L239">		JLabel lblUnNmero = new JLabel(&quot;Un número&quot;);</span>
+<span class="nc" id="L240">		lblUnNmero.setForeground(Color.GRAY);</span>
+<span class="nc" id="L241">		lblUnNmero.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD | Font.ITALIC, 10));</span>
+
+		// lblUnNmero.setFont(new Font(&quot;Dialog&quot;, Font.BOLD, 10));
+<span class="nc" id="L244">		lblUnNmero.setBounds(101, 190, 146, 16);</span>
+<span class="nc" id="L245">		getContentPane().add(lblUnNmero);</span>
+
+<span class="nc" id="L247">		JLabel lblUnCaracterEspecial = new JLabel(&quot;Un caracter especial&quot;);</span>
+<span class="nc" id="L248">		lblUnCaracterEspecial.setForeground(Color.GRAY);</span>
+<span class="nc" id="L249">		lblUnCaracterEspecial.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD | Font.ITALIC, 10));</span>
+
+		// lblUnCaracterEspecial.setFont(new Font(&quot;Dialog&quot;, Font.BOLD, 10));
+<span class="nc" id="L252">		lblUnCaracterEspecial.setBounds(101, 208, 146, 16);</span>
+<span class="nc" id="L253">		getContentPane().add(lblUnCaracterEspecial);</span>
+
+<span class="nc" id="L255">		JLabel lblSinEspaciosEn = new JLabel(&quot;Sin espacios en blanco&quot;);</span>
+<span class="nc" id="L256">		lblSinEspaciosEn.setForeground(Color.GRAY);</span>
+<span class="nc" id="L257">		lblSinEspaciosEn.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD | Font.ITALIC, 10));</span>
+
+		// lblSinEspaciosEn.setFont(new Font(&quot;Dialog&quot;, Font.BOLD, 10));
+<span class="nc" id="L260">		lblSinEspaciosEn.setBounds(101, 229, 146, 16);</span>
+<span class="nc" id="L261">		getContentPane().add(lblSinEspaciosEn);</span>
+
+<span class="nc" id="L263">		JLabel lblgmailcom = new JLabel(&quot;debe ser @gmail.com&quot;);</span>
+<span class="nc" id="L264">		lblgmailcom.setForeground(Color.GRAY);</span>
+<span class="nc" id="L265">		lblgmailcom.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD | Font.ITALIC, 11));</span>
+
+		// lblgmailcom.setFont(new Font(&quot;Dialog&quot;, Font.BOLD, 12));
+<span class="nc" id="L268">		lblgmailcom.setBounds(559, 174, 146, 16);</span>
+<span class="nc" id="L269">		getContentPane().add(lblgmailcom);</span>
+
+<span class="nc" id="L271">		btnAtras = new JButton(&quot;Atrás&quot;);</span>
+<span class="nc" id="L272">		btnAtras.setBackground(SystemColor.controlShadow);</span>
+<span class="nc" id="L273">		btnAtras.setForeground(Color.WHITE);</span>
+<span class="nc" id="L274">		btnAtras.setFont(new Font(&quot;Dialog&quot;, Font.BOLD, 14));</span>
+<span class="nc" id="L275">		btnAtras.addActionListener(new ActionListener() {</span>
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+//				Frame reg = new LoginGUI();
+//				reg.setAlwaysOnTop(true);
+//				reg.setVisible(true);
+<span class="nc" id="L282">				dispose();</span>
+
+<span class="nc" id="L284">			}</span>
+		});
+<span class="nc" id="L286">		btnAtras.setBounds(54, 348, 79, 23);</span>
+<span class="nc" id="L287">		getContentPane().add(btnAtras);</span>
+
+<span class="nc" id="L289">		JLabel lblIcono = new JLabel(&quot; &quot;);</span>
+<span class="nc" id="L290">		lblIcono.setIcon(new ImageIcon(&quot;C:\\Users\\Bryan\\Desktop\\Workspace\\ISBets21BRYMAUJONUNA\\info.png&quot;));</span>
+<span class="nc" id="L291">		lblIcono.setBounds(54, 106, 30, 30);</span>
+<span class="nc" id="L292">		getContentPane().add(lblIcono);</span>
+
+<span class="nc" id="L294">		lblInfoNombre = new JLabel(&quot;Sin números&quot;);</span>
+<span class="nc" id="L295">		lblInfoNombre.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD | Font.ITALIC, 11));</span>
+<span class="nc" id="L296">		lblInfoNombre.setForeground(Color.GRAY);</span>
+<span class="nc" id="L297">		lblInfoNombre.setBounds(530, 55, 95, 16);</span>
+<span class="nc" id="L298">		getContentPane().add(lblInfoNombre);</span>
+
+<span class="nc" id="L300">		lblInfoNombre_1 = new JLabel(&quot;Sin números&quot;);</span>
+<span class="nc" id="L301">		lblInfoNombre_1.setForeground(Color.GRAY);</span>
+<span class="nc" id="L302">		lblInfoNombre_1.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD | Font.ITALIC, 11));</span>
+<span class="nc" id="L303">		lblInfoNombre_1.setBounds(530, 95, 95, 16);</span>
+<span class="nc" id="L304">		getContentPane().add(lblInfoNombre_1);</span>
+
+<span class="nc" id="L306">		ImageIcon icon = new ImageIcon(&quot;imagenes/info.png&quot;);</span>
+<span class="nc" id="L307">		lblIcono2 = new JLabel(icon);</span>
+<span class="nc" id="L308">		lblIcono2.setBounds(640, 284, 30, 30);</span>
+<span class="nc" id="L309">		getContentPane().add(lblIcono2);</span>
+
+<span class="nc" id="L311">		lblInfoDir = new JLabel(&quot;Opcional&quot;);</span>
+<span class="nc" id="L312">		lblInfoDir.setBounds(665, 291, 55, 16);</span>
+<span class="nc" id="L313">		lblInfoDir.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD | Font.ITALIC, 12));</span>
+<span class="nc" id="L314">		lblInfoDir.setForeground(Color.GRAY);</span>
+
+<span class="nc" id="L316">		getContentPane().add(lblInfoDir);</span>
+<span class="nc" id="L317">		buttonRegistrarse.addActionListener(new ActionListener() {</span>
+			@SuppressWarnings(&quot;deprecation&quot;)
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				try {
+<span class="nc" id="L323">					boolean control = true;</span>
+<span class="nc bnc" id="L324" title="All 2 branches missed.">					if (textUser.getText().equals(&quot;&quot;)) {</span>
+<span class="nc" id="L325">						JOptionPane.showMessageDialog(getContentPane(), &quot;Introduce un nombre de usuario&quot;, &quot;Error&quot;,</span>
+<span class="nc" id="L326">								JOptionPane.ERROR_MESSAGE);</span>
+<span class="nc" id="L327">						control = false;</span>
+
+					}
+
+<span class="nc bnc" id="L331" title="All 2 branches missed.">					if (validoNombre(textName.getText()) == false) {</span>
+<span class="nc" id="L332">						textName.setText(&quot;&quot;);</span>
+
+<span class="nc" id="L334">						JOptionPane.showMessageDialog(getContentPane(), &quot;Nombre con solo letras&quot;, &quot;Error&quot;,</span>
+<span class="nc" id="L335">								JOptionPane.ERROR_MESSAGE);</span>
+<span class="nc" id="L336">						control = false;</span>
+
+					}
+
+<span class="nc bnc" id="L340" title="All 2 branches missed.">					if (validoNombre(textLastName.getText()) == false) {</span>
+<span class="nc" id="L341">						textLastName.setText(&quot;&quot;);</span>
+
+<span class="nc" id="L343">						JOptionPane.showMessageDialog(getContentPane(), &quot;Apellidos con solo letras&quot;, &quot;Error&quot;,</span>
+<span class="nc" id="L344">								JOptionPane.ERROR_MESSAGE);</span>
+<span class="nc" id="L345">						control = false;</span>
+
+					}
+
+<span class="nc bnc" id="L349" title="All 2 branches missed.">					if (validofecha(textBirth.getText()) == false) {</span>
+<span class="nc" id="L350">						JOptionPane.showMessageDialog(getContentPane(), &quot;Fecha incorrecta&quot;, &quot;Error&quot;,</span>
+<span class="nc" id="L351">								JOptionPane.ERROR_MESSAGE);</span>
+<span class="nc" id="L352">						control = false;</span>
+
+					}
+
+<span class="nc bnc" id="L356" title="All 2 branches missed.">					if (validoEmail(textEmail.getText()) == false) {</span>
+<span class="nc" id="L357">						JOptionPane.showMessageDialog(getContentPane(), &quot;Email incorrecto&quot;, &quot;Error&quot;,</span>
+<span class="nc" id="L358">								JOptionPane.ERROR_MESSAGE);</span>
+<span class="nc" id="L359">						control = false;</span>
+
+					}
+
+<span class="nc bnc" id="L363" title="All 2 branches missed.">					if (validoContraseña(textPass.getText()) == false) {</span>
+<span class="nc" id="L364">						JOptionPane.showMessageDialog(getContentPane(), &quot;Contraseña incorrecta&quot;, &quot;Error&quot;,</span>
+<span class="nc" id="L365">								JOptionPane.ERROR_MESSAGE);</span>
+<span class="nc" id="L366">						control = false;</span>
+
+					}
+<span class="nc bnc" id="L369" title="All 2 branches missed.">					if (textBank.getText().equals(&quot;&quot;)) {</span>
+
+<span class="nc" id="L371">						control = true;</span>
+<span class="nc bnc" id="L372" title="All 2 branches missed.">					} else if (validoCuentaB(textBank.getText()) == false) {</span>
+<span class="nc" id="L373">						JOptionPane.showMessageDialog(getContentPane(), &quot;Cuenta Bancaria incorrecta&quot;, &quot;Error&quot;,</span>
+<span class="nc" id="L374">								JOptionPane.ERROR_MESSAGE);</span>
+<span class="nc" id="L375">						control = false;</span>
+
+					}
+<span class="nc bnc" id="L378" title="All 2 branches missed.">					if (validoNumero(textPhoneNumber.getText()) == false) {</span>
+<span class="nc" id="L379">						JOptionPane.showMessageDialog(getContentPane(), &quot;Numero de teléfono incorrecto&quot;, &quot;Error&quot;,</span>
+<span class="nc" id="L380">								JOptionPane.ERROR_MESSAGE);</span>
+<span class="nc" id="L381">						control = false;</span>
+
+					}
+
+<span class="nc bnc" id="L385" title="All 2 branches missed.">					if (control) {</span>
+<span class="nc" id="L386">						facade.registrar(textUser.getText(), textPass.getText(), textName.getText(),</span>
+<span class="nc" id="L387">								textLastName.getText(), textBirth.getText(), textEmail.getText(), textBank.getText(),</span>
+<span class="nc" id="L388">								Integer.parseInt(textPhoneNumber.getText()), textAddress.getText(), 0);</span>
+<span class="nc" id="L389">						JOptionPane.showMessageDialog(getContentPane(), &quot;Registrado correctamente el usuario: &quot;</span>
+<span class="nc" id="L390">								+ textUser.getText() + &quot;\n\nSerá redirigido al apartado para loguearse...&quot;);</span>
+
+<span class="nc" id="L392">						JOptionPane.showMessageDialog(getContentPane(),</span>
+<span class="nc" id="L393">								&quot;ENHORABUENA!!!!!\nTe regalamos un bono de bienvenida de 5€ para que apuestes&quot;);</span>
+<span class="nc" id="L394">						facade.aplicarBonoBienvenida(textUser.getText());</span>
+<span class="nc" id="L395">						dispose();</span>
+					}
+
+<span class="nc" id="L398">				} catch (exceptions.UserAlreadyExistException ex) {</span>
+
+<span class="nc" id="L400">					JOptionPane.showMessageDialog(getContentPane(), ex.getMessage(), &quot;Error&quot;,</span>
+<span class="nc" id="L401">							JOptionPane.ERROR_MESSAGE);</span>
+				}
+
+<span class="nc" id="L404">				catch (Exception o) {</span>
+<span class="nc" id="L405">					o.printStackTrace();</span>
+
+				}
+
+<span class="nc" id="L409">			}</span>
+
+		});
+
+<span class="nc" id="L413">	}</span>
+
+	/* *************************************************************** */
+	/* FUNCIONES AUXILIARES DE COMPROBACIÓN DE CAMPOS PARA EL REGISTRO */
+	/* *************************************************************** */
+
+	// se verifica que el nombre sea solo formado por letras o espacios en blanco,
+	// tambien usado para apellidos
+	private boolean validoNombre(String nombre) {
+<span class="nc" id="L422">		int longitud = nombre.toCharArray().length;</span>
+
+<span class="nc bnc" id="L424" title="All 2 branches missed.">		for (int i = 0; i &lt; longitud; i++) {</span>
+<span class="nc bnc" id="L425" title="All 4 branches missed.">			if (!Character.isLetter(nombre.toCharArray()[i]) &amp;&amp; !Character.isWhitespace(nombre.toCharArray()[i])) {</span>
+<span class="nc" id="L426">				return false;</span>
+			}
+		}
+
+<span class="nc" id="L430">		return true;</span>
+	}
+
+	// se verifica que la fecha sea valida
+	private boolean validofecha(String pfecha) {
+		try {
+
+<span class="nc" id="L437">			String[] parts = pfecha.split(&quot;\\/&quot;); // se divide el string pfecha en partes separadas por un /</span>
+<span class="nc bnc" id="L438" title="All 2 branches missed.">			if (parts.length != 3) { // se verifica que se el array surgido tiene tres elementos XX/XX/XXXX, sino</span>
+										// devuelve false
+<span class="nc" id="L440">				return false;</span>
+			} else {
+				int year; // año
+				int month; // mes [1,...,12]
+				int dayOfMonth; // día [1,...,31]
+<span class="nc" id="L445">				dayOfMonth = Integer.parseInt(parts[0]); // se parsea a int la primera parte XX/xx/xxxx, de string a int</span>
+<span class="nc" id="L446">				month = Integer.parseInt(parts[1]); // se parsea a int la segunda parte xx/XX/xxxx, de string a int</span>
+<span class="nc" id="L447">				year = Integer.parseInt(parts[2]); // se parsea a int la tercera parte xx/xx/XXXX, de string a int</span>
+<span class="nc bnc" id="L448" title="All 2 branches missed.">				if (year &lt; 1900) { // se verifica que el año sea mayor a 1900</span>
+<span class="nc" id="L449">					throw new IllegalArgumentException(&quot;Año inválido.&quot;);</span>
+				}
+
+<span class="nc" id="L452">				Calendar calendar = Calendar.getInstance(); // se combierte la fecha en un Calendar, que automaticamente</span>
+				// si al intentarlo no puede, lanza excepcion como fecha
+<span class="nc" id="L454">				calendar.setLenient(false);</span>
+<span class="nc" id="L455">				calendar.set(Calendar.YEAR, year); // no valida</span>
+<span class="nc" id="L456">				calendar.set(Calendar.MONTH, month - 1); // [0,...,11] (la clase Calendar trata asi los meses 0-11)</span>
+<span class="nc" id="L457">				calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);</span>
+<span class="nc" id="L458">				Date date = calendar.getTime(); // date es la fecha en formato Calendar XXXX/XX/XX</span>
+<span class="nc" id="L459">				Date date2 = Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant()); // fecha</span>
+																											// actual en
+																											// formato
+																											// Date
+<span class="nc bnc" id="L463" title="All 2 branches missed.">				if (date.after(date2)) { // se verifica que la fecha introducida no es posterior a la actual</span>
+<span class="nc" id="L464">					System.out.println(&quot;FECHA POSTERIOR A HOY&quot;);</span>
+<span class="nc" id="L465">					throw new IllegalArgumentException(&quot;Año inválido.&quot;);</span>
+
+				}
+<span class="nc" id="L468">				SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;); // se transforma la fecha formato Calendar a</span>
+																			// formato Date
+<span class="nc" id="L470">				System.out.println(sdf.format(date)); // dd/MM/yyyy //es decir, de XXXX/XX/XX a XX/XX/XXXX</span>
+<span class="nc" id="L471">				System.out.println(&quot;Fecha validada&quot;);</span>
+<span class="nc" id="L472">				System.out.println(&quot;La fecha actual es: &quot; + LocalDate.now());</span>
+<span class="nc" id="L473">				return true;</span>
+			}
+
+<span class="nc" id="L476">		} catch (Exception p) {</span>
+<span class="nc" id="L477">			System.out.println(&quot;FECHA NO VALIDA&quot;);</span>
+<span class="nc" id="L478">			return false;</span>
+		}
+
+	}
+
+	private boolean validoEmail(String email) {
+<span class="nc" id="L484">		Pattern pattern = Pattern.compile(&quot;^[a-zA-Z0-9]+((\\_|\\.)[a-zA-Z0-9]+)?@gmail\\.com$&quot;);</span>
+<span class="nc" id="L485">		Matcher mat = pattern.matcher(email);</span>
+<span class="nc bnc" id="L486" title="All 2 branches missed.">		if (mat.matches()) {</span>
+<span class="nc" id="L487">			System.out.println(&quot;Porfin metes un email correscto estupida&quot;);</span>
+
+<span class="nc" id="L489">		} else {</span>
+<span class="nc" id="L490">			System.out.println(&quot;Amiga que email de meirda es ese&quot;);</span>
+<span class="nc" id="L491">			return false;</span>
+		}
+<span class="nc" id="L493">		return true;</span>
+	}
+
+	public static boolean validoContraseña(String contraseña) {
+<span class="nc" id="L497">		Pattern pattern = Pattern.compile(&quot;^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&amp;?+=])(?=\\S+$).{8,}$&quot;);</span>
+<span class="nc" id="L498">		Matcher mat = pattern.matcher(contraseña);</span>
+<span class="nc bnc" id="L499" title="All 2 branches missed.">		if (mat.matches()) {</span>
+<span class="nc" id="L500">			System.out.println(&quot;Porfin metes una contraseña correcta estupida&quot;);</span>
+
+<span class="nc" id="L502">		} else {</span>
+<span class="nc" id="L503">			System.out.println(&quot;Amiga que contraseña de mierda es esa&quot;);</span>
+<span class="nc" id="L504">			return false;</span>
+		}
+<span class="nc" id="L506">		return true;</span>
+	}
+
+	// acepta cuentas bancarias del tipo: ES23 3434 2342 3423
+	private boolean validoCuentaB(String cuentab) {
+<span class="nc" id="L511">		Pattern pattern = Pattern.compile(&quot;^[A-Z]{2}[0-9]{2}\\s[0-9]{4}\\s[0-9]{4}\\s[0-9]{4}$&quot;);</span>
+<span class="nc" id="L512">		Matcher mat = pattern.matcher(cuentab);</span>
+<span class="nc bnc" id="L513" title="All 2 branches missed.">		if (mat.matches()) {</span>
+<span class="nc" id="L514">			System.out.println(&quot;El formato de la cuenta bancaria cumple el formato&quot;);</span>
+<span class="nc" id="L515">		} else {</span>
+<span class="nc" id="L516">			System.out.println(&quot;El formato de la cuenta bancaria es incorrecto&quot;);</span>
+<span class="nc" id="L517">			return false;</span>
+		}
+<span class="nc" id="L519">		return true;</span>
+	}
+
+	// +34(opcional) 123456789
+	private boolean validoNumero(String numero) {
+<span class="nc" id="L524">		Pattern pattern = Pattern.compile(&quot;^(\\+[0-9]+\\s)?[0-9]{9}$&quot;);</span>
+<span class="nc" id="L525">		Matcher mat = pattern.matcher(numero);</span>
+<span class="nc bnc" id="L526" title="All 2 branches missed.">		if (mat.matches()) {</span>
+<span class="nc" id="L527">			System.out.println(&quot;El formato del numero de telefono cumple el formato&quot;);</span>
+<span class="nc" id="L528">		} else {</span>
+<span class="nc" id="L529">			System.out.println(&quot;El formato del numero de telofono es incorrecto&quot;);</span>
+<span class="nc" id="L530">			return false;</span>
+		}
+<span class="nc" id="L532">		return true;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span>deleteEventDa2Test (19 Oct 2021 10:47:35)</div></body></html>

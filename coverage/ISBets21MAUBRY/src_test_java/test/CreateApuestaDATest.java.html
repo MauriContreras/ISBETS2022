@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>CreateApuestaDATest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">deleteEventDa2Test (19 Oct 2021 10:47:35)</a> &gt; <a href="../../index.html" class="el_group">ISBets21MAUBRY</a> &gt; <a href="../index.html" class="el_bundle">src/test/java</a> &gt; <a href="index.source.html" class="el_package">test</a> &gt; <span class="el_source">CreateApuestaDATest.java</span></div><h1>CreateApuestaDATest.java</h1><pre class="source lang-java linenums">package test;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import configuration.ConfigXML;
+import dataAccess.DataAccess;
+import domain.Forecast;
+import domain.Question;
+import domain.RegularUser;
+import exceptions.UserAlreadyExistException;
+import utility.TestUtilityDataAccess;
+
+<span class="nc" id="L15">class CreateApuestaDATest {</span>
+	
+<span class="nc" id="L17">	static DataAccess sut = new DataAccess(ConfigXML.getInstance().getDataBaseOpenMode().equals(&quot;initialize&quot;));;</span>
+<span class="nc" id="L18">	static TestUtilityDataAccess testDA = new TestUtilityDataAccess();</span>
+<span class="nc" id="L19">	RegularUser user = new RegularUser(&quot;name&quot;, &quot;pass&quot;, &quot;fname&quot;, &quot;lname&quot;, &quot;31/01&quot;, &quot;j@j.com&quot;, &quot;1212&quot;, 684123123, &quot;k.2.3&quot;, 20);</span>
+<span class="nc" id="L20">	Forecast fo = Mockito.mock(Forecast.class);</span>
+	/**/
+	@Test
+	@DisplayName(&quot;Test3: ValorApuesta Negativo&quot;)
+	public void test1(){
+<span class="nc" id="L25">		int actual = sut.createApuesta(fo, user,-10f);</span>
+<span class="nc" id="L26">		int expected = testDA.comprobarCreateApuesta_test3(fo, user, -12f);</span>
+<span class="nc" id="L27">		assertEquals(actual, expected);</span>
+		
+<span class="nc" id="L29">	}</span>
+	
+	@Test
+	@DisplayName(&quot;Test4: ValorApuesta menor a valorApuestaMinima&quot;)
+	public void test2() {
+<span class="nc" id="L34">		Question q = new Question();</span>
+<span class="nc" id="L35">		q.setBetMinimum(10); //apuesta minima 10</span>
+<span class="nc" id="L36">		Forecast f = new Forecast(&quot;nameForecaste&quot;, 10, q);</span>
+		
+<span class="nc" id="L38">		int actual = sut.createApuesta(f, user, 3f);</span>
+<span class="nc" id="L39">		int expected = testDA.comprobarCreateApuesta_test4(f, user, 3f);</span>
+		
+<span class="nc" id="L41">		assertEquals(expected, actual);</span>
+<span class="nc" id="L42">	}</span>
+	
+	@Test
+	@DisplayName(&quot;Test5: ValorApuesta mayor a SaldoUsuario&quot;)
+	public void test3() throws UserAlreadyExistException {
+<span class="nc" id="L47">		Question q = new Question();</span>
+<span class="nc" id="L48">		q.setBetMinimum(10); //apuesta minima 10</span>
+<span class="nc" id="L49">		Forecast f = new Forecast(&quot;nameForecaste&quot;, 10, q);</span>
+<span class="nc" id="L50">		sut.deleteUser(&quot;name&quot;);</span>
+<span class="nc" id="L51">		sut.registrar(&quot;name&quot;, &quot;pass&quot;, &quot;fname&quot;, &quot;lname&quot;, &quot;31/01&quot;, &quot;j@j.com&quot;, &quot;1212&quot;, 684123123, &quot;k.2.3&quot;, 20);</span>
+		
+<span class="nc" id="L53">		int actual = sut.createApuesta(f, user, 25f);</span>
+<span class="nc" id="L54">		int expected = 2;</span>
+<span class="nc" id="L55">		assertEquals(expected, actual);</span>
+<span class="nc" id="L56">		sut.deleteUser(&quot;name&quot;);</span>
+<span class="nc" id="L57">	}</span>
+	
+	/**/
+	@Test
+	@DisplayName(&quot;Test9: Apuesta Creada&quot;)
+	public void test4() throws UserAlreadyExistException {
+		
+<span class="nc" id="L64">		Question q = new Question();</span>
+<span class="nc" id="L65">		q.setBetMinimum(10);</span>
+<span class="nc" id="L66">		Forecast f = new Forecast(&quot;nombreForecast&quot;, (float)12, q);</span>
+		
+<span class="nc" id="L68">		int actual = sut.createApuesta(f, user, 15f);</span>
+<span class="nc" id="L69">		int expected = 1;</span>
+<span class="nc" id="L70">		assertEquals(expected, actual);</span>
+<span class="nc" id="L71">	}</span>
+	
+	
+	@Test
+	@DisplayName(&quot;Test10: Fallo en creación de apuesta, Forecast null&quot;)
+	public void test5() {
+<span class="nc" id="L77">		Question qu = new Question();</span>
+<span class="nc" id="L78">		qu.setBetMinimum(2); </span>
+		
+<span class="nc" id="L80">		assertThrows(Exception.class,() -&gt; sut.createApuesta(null, user, 12f));</span>
+<span class="nc" id="L81">	}</span>
+
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span>deleteEventDa2Test (19 Oct 2021 10:47:35)</div></body></html>

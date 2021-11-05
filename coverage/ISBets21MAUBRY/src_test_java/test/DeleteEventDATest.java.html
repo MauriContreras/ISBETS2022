@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>DeleteEventDATest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">deleteEventDa2Test (19 Oct 2021 10:47:35)</a> &gt; <a href="../../index.html" class="el_group">ISBets21MAUBRY</a> &gt; <a href="../index.html" class="el_bundle">src/test/java</a> &gt; <a href="index.source.html" class="el_package">test</a> &gt; <span class="el_source">DeleteEventDATest.java</span></div><h1>DeleteEventDATest.java</h1><pre class="source lang-java linenums">package test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Vector;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import configuration.ConfigXML;
+import dataAccess.DataAccess;
+import domain.Event;
+import domain.Question;
+import utility.TestUtilityDataAccess;
+
+<span class="nc" id="L22">class DeleteEventDATest {</span>
+
+<span class="nc" id="L24">	static DataAccess sut = new DataAccess(ConfigXML.getInstance().getDataBaseOpenMode().equals(&quot;initialize&quot;));;</span>
+<span class="nc" id="L25">	static TestUtilityDataAccess testDA = new TestUtilityDataAccess();</span>
+
+	private Event ev, ev2;
+
+	@BeforeEach
+	public void setUp() {
+<span class="nc" id="L31">		sut = new DataAccess(ConfigXML.getInstance().getDataBaseOpenMode().equals(&quot;initialize&quot;));</span>
+<span class="nc" id="L32">		testDA = new TestUtilityDataAccess();</span>
+<span class="nc" id="L33">	}</span>
+
+	@Test
+	// sut.deleteEvent: Se elimina un evento pero este evento no tiene preguntas
+	// asociadas ya que no hay ninguna en la BD
+	// asociadas
+	void test1() {
+
+		try {
+			// configure the state of the system (create object in the dabatase)
+<span class="nc" id="L43">			SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</span>
+<span class="nc" id="L44">			Date oneDate = sdf.parse(&quot;05/10/2022&quot;);</span>
+<span class="nc" id="L45">			String eventText = &quot;Event 1 Text Test 2&quot;;</span>
+
+<span class="nc" id="L47">			testDA.open();</span>
+<span class="nc" id="L48">			ev = testDA.addEvent(eventText, oneDate);</span>
+<span class="nc" id="L49">			assertEquals(0, ev.getQuestions().size());</span>
+<span class="nc" id="L50">			testDA.close();</span>
+
+			// invoke System Under Test (sut) and Assert
+<span class="nc" id="L53">			Vector&lt;Event&gt; vecti = new Vector&lt;Event&gt;();</span>
+<span class="nc" id="L54">			Vector&lt;Question&gt; vecti2 = new Vector&lt;Question&gt;();</span>
+<span class="nc" id="L55">			assertTrue(sut.deleteEvent(ev));</span>
+			// el resultado es el esperado pero aun asi da error
+			// assertEquals(ev2, sut.getAllEvents());
+<span class="nc" id="L58">			assertEquals(0, sut.getAllEvents().size());</span>
+<span class="nc" id="L59">			assertEquals(0, sut.getAllQuestions().size());</span>
+
+<span class="nc" id="L61">			testDA.open();</span>
+<span class="nc" id="L62">			boolean eliminado = testDA.removeEvent(ev);</span>
+			
+<span class="nc" id="L64">			testDA.close();</span>
+<span class="nc" id="L65">			assertFalse(eliminado);</span>
+
+<span class="nc" id="L67">		} catch (ParseException e) {</span>
+<span class="nc" id="L68">			fail(&quot;It should be correct: check the date format&quot;);</span>
+		}
+
+		// Remove the created objects in the database (cascade removing)
+<span class="nc" id="L72">		testDA.open();</span>
+<span class="nc" id="L73">		boolean b = testDA.removeEvent(ev);</span>
+<span class="nc" id="L74">		System.out.println(&quot;Removed event &quot; + b);</span>
+
+<span class="nc" id="L76">		sut.deleteAllQuestions();</span>
+		
+<span class="nc" id="L78">		testDA.close();</span>
+
+<span class="nc" id="L80">	}</span>
+
+	@Test
+	// sut.deleteEvent: Se elimina un evento pero este evento no tiene preguntas
+	// asociadas, sin embargo en este caso si hay preguntas en la BD
+	// asociadas
+	void test2() {
+
+		try {
+			// configure the state of the system (create object in the dabatase)
+<span class="nc" id="L90">			SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</span>
+<span class="nc" id="L91">			Date oneDate = sdf.parse(&quot;05/10/2022&quot;);</span>
+<span class="nc" id="L92">			String eventText = &quot;Event1 Text Test2&quot;;</span>
+<span class="nc" id="L93">			Date twoDate = sdf.parse(&quot;05/10/2022&quot;);</span>
+<span class="nc" id="L94">			String eventText2 = &quot;Event2 Text Test2&quot;;</span>
+<span class="nc" id="L95">			String queryText = &quot;Query1 Text Test2 &quot;;</span>
+<span class="nc" id="L96">			float qty = 0f;</span>
+
+<span class="nc" id="L98">			testDA.open();</span>
+<span class="nc" id="L99">			ev = testDA.addEvent(eventText, oneDate);</span>
+<span class="nc" id="L100">			ev2 = testDA.addEventWithQuestion(eventText2, twoDate, queryText, qty);</span>
+<span class="nc" id="L101">			assertEquals(0, ev.getQuestions().size());</span>
+<span class="nc" id="L102">			assertEquals(1, ev2.getQuestions().size());</span>
+<span class="nc" id="L103">			testDA.close();</span>
+
+			// invoke System Under Test (sut) and Assert
+<span class="nc" id="L106">			Vector&lt;Event&gt; vecti = new Vector&lt;Event&gt;();</span>
+<span class="nc" id="L107">			Vector&lt;Question&gt; vecti2 = new Vector&lt;Question&gt;();</span>
+<span class="nc" id="L108">			assertTrue(sut.deleteEvent(ev));</span>
+			// el resultado es el esperado pero aun asi da error
+			// assertEquals(ev2, sut.getAllEvents());
+<span class="nc" id="L111">			assertEquals(1, sut.getAllEvents().size());</span>
+<span class="nc" id="L112">			assertEquals(1, sut.getAllQuestions().size());</span>
+
+<span class="nc" id="L114">			testDA.open();</span>
+<span class="nc" id="L115">			boolean eliminado = testDA.removeEvent(ev);</span>
+<span class="nc" id="L116">			testDA.close();</span>
+<span class="nc" id="L117">			assertFalse(eliminado);</span>
+
+<span class="nc" id="L119">		} catch (ParseException e) {</span>
+<span class="nc" id="L120">			fail(&quot;It should be correct: check the date format&quot;);</span>
+		}
+
+		// Remove the created objects in the database (cascade removing)
+<span class="nc" id="L124">		testDA.open();</span>
+<span class="nc" id="L125">		boolean b = testDA.removeEvent(ev);</span>
+<span class="nc" id="L126">		System.out.println(&quot;Removed event &quot; + b);</span>
+<span class="nc" id="L127">		boolean b2 = testDA.removeEvent(ev2);</span>
+<span class="nc" id="L128">		System.out.println(&quot;Removed event &quot; + b2);</span>
+<span class="nc" id="L129">		boolean b3 = testDA.removeQuestion(19);</span>
+<span class="nc" id="L130">		System.out.println(&quot;Removed event &quot; + b3);</span>
+<span class="nc" id="L131">		sut.deleteAllQuestions();</span>
+<span class="nc" id="L132">		testDA.close();</span>
+
+<span class="nc" id="L134">	}</span>
+
+	@Test
+	// sut.deleteEvent: Existe un solo evento y es el que queremos eliminar. Además
+	// este evento tiene una pregunta asociada
+	void test3() {
+
+		try {
+			// configure the state of the system (create object in the dabatase)
+<span class="nc" id="L143">			SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</span>
+<span class="nc" id="L144">			Date oneDate = sdf.parse(&quot;05/10/2022&quot;);</span>
+<span class="nc" id="L145">			String eventText = &quot;Event1 Text Test3&quot;;</span>
+<span class="nc" id="L146">			String queryText = &quot;Query1 Text Test3&quot;;</span>
+<span class="nc" id="L147">			Float betMinimum = 2f;</span>
+
+<span class="nc" id="L149">			testDA.open();</span>
+<span class="nc" id="L150">			ev = testDA.addEventWithQuestion(eventText, oneDate, queryText, betMinimum);</span>
+<span class="nc" id="L151">			ev.addQuestion(&quot;why?&quot;, 5f);</span>
+<span class="nc" id="L152">			assertEquals(2, ev.getQuestions().size());</span>
+<span class="nc" id="L153">			testDA.close();</span>
+
+			// invoke System Under Test (sut) and Assert
+<span class="nc" id="L156">			Vector&lt;Event&gt; vecti = new Vector&lt;Event&gt;();</span>
+<span class="nc" id="L157">			Vector&lt;Question&gt; vecti2 = new Vector&lt;Question&gt;();</span>
+<span class="nc" id="L158">			assertTrue(sut.deleteEvent(ev));</span>
+<span class="nc" id="L159">			assertEquals(vecti, sut.getAllEvents());</span>
+<span class="nc" id="L160">			assertEquals(vecti2, sut.getAllQuestions());</span>
+			
+
+<span class="nc" id="L163">		} catch (ParseException e) {</span>
+<span class="nc" id="L164">			fail(&quot;It should be correct: check the date format&quot;);</span>
+		}
+
+		// Remove the created objects in the database (cascade removing)
+<span class="nc" id="L168">		testDA.open();</span>
+<span class="nc" id="L169">		boolean b = testDA.removeEvent(ev);</span>
+<span class="nc" id="L170">		System.out.println(&quot;Removed event &quot; + b);</span>
+<span class="nc" id="L171">		sut.deleteAllQuestions();</span>
+<span class="nc" id="L172">		testDA.close();</span>
+
+<span class="nc" id="L174">	}</span>
+
+	@Test
+	// sut.deleteEvent: Existe más de un evento y cada uno tiene preguntas, solo se borraran el evento seleccionado y con el sus preguntas
+	void test4() {
+
+		try {
+			// configure the state of the system (create object in the dabatase)
+<span class="nc" id="L182">			SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</span>
+<span class="nc" id="L183">			Date oneDate = sdf.parse(&quot;05/10/2022&quot;);</span>
+<span class="nc" id="L184">			Date twoDate = sdf.parse(&quot;05/10/2022&quot;);</span>
+<span class="nc" id="L185">			String eventText = &quot;Event1 Text Test4&quot;;</span>
+<span class="nc" id="L186">			String queryText = &quot;Query1 Text Test4&quot;;</span>
+<span class="nc" id="L187">			String eventText2 = &quot;Event2 Text Test4&quot;;</span>
+<span class="nc" id="L188">			String queryText2 = &quot;Query2 Text2 Test4&quot;;</span>
+<span class="nc" id="L189">			Float betMinimum = 2f;</span>
+<span class="nc" id="L190">			Float betMinimum2 = 4f;</span>
+
+<span class="nc" id="L192">			testDA.open();</span>
+<span class="nc" id="L193">			ev = testDA.addEventWithQuestion(eventText, oneDate, queryText, betMinimum);</span>
+<span class="nc" id="L194">			ev2 = testDA.addEventWithQuestion(eventText2, twoDate, queryText2, betMinimum2);</span>
+<span class="nc" id="L195">			ev.addQuestion(&quot;why?&quot;, 5f);</span>
+<span class="nc" id="L196">			assertEquals(2, ev.getQuestions().size());</span>
+<span class="nc" id="L197">			assertEquals(1, ev2.getQuestions().size());</span>
+<span class="nc" id="L198">			testDA.close();</span>
+
+			// invoke System Under Test (sut) and Assert
+//			Vector&lt;Event&gt; vecti = new Vector&lt;Event&gt;();
+//			Vector&lt;Question&gt; vecti2 = new Vector&lt;Question&gt;();
+<span class="nc" id="L203">			assertTrue(sut.deleteEvent(ev));</span>
+<span class="nc" id="L204">			assertEquals(1, sut.getAllEvents().size());</span>
+<span class="nc" id="L205">			assertEquals(1, sut.getAllQuestions().size());</span>
+			
+
+<span class="nc" id="L208">		} catch (ParseException e) {</span>
+<span class="nc" id="L209">			fail(&quot;It should be correct: check the date format&quot;);</span>
+		}
+
+		// Remove the created objects in the database (cascade removing)
+<span class="nc" id="L213">		testDA.open();</span>
+<span class="nc" id="L214">		boolean b = testDA.removeEvent(ev);</span>
+<span class="nc" id="L215">		System.out.println(&quot;Removed event &quot; + b);</span>
+<span class="nc" id="L216">		boolean b2 = testDA.removeEvent(ev2);</span>
+<span class="nc" id="L217">		System.out.println(&quot;Removed event &quot; + b2);</span>
+<span class="nc" id="L218">		testDA.removeQuestion(25);</span>
+<span class="nc" id="L219">		testDA.removeQuestion(21);</span>
+<span class="nc" id="L220">		testDA.removeQuestion(23);</span>
+<span class="nc" id="L221">		sut.deleteAllQuestions();</span>
+<span class="nc" id="L222">		testDA.close();</span>
+
+<span class="nc" id="L224">	}</span>
+
+//	@Test
+//	// sut.createQuestion: The event has NOT one question with a queryText.
+//	void test2() {
+//		try {
+//
+//			// configure the state of the system (create object in the dabatase)
+//			SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);
+//			Date oneDate = sdf.parse(&quot;05/10/2022&quot;);
+//			String eventText = &quot;Event Text&quot;;
+//			Float betMinimum = 2f;
+//
+//			testDA.open();
+//			ev = testDA.addEventWithQuestion(eventText, oneDate, &quot;otra&quot;, 10.0f);
+//			testDA.close();
+//
+//			String queryText = &quot;Query Text&quot;;
+//			try {
+//				// invoke System Under Test (sut)
+//				Question q = sut.createQuestion(ev, queryText, betMinimum);
+//
+//				// verify the results returned
+//				assertNotNull(q);
+//				assertEquals(queryText, q.getQuestion());
+//				assertEquals(betMinimum, q.getBetMinimum());
+//
+//				// verify DB
+//				testDA.open();
+//				Vector&lt;Event&gt; es = testDA.getEvents(oneDate);
+//				testDA.close();
+//
+//				assertEquals(1, es.size());
+//				assertEquals(2, es.get(0).getQuestions().size());
+//				assertEquals(queryText, es.get(0).getQuestions().get(1).getQuestion());
+//				assertEquals(betMinimum, es.get(0).getQuestions().get(1).getBetMinimum());
+//			} catch (QuestionAlreadyExist e) {
+//				// if the program goes to this point fail
+//				fail();
+//			} finally {
+//				// Remove the created objects in the database (cascade removing)
+//				testDA.open();
+//				boolean b = testDA.removeEvent(ev);
+//				testDA.close();
+//				System.out.println(&quot;Finally &quot; + b);
+//			}
+//		} catch (ParseException e) {
+//			fail(&quot;It should be correct: check the date format&quot;);
+//		}
+//
+//	}
+//
+//	@Test
+//	// sut.createQuestion: The event is null.
+//	void test3() {
+//
+//		// configure the state of the system (create object in the dabatase)
+//		Float betMinimum = 2f;
+//		String queryText = &quot;Query Text&quot;;
+//		try {
+//			// invoke System Under Test (sut)
+//			Question q = sut.createQuestion(null, queryText, betMinimum);
+//
+//			// verify the results returned
+//			// he modificado el createQuestion()
+//			assertNull(q);
+//
+//		} catch (QuestionAlreadyExist e) {
+//			// if the program goes to this point fail
+//			fail(&quot;The event is null. Impossible to search for a question in it&quot;);
+//		}
+//	}
+//
+//	@Test
+//	// sut.createQuestion: The queryText is null.
+//	void test4() {
+//		try {
+//
+//			// configure the state of the system (create object in the dabatase)
+//			SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);
+//			Date oneDate = sdf.parse(&quot;05/10/2022&quot;);
+//			String eventText = &quot;Event Text&quot;;
+//			Float betMinimum = 2f;
+//
+//			testDA.open();
+//			ev = testDA.addEventWithQuestion(eventText, oneDate, &quot;una&quot;, 0.0f);
+//			System.out.println(&quot;**************&quot; + ev.getEventNumber());
+//			testDA.close();
+//
+//			String queryText = null;
+//			try {
+//				// invoke System Under Test (sut)
+//				Question q = sut.createQuestion(ev, queryText, betMinimum);
+//
+//				// verify the results returned
+//				assertNull(q);
+//
+//				// verify DB
+//				// puede que en algun momento de la llamada a createQuestión la BD se cierre,
+//				// por ello la vuelvo a abrir, puede ser porque en la linea 147 se cierre?
+//				testDA.open();
+//				Vector&lt;Event&gt; es = testDA.getEvents(oneDate);
+//				testDA.close();
+//
+//				assertTrue(es.contains(ev));
+//
+//			} catch (QuestionAlreadyExist e) {
+//				// if the program goes to this point fail
+//				fail(&quot;No, the question is null&quot;);
+//			} finally {
+//				// Remove the created objects in the database (cascade removing)
+//				testDA.open();
+//				boolean b = testDA.removeEvent(ev);
+//				System.out.println(&quot;Finally &quot; + b);
+//				testDA.close();
+//			}
+//		} catch (ParseException e) {
+//			fail(&quot;It should be correct: check the date format&quot;);
+//		}
+//
+//	}
+//
+//	@Test
+//	// sut.createQuestion: The betMinimum is negative.
+//	void test5() {
+//		try {
+//
+//			// configure the state of the system (create object in the dabatase)
+//			SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);
+//			Date oneDate = sdf.parse(&quot;05/10/2022&quot;);
+//			String eventText = &quot;Event Text&quot;;
+//			Float betMinimum = -2f;
+//
+//			testDA.open();
+//			ev = testDA.addEventWithQuestion(eventText, oneDate, &quot;otra&quot;, 0.0f);
+//			testDA.close();
+//
+//			String queryText = &quot;Query Text&quot;;
+//			try {
+//				// invoke System Under Test (sut)
+//				Question q = sut.createQuestion(ev, queryText, betMinimum);
+//
+//				// verify the results returned
+//				assertNotNull(q);
+//				assertEquals(queryText, q.getQuestion());
+//				assertEquals(betMinimum, q.getBetMinimum(), 0);
+//
+//				// verify DB
+//				testDA.open();
+//				Vector&lt;Event&gt; es = testDA.getEvents(oneDate);
+//				testDA.close();
+//				assertEquals(1, es.size());
+//				assertEquals(eventText, es.get(0).getDescription());
+//				assertEquals(oneDate, es.get(0).getEventDate());
+//
+//			} catch (QuestionAlreadyExist e) {
+//				// if the program goes to this point fail
+//				fail();
+//			} finally {
+//				// Remove the created objects in the database (cascade removing)
+//				testDA.open();
+//				boolean b = testDA.removeEvent(ev);
+//				testDA.close();
+//				System.out.println(&quot;Finally &quot; + b);
+//			}
+//		} catch (ParseException e) {
+//			fail(&quot;It should be correct: check the date format&quot;);
+//		}
+//
+//	}
+
+	@Test
+	// sut.deleteEvent: The event does not belong to the database.
+	void test5() {
+		try {
+			// configure the state of the system (create object in the dabatase)
+<span class="nc" id="L400">			SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</span>
+<span class="nc" id="L401">			Date twoDate = sdf.parse(&quot;05/10/2022&quot;);</span>
+<span class="nc" id="L402">			String eventText2 = &quot;Event 1 Text Test 5&quot;;</span>
+<span class="nc" id="L403">			Event ev2 = new Event(eventText2, twoDate);</span>
+
+<span class="nc" id="L405">			assertFalse(sut.deleteEvent(ev2));</span>
+
+<span class="nc" id="L407">		} catch (ParseException e) {</span>
+<span class="nc" id="L408">			fail(&quot;It should be correct: check the date format&quot;);</span>
+		}
+<span class="nc" id="L410">		sut.deleteAllQuestions();</span>
+		// Remove the created objects in the database (cascade removing)
+//		testDA.open();
+//		boolean b = testDA.removeEvent(ev);
+//		System.out.println(&quot;Removed event &quot; + b);
+//		testDA.close();
+<span class="nc" id="L416">	}</span>
+
+	@Test
+	// sut.deleteEvent: The event is null.
+	void test6() {
+		try {
+			// configure the state of the system (create object in the dabatase)
+<span class="nc" id="L423">			SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</span>
+<span class="nc" id="L424">			Date oneDate = sdf.parse(&quot;05/10/2022&quot;);</span>
+<span class="nc" id="L425">			String eventText = &quot;Event1 Text Test6&quot;;</span>
+<span class="nc" id="L426">			Event ev = new Event(null, eventText, oneDate);</span>
+
+			// invoke System Under Test (sut)
+<span class="nc" id="L429">			Boolean eliminado = sut.deleteEvent(ev);</span>
+
+			// verify the results returned
+			// he modificado el createQuestion()
+<span class="nc" id="L433">			assertFalse(eliminado);</span>
+
+<span class="nc" id="L435">		} catch (ParseException e) {</span>
+<span class="nc" id="L436">			fail(&quot;It should be correct: check the date format&quot;);</span>
+		}
+<span class="nc" id="L438">		sut.deleteAllQuestions();</span>
+<span class="nc" id="L439">	}</span>
+
+}
+
+////para los mock
+////define Argument captors
+//			ArgumentCaptor&lt;Event&gt; eventCaptor = ArgumentCaptor.forClass(Event.class);
+//			// verify call numbers and capture parameters
+//			Mockito.verify(sut, Mockito.times(1)).deleteEvent(eventCaptor.capture());
+//			// verify parameter values as usual using JUnit asserts
+//			assertEquals(ev, eventCaptor.getValue());
+//
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span>deleteEventDa2Test (19 Oct 2021 10:47:35)</div></body></html>

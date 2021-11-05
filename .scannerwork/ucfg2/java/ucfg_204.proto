@@ -1,16 +1,35 @@
 
-5configuration.ConfigXML#getLocale()Ljava/lang/String;q
-gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java1 1("1*∆
-1q
-gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java2	 2(Ω
-∫
-q
-gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java2	 2(
-%0java.lang.String"__id*'*%
-configuration.ConfigXML"
-locale"ç
-q
-gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java2 2(
-
-%0java.lang.StringB
-configuration.ConfigXML
+DdataAccess.DataAccess#doLogin(Ljava/lang/String;Ljava/lang/String;)Zd
+XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java±
+ ±
+("3"9"1*Ÿ
+3d
+XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java¡
+ ¡
+("n
+d
+XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java¡
+ ¡
+(
+""*Ÿ
+9d
+XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java∏
+ ∏
+("n
+d
+XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java∏
+ ∏
+(
+""*Ÿ
+1d
+XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java≈
+	 ≈
+("n
+d
+XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java≈
+ ≈
+(
+"":
+usernamejava.lang.String:
+passjava.lang.StringB
+dataAccess.DataAccess

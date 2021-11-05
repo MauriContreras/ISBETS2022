@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>BLFacadeImplementation.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">deleteEventDa2Test (19 Oct 2021 10:47:35)</a> &gt; <a href="../../index.html" class="el_group">ISBets21MAUBRY</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">businessLogic</a> &gt; <span class="el_source">BLFacadeImplementation.java</span></div><h1>BLFacadeImplementation.java</h1><pre class="source lang-java linenums">package businessLogic;
+
+//hola
+import java.util.Date;
+import java.util.ResourceBundle;
+import java.util.Vector;
+
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+
+import configuration.ConfigXML;
+import configuration.UtilDate;
+import dataAccess.DataAccess;
+import domain.AdminUser;
+import domain.Bet;
+import domain.Event;
+import domain.Forecast;
+import domain.Question;
+import domain.RegularUser;
+import domain.User;
+import exceptions.EventFinished;
+import exceptions.QuestionAlreadyExist;
+import exceptions.UserAlreadyExistException;
+
+/**
+ * It implements the business logic as a web service.
+ */
+@WebService(endpointInterface = &quot;businessLogic.BLFacade&quot;)
+public class BLFacadeImplementation implements BLFacade {
+	DataAccess dbManager;
+
+<span class="nc" id="L32">	public BLFacadeImplementation() {</span>
+<span class="nc" id="L33">		System.out.println(&quot;Creating BLFacadeImplementation instance&quot;);</span>
+<span class="nc" id="L34">		ConfigXML c = ConfigXML.getInstance();</span>
+
+<span class="nc bnc" id="L36" title="All 2 branches missed.">		if (c.getDataBaseOpenMode().equals(&quot;initialize&quot;)) {</span>
+<span class="nc" id="L37">			dbManager = new DataAccess(c.getDataBaseOpenMode().equals(&quot;initialize&quot;));</span>
+<span class="nc" id="L38">			dbManager.initializeDB();</span>
+<span class="nc" id="L39">			dbManager.close();</span>
+		}
+
+<span class="nc" id="L42">	}</span>
+
+<span class="nc" id="L44">	public BLFacadeImplementation(DataAccess da) {</span>
+
+<span class="nc" id="L46">		System.out.println(&quot;Creating BLFacadeImplementation instance with DataAccess parameter&quot;);</span>
+<span class="nc" id="L47">		ConfigXML c = ConfigXML.getInstance();</span>
+
+<span class="nc bnc" id="L49" title="All 2 branches missed.">		if (c.getDataBaseOpenMode().equals(&quot;initialize&quot;)) {</span>
+<span class="nc" id="L50">			da.open(true);</span>
+<span class="nc" id="L51">			da.initializeDB();</span>
+<span class="nc" id="L52">			da.close();</span>
+
+		}
+<span class="nc" id="L55">		dbManager = da;</span>
+<span class="nc" id="L56">	}</span>
+
+	/**
+	 * This method creates a question for an event, with a question text and the
+	 * minimum bet
+	 * 
+	 * @param event      to which question is added
+	 * @param question   text of the question
+	 * @param betMinimum minimum quantity of the bet
+	 * @return the created question, or null, or an exception
+	 * @throws EventFinished        if current data is after data of the event
+	 * @throws QuestionAlreadyExist if the same question already exists for the
+	 *                              event
+	 */
+	@Override
+	@WebMethod
+	public Question createQuestion(Event event, String question, float betMinimum)
+			throws EventFinished, QuestionAlreadyExist {
+
+		// The minimum bed must be greater than 0
+<span class="nc" id="L76">		dbManager.open(false);</span>
+<span class="nc" id="L77">		Question qry = null;</span>
+
+<span class="nc bnc" id="L79" title="All 2 branches missed.">		if (new Date().compareTo(event.getEventDate()) &gt; 0)</span>
+<span class="nc" id="L80">			throw new EventFinished(ResourceBundle.getBundle(&quot;Etiquetas&quot;).getString(&quot;ErrorEventHasFinished&quot;));</span>
+
+<span class="nc" id="L82">		qry = dbManager.createQuestion(event, question, betMinimum);</span>
+
+<span class="nc" id="L84">		dbManager.close();</span>
+
+<span class="nc" id="L86">		return qry;</span>
+	};
+
+	@Override
+	public Vector&lt;Question&gt; getAllQuestions() {
+<span class="nc" id="L91">		dbManager.open(false);</span>
+<span class="nc" id="L92">		Vector&lt;Question&gt; questions = dbManager.getAllQuestions();</span>
+<span class="nc" id="L93">		dbManager.close();</span>
+<span class="nc" id="L94">		return questions;</span>
+	}
+
+	@Override
+	public boolean deleteEvent(Event evento) {
+<span class="nc" id="L99">		dbManager.open(false);</span>
+<span class="nc" id="L100">		boolean res = dbManager.deleteEvent(evento);</span>
+<span class="nc" id="L101">		dbManager.close();</span>
+<span class="nc" id="L102">		return res;</span>
+	}
+
+	/**
+	 * This method invokes the data access to retrieve the events of a given date
+	 * 
+	 * @param date in which events are retrieved
+	 * @return collection of events
+	 */
+	@Override
+	@WebMethod
+	public Vector&lt;Event&gt; getEvents(Date date) {
+<span class="nc" id="L114">		dbManager.open(false);</span>
+<span class="nc" id="L115">		Vector&lt;Event&gt; events = dbManager.getEvents(date);</span>
+<span class="nc" id="L116">		dbManager.close();</span>
+<span class="nc" id="L117">		return events;</span>
+	}
+
+	/**
+	 * This method invokes the data access to retrieve the events of a given date
+	 * 
+	 * @param date in which events are retrieved
+	 * @return collection of events
+	 */
+	@Override
+	@WebMethod
+	public Vector&lt;Event&gt; getAllEvents() {
+<span class="nc" id="L129">		dbManager.open(false);</span>
+<span class="nc" id="L130">		Vector&lt;Event&gt; events = dbManager.getAllEvents();</span>
+<span class="nc" id="L131">		dbManager.close();</span>
+<span class="nc" id="L132">		return events;</span>
+	}
+
+	/**
+	 * This method invokes the data access to retrieve the dates a month for which
+	 * there are events
+	 * 
+	 * @param date of the month for which days with events want to be retrieved
+	 * @return collection of dates
+	 */
+	@Override
+	@WebMethod
+	public Vector&lt;Date&gt; getEventsMonth(Date date) {
+<span class="nc" id="L145">		dbManager.open(false);</span>
+<span class="nc" id="L146">		Vector&lt;Date&gt; dates = dbManager.getEventsMonth(date);</span>
+<span class="nc" id="L147">		dbManager.close();</span>
+<span class="nc" id="L148">		return dates;</span>
+	}
+
+	public void close() {
+<span class="nc" id="L152">		DataAccess dB4oManager = new DataAccess(false);</span>
+
+<span class="nc" id="L154">		dB4oManager.close();</span>
+
+<span class="nc" id="L156">	}</span>
+
+	/**
+	 * This method invokes the data access to initialize the database with some
+	 * events and questions. It is invoked only when the option &quot;initialize&quot; is
+	 * declared in the tag dataBaseOpenMode of resources/config.xml file
+	 */
+	@Override
+	@WebMethod
+	public void initializeBD() {
+<span class="nc" id="L166">		dbManager.open(false);</span>
+<span class="nc" id="L167">		dbManager.initializeDB();</span>
+<span class="nc" id="L168">		dbManager.close();</span>
+<span class="nc" id="L169">	}</span>
+
+//	@Override
+//	public RegularUser login(String userName, String password)
+//			throws UserDoesNotExistException, IncorrectPassException {
+//		dbManager.open(false);
+//		User login = dbManager.login(userName, password);
+//		dbManager.close();
+//		return login;
+//	}
+
+//	public boolean validoUsuario(String puser) {
+//		dbManager.open(false);
+//		boolean usuarioBD = dbManager.validoUsuario(puser);
+//		dbManager.close();
+//		return usuarioBD;
+//	}
+
+	@Override
+	public RegularUser registrar(String user, String pass, String name, String lastName, String birthDate, String email,
+			String account, Integer numb, String address, float balance) throws UserAlreadyExistException {
+<span class="nc" id="L190">		dbManager.open(false);</span>
+<span class="nc" id="L191">		RegularUser u = dbManager.registrar(user, pass, name, lastName, birthDate, email, account, numb, address,</span>
+<span class="nc" id="L192">				balance);</span>
+<span class="nc" id="L193">		dbManager.close();</span>
+<span class="nc" id="L194">		return u;</span>
+	}
+
+	@Override
+	public boolean insertEvent(Event pEvento) {
+<span class="nc" id="L199">		dbManager.open(false);</span>
+<span class="nc" id="L200">		boolean inserted = dbManager.insertEvent(pEvento);</span>
+<span class="nc" id="L201">		dbManager.close();</span>
+
+<span class="nc" id="L203">		return inserted;</span>
+	}
+
+	@Override
+	public int getNumberEvents() {
+<span class="nc" id="L208">		dbManager.open(false);</span>
+<span class="nc" id="L209">		int n = dbManager.getNumberEvents();</span>
+<span class="nc" id="L210">		dbManager.close();</span>
+<span class="nc" id="L211">		return n;</span>
+	}
+
+	@Override
+	public boolean existEvent(Event event) {
+<span class="nc" id="L216">		dbManager.open(false);</span>
+<span class="nc" id="L217">		boolean result = dbManager.existEvent(event);</span>
+<span class="nc" id="L218">		dbManager.close();</span>
+<span class="nc" id="L219">		return result;</span>
+	}
+
+	@Override
+	public int getNumberForecasts() {
+<span class="nc" id="L224">		dbManager.open(false);</span>
+<span class="nc" id="L225">		int n = dbManager.getNumberForecasts();</span>
+<span class="nc" id="L226">		dbManager.close();</span>
+<span class="nc" id="L227">		return n;</span>
+	}
+
+	@Override
+	public boolean existForecast(Forecast f) {
+<span class="nc" id="L232">		dbManager.open(false);</span>
+<span class="nc" id="L233">		boolean result = dbManager.existForecast(f);</span>
+<span class="nc" id="L234">		dbManager.close();</span>
+<span class="nc" id="L235">		return result;</span>
+	}
+
+	@Override
+	public boolean insertForecast(Question question, String forecast, float fee) {
+<span class="nc" id="L240">		dbManager.open(false);</span>
+<span class="nc" id="L241">		Forecast inserted = dbManager.insertForecast(question, forecast, fee);</span>
+<span class="nc bnc" id="L242" title="All 2 branches missed.">		if (inserted == null) {</span>
+<span class="nc" id="L243">			return false;</span>
+		}
+<span class="nc" id="L245">		dbManager.close();</span>
+<span class="nc" id="L246">		return true;</span>
+	}
+
+	@Override
+	public Vector&lt;Forecast&gt; getForecasts() {
+<span class="nc" id="L251">		dbManager.open(false);</span>
+<span class="nc" id="L252">		Vector&lt;Forecast&gt; result = dbManager.getForecasts();</span>
+<span class="nc" id="L253">		dbManager.close();</span>
+<span class="nc" id="L254">		return result;</span>
+	}
+
+	@Override
+	public Vector&lt;Forecast&gt; getForecasts(Question pregunta) {
+<span class="nc" id="L259">		dbManager.open(false);</span>
+<span class="nc" id="L260">		Vector&lt;Forecast&gt; result = dbManager.getForecasts(pregunta);</span>
+<span class="nc" id="L261">		dbManager.close();</span>
+<span class="nc" id="L262">		return result;</span>
+	}
+
+	@Override
+	public boolean editarPerfilUsuario(String pContraseña, String pUsername, String pNombre, String pApellido,
+			String pEmail, String pCuentaBancaria) {
+
+<span class="nc" id="L269">		dbManager.open(false);</span>
+
+<span class="nc" id="L271">		boolean res = dbManager.editarPerfilUsuario(pContraseña, pUsername, pNombre, pApellido, pEmail,</span>
+<span class="nc" id="L272">				pCuentaBancaria);</span>
+<span class="nc" id="L273">		dbManager.close();</span>
+
+<span class="nc" id="L275">		return res;</span>
+
+	}
+
+	@Override
+	public boolean editarPerfilUsuarioSinPass(String pUsername, String pNombre, String pApellido, String pEmail,
+			String pCuentaBancaria) {
+
+<span class="nc" id="L283">		dbManager.open(false);</span>
+
+<span class="nc" id="L285">		boolean res = dbManager.editarPerfilUsuarioSinPass(pUsername, pNombre, pApellido, pEmail, pCuentaBancaria);</span>
+<span class="nc" id="L286">		dbManager.close();</span>
+
+<span class="nc" id="L288">		return res;</span>
+
+	}
+
+	@Override
+	public Vector&lt;User&gt; getAllUsers() {
+
+<span class="nc" id="L295">		dbManager.open(false);</span>
+
+<span class="nc" id="L297">		Vector&lt;User&gt; users = dbManager.getAllUsers();</span>
+<span class="nc" id="L298">		dbManager.close();</span>
+<span class="nc" id="L299">		return users;</span>
+
+	}
+
+	@Override
+	public Integer getMaxIdInDB() {
+
+<span class="nc" id="L306">		dbManager.open(false);</span>
+<span class="nc" id="L307">		Integer maxid = dbManager.getMaxIdInDB();</span>
+<span class="nc" id="L308">		dbManager.close();</span>
+<span class="nc" id="L309">		return maxid;</span>
+
+	}
+
+	@Override
+	public boolean doLogin(String username, String pass) {
+<span class="nc" id="L315">		dbManager.open(false);</span>
+<span class="nc" id="L316">		boolean bo = dbManager.doLogin(username, pass);</span>
+<span class="nc" id="L317">		dbManager.close();</span>
+<span class="nc" id="L318">		return bo;</span>
+	}
+
+	@Override
+	public boolean isAdmin(String pusername, String ppassword) {
+<span class="nc" id="L323">		dbManager.open(false);</span>
+<span class="nc" id="L324">		boolean bo = dbManager.isAdmin(pusername, ppassword);</span>
+<span class="nc" id="L325">		dbManager.close();</span>
+<span class="nc" id="L326">		return bo;</span>
+	}
+
+	@Override
+	public RegularUser getRegularUserByUsername(String pusername) {
+<span class="nc" id="L331">		dbManager.open(false);</span>
+<span class="nc" id="L332">		RegularUser ru = dbManager.getRegularUserByUsername(pusername);</span>
+<span class="nc" id="L333">		dbManager.close();</span>
+<span class="nc" id="L334">		return ru;</span>
+	}
+
+	@Override
+	public AdminUser getAdminUserByUsername(String pusername) {
+<span class="nc" id="L339">		dbManager.open(false);</span>
+<span class="nc" id="L340">		AdminUser au = dbManager.getAdminUserByUsername(pusername);</span>
+<span class="nc" id="L341">		dbManager.close();</span>
+<span class="nc" id="L342">		return au;</span>
+
+	}
+	
+	@Override
+	public Forecast findForecast(int forecastNumber) {
+<span class="nc" id="L348">		dbManager.open(false);</span>
+<span class="nc" id="L349">		Forecast fore = dbManager.findForecast(forecastNumber);</span>
+<span class="nc" id="L350">		dbManager.close();</span>
+<span class="nc" id="L351">		return fore;</span>
+	}
+	
+	@Override
+	public User findUser(String userName) {
+<span class="nc" id="L356">		dbManager.open(false);</span>
+<span class="nc" id="L357">		User user = dbManager.findUser(userName);</span>
+<span class="nc" id="L358">		dbManager.close();</span>
+<span class="nc" id="L359">		return user;</span>
+	}
+
+	@Override
+	public int createApuesta(Forecast pselectedAnswer, RegularUser pselectedClient, Float pselectedAmount) {
+<span class="nc" id="L364">		dbManager.open(false);</span>
+<span class="nc" id="L365">		int inserted = dbManager.createApuesta(pselectedAnswer, pselectedClient, pselectedAmount);</span>
+<span class="nc" id="L366">		return inserted;</span>
+	}
+
+	@Override
+	public boolean closeEvent(Event e, Question q, Forecast f) {
+<span class="nc" id="L371">		dbManager.open(false);</span>
+<span class="nc" id="L372">		boolean closed = dbManager.closeEvent(e, q, f);</span>
+<span class="nc" id="L373">		return closed;</span>
+	}
+
+	@Override
+	public boolean anularApuesta(Bet pApuesta) {
+
+<span class="nc" id="L379">		dbManager.open(false);</span>
+
+<span class="nc" id="L381">		boolean result = dbManager.anularApuesta(pApuesta);</span>
+<span class="nc" id="L382">		return result;</span>
+
+	}
+
+	@Override
+	public Vector&lt;Bet&gt; getApuestasAbiertas(RegularUser pUser) {
+<span class="nc" id="L388">		dbManager.open(false);</span>
+<span class="nc" id="L389">		Vector&lt;Bet&gt; result = dbManager.getApuestasAbiertas(pUser);</span>
+<span class="nc" id="L390">		return result;</span>
+
+	}
+
+	@Override
+	public Vector&lt;Bet&gt; getApuestasCerradas(RegularUser pUser) {
+<span class="nc" id="L396">		dbManager.open(false);</span>
+<span class="nc" id="L397">		Vector&lt;Bet&gt; result = dbManager.getApuestasCerradas(pUser);</span>
+<span class="nc" id="L398">		return result;</span>
+
+	}
+
+	@Override
+	public Vector&lt;Bet&gt; getApuestasGanadas(RegularUser pUser) {
+<span class="nc" id="L404">		dbManager.open(false);</span>
+<span class="nc" id="L405">		Vector&lt;Bet&gt; result = dbManager.getApuestasGanadas(pUser);</span>
+<span class="nc" id="L406">		return result;</span>
+
+	}
+
+	@Override
+	public Vector&lt;Bet&gt; getApuestasPerdidas(RegularUser pUser) {
+<span class="nc" id="L412">		dbManager.open(false);</span>
+<span class="nc" id="L413">		Vector&lt;Bet&gt; result = dbManager.getApuestasPerdidas(pUser);</span>
+<span class="nc" id="L414">		return result;</span>
+
+	}
+
+	@Override
+	public Vector&lt;Bet&gt; getApuestasAnuladas(RegularUser pUser) {
+<span class="nc" id="L420">		dbManager.open(false);</span>
+<span class="nc" id="L421">		Vector&lt;Bet&gt; result = dbManager.getApuestasAnuladas(pUser);</span>
+<span class="nc" id="L422">		return result;</span>
+
+	}
+
+	@Override
+	public Vector&lt;Bet&gt; getApuestasByUser(RegularUser user) {
+<span class="nc" id="L428">		dbManager.open(false);</span>
+<span class="nc" id="L429">		Vector&lt;Bet&gt; result = dbManager.getApuestasByUser(user);</span>
+<span class="nc" id="L430">		return result;</span>
+
+	}
+
+	@Override
+	public boolean aplicarBonoBienvenida(String user) {
+
+<span class="nc" id="L437">		dbManager.open(false);</span>
+<span class="nc" id="L438">		boolean result = dbManager.aplicarBonoBienvenida(user);</span>
+<span class="nc" id="L439">		return result;</span>
+	}
+
+	@Override
+	public boolean recargarSaldo(String user, Float importe) {
+
+<span class="nc" id="L445">		dbManager.open(false);</span>
+<span class="nc" id="L446">		boolean result = dbManager.recargarSaldo(user, importe);</span>
+<span class="nc" id="L447">		return result;</span>
+	}
+
+	@Override
+	public boolean definirResultados(Event pselectedEvent, Question pselectedQuestion, Forecast pselectedForecast) {
+<span class="nc" id="L452">		dbManager.open(false);</span>
+<span class="nc" id="L453">		boolean result = dbManager.definirResultados(pselectedEvent, pselectedQuestion, pselectedForecast);</span>
+<span class="nc" id="L454">		return result;</span>
+	}
+
+	public static void main(String[] args) {
+
+<span class="nc" id="L459">		BLFacadeImplementation controlador = new BLFacadeImplementation();</span>
+<span class="nc" id="L460">		RegularUser usuario = new RegularUser(&quot;usuario&quot;, &quot;Usuario1?&quot;, &quot;Nombre&quot;, &quot;Apellido&quot;, &quot;01/01/2000&quot;,</span>
+<span class="nc" id="L461">				&quot;usuario@gmail.com&quot;, &quot;ES11 1111 1111 1111&quot;, 123456789, &quot;&quot;, 0);</span>
+<span class="nc" id="L462">		Event ev1 = new Event(69, &quot;Eibar-Eibar&quot;, UtilDate.newDate(2015, 4, 17));</span>
+<span class="nc" id="L463">		Question pregunta = new Question(&quot;pregunta&quot;, 2, ev1);</span>
+<span class="nc" id="L464">		Forecast pronostico = new Forecast(&quot;Madrid&quot;, 17, pregunta);</span>
+<span class="nc" id="L465">		Bet apuesta = new Bet(pronostico, usuario, 13);</span>
+
+<span class="nc" id="L467">		System.out.println(controlador.anularApuesta(apuesta));</span>
+
+<span class="nc" id="L469">	}</span>
+
+	@Override
+	public Vector&lt;Question&gt; getOpenedQuestions(Event ev) {
+<span class="nc" id="L473">		dbManager.open(false);</span>
+<span class="nc" id="L474">		Vector&lt;Question&gt; ArrayListQuestions = dbManager.getOpenedQuestions(ev);</span>
+<span class="nc" id="L475">		return ArrayListQuestions;</span>
+	}
+	
+	public boolean getEstadoEvento(Event ev) {
+		
+<span class="nc" id="L480">		dbManager.open(false);</span>
+<span class="nc" id="L481">		boolean result = dbManager.getEstadoEvento(ev);</span>
+<span class="nc" id="L482">		return result;</span>
+		
+	}
+	
+	public Vector&lt;Event&gt; getEventosMedioCerrados(){
+		
+<span class="nc" id="L488">		dbManager.open(false);</span>
+
+<span class="nc" id="L490">		Vector&lt;Event&gt; result = dbManager.getEventosMedioCerrados();</span>
+<span class="nc" id="L491">		return result;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span>deleteEventDa2Test (19 Oct 2021 10:47:35)</div></body></html>

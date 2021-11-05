@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>RegularUser.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">deleteEventDa2Test (19 Oct 2021 10:47:35)</a> &gt; <a href="../../index.html" class="el_group">ISBets21MAUBRY</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">domain</a> &gt; <span class="el_source">RegularUser.java</span></div><h1>RegularUser.java</h1><pre class="source lang-java linenums">package domain;
+
+import java.util.Vector;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+
+@Entity
+public class RegularUser extends User {
+
+	private String birthDate;
+
+	private String email;
+	private String bankAccount;
+	private Integer phoneNumb;
+
+	private String address;
+	private float saldo;
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+<span class="nc" id="L22">	private Vector&lt;Bet&gt; bets = new Vector&lt;Bet&gt;();</span>
+
+	public RegularUser(String userName, String userPass, String firstName, String lastName, String birthDate,
+			String email, String bankAccount, Integer phoneNumber, String address, float balance) {
+<span class="nc" id="L26">		super(userName, userPass, firstName, lastName);</span>
+<span class="nc" id="L27">		this.birthDate = birthDate;</span>
+<span class="nc" id="L28">		this.email = email;</span>
+<span class="nc" id="L29">		this.bankAccount = bankAccount;</span>
+<span class="nc" id="L30">		this.phoneNumb = phoneNumber;</span>
+<span class="nc" id="L31">		this.address = address;</span>
+<span class="nc" id="L32">		this.saldo = balance;</span>
+<span class="nc" id="L33">	}</span>
+
+	public String getBirthDate() {
+<span class="nc" id="L36">		return birthDate;</span>
+	}
+
+	public void setBirthDate(String birthDate) {
+<span class="nc" id="L40">		this.birthDate = birthDate;</span>
+<span class="nc" id="L41">	}</span>
+
+	public String getEmail() {
+<span class="nc" id="L44">		return email;</span>
+	}
+
+	public void setEmail(String email) {
+<span class="nc" id="L48">		this.email = email;</span>
+<span class="nc" id="L49">	}</span>
+
+	public String getBankAccount() {
+<span class="nc" id="L52">		return bankAccount;</span>
+	}
+
+	public void setBankAccount(String bankAccount) {
+<span class="nc" id="L56">		this.bankAccount = bankAccount;</span>
+<span class="nc" id="L57">	}</span>
+
+	public Integer getPhoneNumb() {
+<span class="nc" id="L60">		return phoneNumb;</span>
+	}
+
+	public void setPhoneNumb(Integer phoneNumb) {
+<span class="nc" id="L64">		this.phoneNumb = phoneNumb;</span>
+<span class="nc" id="L65">	}</span>
+
+	public String getAddress() {
+<span class="nc" id="L68">		return address;</span>
+	}
+
+	public void setAddress(String address) {
+<span class="nc" id="L72">		this.address = address;</span>
+<span class="nc" id="L73">	}</span>
+
+	public Float getBalance() {
+<span class="nc" id="L76">		return saldo;</span>
+	}
+
+	public void setBalance(float balance) {
+<span class="nc" id="L80">		this.saldo = balance;</span>
+<span class="nc" id="L81">	}</span>
+
+	@Override
+	public String toString() {
+<span class="nc" id="L85">		String st = super.toString() + &quot;\nbirthDate: &quot; + birthDate + &quot;\nemail:&quot; + email + &quot;\nbankAccount: &quot;</span>
+<span class="nc" id="L86">				+ bankAccount + &quot;\nphoneNumb: &quot; + phoneNumb + &quot;\naddress: &quot; + address + &quot;\nsaldo: &quot; + saldo;</span>
+<span class="nc" id="L87">		return st;</span>
+	}
+
+	public Bet addBet(Bet b) {
+<span class="nc" id="L91">		bets.add(b);</span>
+<span class="nc" id="L92">		return b;</span>
+	}
+
+	public Vector&lt;Bet&gt; getBets() {
+<span class="nc" id="L96">		return this.bets;</span>
+	}
+
+	public void setBets(Vector&lt;Bet&gt; bets) {
+<span class="nc" id="L100">		this.bets = bets;</span>
+<span class="nc" id="L101">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span>deleteEventDa2Test (19 Oct 2021 10:47:35)</div></body></html>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>User.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">deleteEventDa2Test (19 Oct 2021 10:47:35)</a> &gt; <a href="../../index.html" class="el_group">ISBets21MAUBRY</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">domain</a> &gt; <span class="el_source">User.java</span></div><h1>User.java</h1><pre class="source lang-java linenums">package domain;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public abstract class User {
+
+	@Id
+	private String userName;
+	private String userPass;
+
+	private String firstName;
+	private String lastName;
+
+<span class="nc" id="L16">	public User(String userName, String userPass, String firstName, String lastName) {</span>
+<span class="nc" id="L17">		this.userName = userName;</span>
+<span class="nc" id="L18">		this.userPass = userPass;</span>
+
+<span class="nc" id="L20">		this.firstName = firstName;</span>
+<span class="nc" id="L21">		this.lastName = lastName;</span>
+<span class="nc" id="L22">	}</span>
+
+	public String getUserName() {
+<span class="nc" id="L25">		return userName;</span>
+	}
+
+	public void setUserName(String userName) {
+<span class="nc" id="L29">		this.userName = userName;</span>
+<span class="nc" id="L30">	}</span>
+
+	public String getUserPass() {
+<span class="nc" id="L33">		return userPass;</span>
+	}
+
+	public void setUserPass(String userPass) {
+<span class="nc" id="L37">		this.userPass = userPass;</span>
+<span class="nc" id="L38">	}</span>
+
+	public String getFirstName() {
+<span class="nc" id="L41">		return firstName;</span>
+	}
+
+	public void setFirstName(String firstName) {
+<span class="nc" id="L45">		this.firstName = firstName;</span>
+<span class="nc" id="L46">	}</span>
+
+	public String getLastName() {
+<span class="nc" id="L49">		return lastName;</span>
+	}
+
+	public void setLastName(String lastName) {
+<span class="nc" id="L53">		this.lastName = lastName;</span>
+<span class="nc" id="L54">	}</span>
+
+	@Override
+	public String toString() {
+
+<span class="nc" id="L59">		String st = &quot;userName: &quot; + this.userName + &quot;\nuserPass: &quot; + this.userPass + &quot;\nfirstName: &quot; + this.firstName</span>
+<span class="nc" id="L60">				+ &quot;\nlastName: &quot; + this.lastName;</span>
+<span class="nc" id="L61">		return st;</span>
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span>deleteEventDa2Test (19 Oct 2021 10:47:35)</div></body></html>

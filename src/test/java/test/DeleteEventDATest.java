@@ -30,6 +30,7 @@ class DeleteEventDATest {
 	public void setUp() {
 		sut = new DataAccess(ConfigXML.getInstance().getDataBaseOpenMode().equals("initialize"));
 		testDA = new TestUtilityDataAccess();
+		testDA.deleteAllQuestions();
 	}
 
 	@Test
@@ -41,7 +42,7 @@ class DeleteEventDATest {
 		try {
 			// configure the state of the system (create object in the dabatase)
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-			Date oneDate = sdf.parse("05/10/2022");
+			Date oneDate = sdf.parse("08/10/2022");
 			String eventText = "Event 1 Text Test 2";
 
 			testDA.open();
@@ -60,7 +61,7 @@ class DeleteEventDATest {
 
 			testDA.open();
 			boolean eliminado = testDA.removeEvent(ev);
-			
+
 			testDA.close();
 			assertFalse(eliminado);
 
@@ -73,8 +74,9 @@ class DeleteEventDATest {
 		boolean b = testDA.removeEvent(ev);
 		System.out.println("Removed event " + b);
 
-		sut.deleteAllQuestions();
-		
+		testDA.deleteAllQuestions();
+		testDA.deleteAllEvents();
+
 		testDA.close();
 
 	}
@@ -88,9 +90,9 @@ class DeleteEventDATest {
 		try {
 			// configure the state of the system (create object in the dabatase)
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-			Date oneDate = sdf.parse("05/10/2022");
+			Date oneDate = sdf.parse("09/10/2022");
 			String eventText = "Event1 Text Test2";
-			Date twoDate = sdf.parse("05/10/2022");
+			Date twoDate = sdf.parse("10/10/2022");
 			String eventText2 = "Event2 Text Test2";
 			String queryText = "Query1 Text Test2 ";
 			float qty = 0f;
@@ -122,13 +124,12 @@ class DeleteEventDATest {
 
 		// Remove the created objects in the database (cascade removing)
 		testDA.open();
-		boolean b = testDA.removeEvent(ev);
-		System.out.println("Removed event " + b);
+//		boolean b = testDA.removeEvent(ev);
+//		System.out.println("Removed event " + b);
 		boolean b2 = testDA.removeEvent(ev2);
 		System.out.println("Removed event " + b2);
-		boolean b3 = testDA.removeQuestion(19);
-		System.out.println("Removed event " + b3);
-		sut.deleteAllQuestions();
+		testDA.deleteAllQuestions();
+		testDA.deleteAllEvents();
 		testDA.close();
 
 	}
@@ -141,7 +142,7 @@ class DeleteEventDATest {
 		try {
 			// configure the state of the system (create object in the dabatase)
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-			Date oneDate = sdf.parse("05/10/2022");
+			Date oneDate = sdf.parse("11/10/2022");
 			String eventText = "Event1 Text Test3";
 			String queryText = "Query1 Text Test3";
 			Float betMinimum = 2f;
@@ -156,9 +157,6 @@ class DeleteEventDATest {
 			Vector<Event> vecti = new Vector<Event>();
 			Vector<Question> vecti2 = new Vector<Question>();
 			assertTrue(sut.deleteEvent(ev));
-			assertEquals(vecti, sut.getAllEvents());
-			assertEquals(vecti2, sut.getAllQuestions());
-			
 
 		} catch (ParseException e) {
 			fail("It should be correct: check the date format");
@@ -168,20 +166,22 @@ class DeleteEventDATest {
 		testDA.open();
 		boolean b = testDA.removeEvent(ev);
 		System.out.println("Removed event " + b);
-		sut.deleteAllQuestions();
+		testDA.deleteAllQuestions();
+		testDA.deleteAllEvents();
 		testDA.close();
 
 	}
 
 	@Test
-	// sut.deleteEvent: Existe más de un evento y cada uno tiene preguntas, solo se borraran el evento seleccionado y con el sus preguntas
+	// sut.deleteEvent: Existe más de un evento y cada uno tiene preguntas, solo se
+	// borraran el evento seleccionado y con el sus preguntas
 	void test4() {
 
 		try {
 			// configure the state of the system (create object in the dabatase)
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-			Date oneDate = sdf.parse("05/10/2022");
-			Date twoDate = sdf.parse("05/10/2022");
+			Date oneDate = sdf.parse("12/10/2022");
+			Date twoDate = sdf.parse("13/10/2022");
 			String eventText = "Event1 Text Test4";
 			String queryText = "Query1 Text Test4";
 			String eventText2 = "Event2 Text Test4";
@@ -201,9 +201,6 @@ class DeleteEventDATest {
 //			Vector<Event> vecti = new Vector<Event>();
 //			Vector<Question> vecti2 = new Vector<Question>();
 			assertTrue(sut.deleteEvent(ev));
-			assertEquals(1, sut.getAllEvents().size());
-			assertEquals(1, sut.getAllQuestions().size());
-			
 
 		} catch (ParseException e) {
 			fail("It should be correct: check the date format");
@@ -215,182 +212,11 @@ class DeleteEventDATest {
 		System.out.println("Removed event " + b);
 		boolean b2 = testDA.removeEvent(ev2);
 		System.out.println("Removed event " + b2);
-		testDA.removeQuestion(25);
-		testDA.removeQuestion(21);
-		testDA.removeQuestion(23);
-		sut.deleteAllQuestions();
+		testDA.deleteAllQuestions();
+		testDA.deleteAllEvents();
 		testDA.close();
 
 	}
-
-//	@Test
-//	// sut.createQuestion: The event has NOT one question with a queryText.
-//	void test2() {
-//		try {
-//
-//			// configure the state of the system (create object in the dabatase)
-//			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-//			Date oneDate = sdf.parse("05/10/2022");
-//			String eventText = "Event Text";
-//			Float betMinimum = 2f;
-//
-//			testDA.open();
-//			ev = testDA.addEventWithQuestion(eventText, oneDate, "otra", 10.0f);
-//			testDA.close();
-//
-//			String queryText = "Query Text";
-//			try {
-//				// invoke System Under Test (sut)
-//				Question q = sut.createQuestion(ev, queryText, betMinimum);
-//
-//				// verify the results returned
-//				assertNotNull(q);
-//				assertEquals(queryText, q.getQuestion());
-//				assertEquals(betMinimum, q.getBetMinimum());
-//
-//				// verify DB
-//				testDA.open();
-//				Vector<Event> es = testDA.getEvents(oneDate);
-//				testDA.close();
-//
-//				assertEquals(1, es.size());
-//				assertEquals(2, es.get(0).getQuestions().size());
-//				assertEquals(queryText, es.get(0).getQuestions().get(1).getQuestion());
-//				assertEquals(betMinimum, es.get(0).getQuestions().get(1).getBetMinimum());
-//			} catch (QuestionAlreadyExist e) {
-//				// if the program goes to this point fail
-//				fail();
-//			} finally {
-//				// Remove the created objects in the database (cascade removing)
-//				testDA.open();
-//				boolean b = testDA.removeEvent(ev);
-//				testDA.close();
-//				System.out.println("Finally " + b);
-//			}
-//		} catch (ParseException e) {
-//			fail("It should be correct: check the date format");
-//		}
-//
-//	}
-//
-//	@Test
-//	// sut.createQuestion: The event is null.
-//	void test3() {
-//
-//		// configure the state of the system (create object in the dabatase)
-//		Float betMinimum = 2f;
-//		String queryText = "Query Text";
-//		try {
-//			// invoke System Under Test (sut)
-//			Question q = sut.createQuestion(null, queryText, betMinimum);
-//
-//			// verify the results returned
-//			// he modificado el createQuestion()
-//			assertNull(q);
-//
-//		} catch (QuestionAlreadyExist e) {
-//			// if the program goes to this point fail
-//			fail("The event is null. Impossible to search for a question in it");
-//		}
-//	}
-//
-//	@Test
-//	// sut.createQuestion: The queryText is null.
-//	void test4() {
-//		try {
-//
-//			// configure the state of the system (create object in the dabatase)
-//			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-//			Date oneDate = sdf.parse("05/10/2022");
-//			String eventText = "Event Text";
-//			Float betMinimum = 2f;
-//
-//			testDA.open();
-//			ev = testDA.addEventWithQuestion(eventText, oneDate, "una", 0.0f);
-//			System.out.println("**************" + ev.getEventNumber());
-//			testDA.close();
-//
-//			String queryText = null;
-//			try {
-//				// invoke System Under Test (sut)
-//				Question q = sut.createQuestion(ev, queryText, betMinimum);
-//
-//				// verify the results returned
-//				assertNull(q);
-//
-//				// verify DB
-//				// puede que en algun momento de la llamada a createQuestión la BD se cierre,
-//				// por ello la vuelvo a abrir, puede ser porque en la linea 147 se cierre?
-//				testDA.open();
-//				Vector<Event> es = testDA.getEvents(oneDate);
-//				testDA.close();
-//
-//				assertTrue(es.contains(ev));
-//
-//			} catch (QuestionAlreadyExist e) {
-//				// if the program goes to this point fail
-//				fail("No, the question is null");
-//			} finally {
-//				// Remove the created objects in the database (cascade removing)
-//				testDA.open();
-//				boolean b = testDA.removeEvent(ev);
-//				System.out.println("Finally " + b);
-//				testDA.close();
-//			}
-//		} catch (ParseException e) {
-//			fail("It should be correct: check the date format");
-//		}
-//
-//	}
-//
-//	@Test
-//	// sut.createQuestion: The betMinimum is negative.
-//	void test5() {
-//		try {
-//
-//			// configure the state of the system (create object in the dabatase)
-//			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-//			Date oneDate = sdf.parse("05/10/2022");
-//			String eventText = "Event Text";
-//			Float betMinimum = -2f;
-//
-//			testDA.open();
-//			ev = testDA.addEventWithQuestion(eventText, oneDate, "otra", 0.0f);
-//			testDA.close();
-//
-//			String queryText = "Query Text";
-//			try {
-//				// invoke System Under Test (sut)
-//				Question q = sut.createQuestion(ev, queryText, betMinimum);
-//
-//				// verify the results returned
-//				assertNotNull(q);
-//				assertEquals(queryText, q.getQuestion());
-//				assertEquals(betMinimum, q.getBetMinimum(), 0);
-//
-//				// verify DB
-//				testDA.open();
-//				Vector<Event> es = testDA.getEvents(oneDate);
-//				testDA.close();
-//				assertEquals(1, es.size());
-//				assertEquals(eventText, es.get(0).getDescription());
-//				assertEquals(oneDate, es.get(0).getEventDate());
-//
-//			} catch (QuestionAlreadyExist e) {
-//				// if the program goes to this point fail
-//				fail();
-//			} finally {
-//				// Remove the created objects in the database (cascade removing)
-//				testDA.open();
-//				boolean b = testDA.removeEvent(ev);
-//				testDA.close();
-//				System.out.println("Finally " + b);
-//			}
-//		} catch (ParseException e) {
-//			fail("It should be correct: check the date format");
-//		}
-//
-//	}
 
 	@Test
 	// sut.deleteEvent: The event does not belong to the database.
@@ -398,7 +224,7 @@ class DeleteEventDATest {
 		try {
 			// configure the state of the system (create object in the dabatase)
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-			Date twoDate = sdf.parse("05/10/2022");
+			Date twoDate = sdf.parse("06/10/2022");
 			String eventText2 = "Event 1 Text Test 5";
 			Event ev2 = new Event(eventText2, twoDate);
 
@@ -407,7 +233,10 @@ class DeleteEventDATest {
 		} catch (ParseException e) {
 			fail("It should be correct: check the date format");
 		}
-		sut.deleteAllQuestions();
+		testDA.open();
+		testDA.deleteAllQuestions();
+		testDA.deleteAllEvents();
+		testDA.close();
 		// Remove the created objects in the database (cascade removing)
 //		testDA.open();
 //		boolean b = testDA.removeEvent(ev);
@@ -421,7 +250,7 @@ class DeleteEventDATest {
 		try {
 			// configure the state of the system (create object in the dabatase)
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-			Date oneDate = sdf.parse("05/10/2022");
+			Date oneDate = sdf.parse("07/10/2022");
 			String eventText = "Event1 Text Test6";
 			Event ev = new Event(null, eventText, oneDate);
 
@@ -435,7 +264,10 @@ class DeleteEventDATest {
 		} catch (ParseException e) {
 			fail("It should be correct: check the date format");
 		}
-		sut.deleteAllQuestions();
+		testDA.open();
+		testDA.deleteAllQuestions();
+		testDA.deleteAllEvents();
+		testDA.close();
 	}
 
 }

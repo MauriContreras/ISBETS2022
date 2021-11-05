@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>ModificarDatosGUI.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">deleteEventDa2Test (19 Oct 2021 10:47:35)</a> &gt; <a href="../../index.html" class="el_group">ISBets21MAUBRY</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">gui</a> &gt; <span class="el_source">ModificarDatosGUI.java</span></div><h1>ModificarDatosGUI.java</h1><pre class="source lang-java linenums">package gui;
+
+import java.awt.Frame;
+import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ResourceBundle;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
+
+import businessLogic.BLFacade;
+import domain.RegularUser;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.ImageIcon;
+import javax.swing.UIManager;
+
+public class ModificarDatosGUI extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField fieldUsername;
+	private JPasswordField fieldContraseña;
+	private JPasswordField fieldContraseña2;
+	private JPasswordField fieldContraseña3;
+	private JCheckBox checkContraseña;
+	private JTextField fieldNombre;
+	private JTextField fieldApellido;
+	private JTextField fieldEmail;
+	private JTextField fieldCuentaBancaria;
+	private JLabel lblUsername;
+	private JLabel lblContraseña;
+	private JLabel lblNombre;
+	private JLabel lblApellido;
+	private JLabel lblEmail;
+	private JLabel lblCuentaBancaria;
+	private JLabel lblContraseña2;
+	private JLabel lblContraseña3;
+	private JButton buttonCancelar;
+	private JButton buttonModificar;
+	private JButton buttonGuardar;
+<span class="nc" id="L51">	private static BLFacade facade = LoginGUI.getBusinessLogic();</span>
+
+<span class="nc" id="L53">	private RegularUser userlog = null;</span>
+	private JTextField fieldSaldo;
+	private JLabel lblSaldo;
+
+<span class="nc" id="L57">	public ModificarDatosGUI(RegularUser ru) {</span>
+
+<span class="nc" id="L59">		userlog = ru;</span>
+
+<span class="nc" id="L61">		setTitle(ResourceBundle.getBundle(&quot;Etiquetas&quot;).getString(&quot;Show/EditProfile&quot;));</span>
+
+<span class="nc" id="L63">		getContentPane().setLayout(null);</span>
+<span class="nc" id="L64">		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</span>
+<span class="nc" id="L65">		setBounds(100, 10, 730, 566);</span>
+<span class="nc" id="L66">		contentPane = new JPanel();</span>
+<span class="nc" id="L67">		contentPane.setBackground(Color.WHITE);</span>
+<span class="nc" id="L68">		contentPane.setForeground(Color.WHITE);</span>
+<span class="nc" id="L69">		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
+<span class="nc" id="L70">		setContentPane(contentPane);</span>
+<span class="nc" id="L71">		contentPane.setLayout(null);</span>
+
+<span class="nc" id="L73">		Border border = BorderFactory.createLineBorder(Color.red, 1);</span>
+<span class="nc" id="L74">		Border border2 = BorderFactory.createLineBorder(SystemColor.textHighlight, 1);</span>
+
+<span class="nc" id="L76">		ImageIcon icon = new ImageIcon(&quot;imagenes/info.png&quot;);</span>
+<span class="nc" id="L77">		JLabel lblNewLabel = new JLabel(icon);</span>
+<span class="nc" id="L78">		lblNewLabel.setBounds(21, 0, 37, 52);</span>
+<span class="nc" id="L79">		contentPane.add(lblNewLabel);</span>
+		
+		
+
+		
+
+<span class="nc" id="L85">		JLabel lblInfo = new JLabel(&quot;Aquí podrás ver el perfil de usuario y modificar los campos con borde azul.&quot;); //$NON-NLS-1$ //$NON-NLS-2$</span>
+<span class="nc" id="L86">		lblInfo.setBounds(56, 20, 486, 16);</span>
+<span class="nc" id="L87">		contentPane.add(lblInfo);</span>
+
+<span class="nc" id="L89">		lblSaldo = new JLabel(&quot;Saldo:&quot;);</span>
+<span class="nc" id="L90">		lblSaldo.setBounds(10, 311, 133, 13);</span>
+<span class="nc" id="L91">		contentPane.add(lblSaldo);</span>
+
+<span class="nc" id="L93">		fieldUsername = new JTextField();</span>
+<span class="nc" id="L94">		fieldUsername.setForeground(Color.GRAY);</span>
+<span class="nc" id="L95">		fieldUsername.setFont(new Font(&quot;Arial&quot;, Font.PLAIN, 16));</span>
+<span class="nc" id="L96">		fieldUsername.setBounds(249, 66, 262, 29);</span>
+<span class="nc" id="L97">		fieldUsername.setBackground(UIManager.getColor(&quot;TextField.inactiveBackground&quot;));</span>
+<span class="nc" id="L98">		contentPane.add(fieldUsername);</span>
+<span class="nc" id="L99">		fieldUsername.setColumns(10);</span>
+<span class="nc" id="L100">		fieldUsername.setEditable(false);</span>
+<span class="nc" id="L101">		fieldUsername.setText(userlog.getUserName());</span>
+
+<span class="nc" id="L103">		fieldContraseña = new JPasswordField();</span>
+<span class="nc" id="L104">		fieldContraseña.setForeground(Color.GRAY);</span>
+<span class="nc" id="L105">		fieldContraseña.setFont(new Font(&quot;Arial&quot;, Font.PLAIN, 16));</span>
+<span class="nc" id="L106">		fieldContraseña.setBounds(249, 105, 262, 29);</span>
+<span class="nc" id="L107">		contentPane.add(fieldContraseña);</span>
+<span class="nc" id="L108">		fieldContraseña.setColumns(10);</span>
+<span class="nc" id="L109">		fieldContraseña.setEditable(false);</span>
+<span class="nc" id="L110">		fieldContraseña.setText(userlog.getUserPass());</span>
+
+<span class="nc" id="L112">		fieldContraseña2 = new JPasswordField();</span>
+<span class="nc" id="L113">		fieldContraseña2.setBounds(249, 144, 262, 29);</span>
+<span class="nc" id="L114">		fieldContraseña2.setFont(new Font(&quot;Arial&quot;, Font.PLAIN, 16));</span>
+<span class="nc" id="L115">		fieldContraseña2.setForeground(Color.GRAY);</span>
+<span class="nc" id="L116">		fieldContraseña2.setVisible(false);</span>
+<span class="nc" id="L117">		fieldContraseña2.setBorder(border2);</span>
+
+<span class="nc" id="L119">		fieldContraseña3 = new JPasswordField();</span>
+<span class="nc" id="L120">		fieldContraseña3.setBounds(249, 183, 262, 29);</span>
+<span class="nc" id="L121">		fieldContraseña3.setFont(new Font(&quot;Arial&quot;, Font.PLAIN, 16));</span>
+<span class="nc" id="L122">		fieldContraseña3.setForeground(Color.GRAY);</span>
+<span class="nc" id="L123">		fieldContraseña3.setBorder(border2);</span>
+
+<span class="nc" id="L125">		checkContraseña = new JCheckBox(&quot;Mostrar contraseña&quot;);</span>
+<span class="nc" id="L126">		checkContraseña.setBackground(Color.WHITE);</span>
+
+<span class="nc" id="L128">		checkContraseña.setVisible(false);</span>
+<span class="nc" id="L129">		checkContraseña.addActionListener(new ActionListener() {</span>
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+
+<span class="nc bnc" id="L133" title="All 2 branches missed.">				if (checkContraseña.isSelected()) {</span>
+
+<span class="nc" id="L135">					fieldContraseña2.setEchoChar((char) 0);</span>
+<span class="nc" id="L136">					fieldContraseña3.setEchoChar((char) 0);</span>
+
+<span class="nc" id="L138">				} else {</span>
+
+<span class="nc" id="L140">					fieldContraseña2.setEchoChar('•');</span>
+<span class="nc" id="L141">					fieldContraseña3.setEchoChar('•');</span>
+
+				}
+
+<span class="nc" id="L145">			}</span>
+		});
+<span class="nc" id="L147">		checkContraseña.setBounds(519, 168, 171, 21);</span>
+<span class="nc" id="L148">		contentPane.add(checkContraseña);</span>
+
+<span class="nc" id="L150">		fieldNombre = new JTextField();</span>
+<span class="nc" id="L151">		fieldNombre.setFont(new Font(&quot;Arial&quot;, Font.PLAIN, 16));</span>
+<span class="nc" id="L152">		fieldNombre.setForeground(Color.GRAY);</span>
+<span class="nc" id="L153">		fieldNombre.setText((String) null);</span>
+<span class="nc" id="L154">		fieldNombre.setEditable(false);</span>
+<span class="nc" id="L155">		fieldNombre.setColumns(10);</span>
+<span class="nc" id="L156">		fieldNombre.setBounds(249, 144, 262, 29);</span>
+<span class="nc" id="L157">		contentPane.add(fieldNombre);</span>
+<span class="nc" id="L158">		fieldNombre.setText(userlog.getFirstName());</span>
+
+<span class="nc" id="L160">		fieldApellido = new JTextField();</span>
+<span class="nc" id="L161">		fieldApellido.setFont(new Font(&quot;Arial&quot;, Font.PLAIN, 16));</span>
+<span class="nc" id="L162">		fieldApellido.setForeground(Color.GRAY);</span>
+<span class="nc" id="L163">		fieldApellido.setText((String) null);</span>
+<span class="nc" id="L164">		fieldApellido.setEditable(false);</span>
+<span class="nc" id="L165">		fieldApellido.setColumns(10);</span>
+<span class="nc" id="L166">		fieldApellido.setBounds(249, 183, 262, 29);</span>
+<span class="nc" id="L167">		contentPane.add(fieldApellido);</span>
+<span class="nc" id="L168">		fieldApellido.setText(userlog.getLastName());</span>
+
+<span class="nc" id="L170">		fieldEmail = new JTextField();</span>
+<span class="nc" id="L171">		fieldEmail.setForeground(Color.GRAY);</span>
+<span class="nc" id="L172">		fieldEmail.setFont(new Font(&quot;Arial&quot;, Font.PLAIN, 16));</span>
+<span class="nc" id="L173">		fieldEmail.setText((String) null);</span>
+<span class="nc" id="L174">		fieldEmail.setEditable(false);</span>
+<span class="nc" id="L175">		fieldEmail.setColumns(10);</span>
+<span class="nc" id="L176">		fieldEmail.setBounds(249, 222, 262, 29);</span>
+<span class="nc" id="L177">		contentPane.add(fieldEmail);</span>
+<span class="nc" id="L178">		fieldEmail.setText(userlog.getEmail());</span>
+
+<span class="nc" id="L180">		fieldCuentaBancaria = new JTextField();</span>
+<span class="nc" id="L181">		fieldCuentaBancaria.setForeground(Color.GRAY);</span>
+<span class="nc" id="L182">		fieldCuentaBancaria.setFont(new Font(&quot;Arial&quot;, Font.PLAIN, 16));</span>
+<span class="nc" id="L183">		fieldCuentaBancaria.setText((String) null);</span>
+<span class="nc" id="L184">		fieldCuentaBancaria.setEditable(false);</span>
+<span class="nc" id="L185">		fieldCuentaBancaria.setColumns(10);</span>
+<span class="nc" id="L186">		fieldCuentaBancaria.setBounds(249, 261, 262, 29);</span>
+<span class="nc" id="L187">		contentPane.add(fieldCuentaBancaria);</span>
+<span class="nc" id="L188">		fieldCuentaBancaria.setText(userlog.getBankAccount());</span>
+
+<span class="nc" id="L190">		lblUsername = new JLabel(&quot;Nombre de usuario:&quot;);</span>
+<span class="nc" id="L191">		lblUsername.setBounds(10, 74, 133, 13);</span>
+<span class="nc" id="L192">		contentPane.add(lblUsername);</span>
+
+<span class="nc" id="L194">		lblContraseña = new JLabel(&quot;Contraseña:&quot;);</span>
+<span class="nc" id="L195">		lblContraseña.setBounds(10, 111, 133, 13);</span>
+<span class="nc" id="L196">		contentPane.add(lblContraseña);</span>
+
+<span class="nc" id="L198">		lblContraseña2 = new JLabel(&quot;Contraseña nueva:&quot;);</span>
+<span class="nc" id="L199">		lblContraseña2.setBounds(10, 150, 133, 13);</span>
+<span class="nc" id="L200">		lblContraseña2.setVisible(false);</span>
+<span class="nc" id="L201">		contentPane.add(lblContraseña2);</span>
+
+<span class="nc" id="L203">		lblContraseña3 = new JLabel(&quot;Repite contraseña nueva:&quot;);</span>
+<span class="nc" id="L204">		lblContraseña3.setBounds(10, 189, 183, 13);</span>
+<span class="nc" id="L205">		lblContraseña3.setVisible(false);</span>
+
+<span class="nc" id="L207">		contentPane.add(lblContraseña3);</span>
+
+<span class="nc" id="L209">		lblNombre = new JLabel(&quot;Nombre:&quot;);</span>
+<span class="nc" id="L210">		lblNombre.setBounds(10, 150, 133, 13);</span>
+<span class="nc" id="L211">		contentPane.add(lblNombre);</span>
+
+<span class="nc" id="L213">		lblApellido = new JLabel(&quot;Apellido:&quot;);</span>
+<span class="nc" id="L214">		lblApellido.setBounds(10, 189, 133, 13);</span>
+<span class="nc" id="L215">		contentPane.add(lblApellido);</span>
+
+<span class="nc" id="L217">		lblEmail = new JLabel(&quot;Email:&quot;);</span>
+<span class="nc" id="L218">		lblEmail.setBounds(10, 228, 133, 13);</span>
+<span class="nc" id="L219">		contentPane.add(lblEmail);</span>
+
+<span class="nc" id="L221">		lblCuentaBancaria = new JLabel(&quot;Cuenta bancaria:&quot;);</span>
+<span class="nc" id="L222">		lblCuentaBancaria.setBounds(10, 267, 133, 13);</span>
+<span class="nc" id="L223">		contentPane.add(lblCuentaBancaria);</span>
+
+<span class="nc" id="L225">		fieldSaldo = new JTextField();</span>
+<span class="nc" id="L226">		fieldSaldo.setForeground(Color.GRAY);</span>
+<span class="nc" id="L227">		fieldSaldo.setFont(new Font(&quot;Arial&quot;, Font.PLAIN, 16));</span>
+<span class="nc" id="L228">		fieldSaldo.setText((String) null);</span>
+<span class="nc" id="L229">		fieldSaldo.setEditable(false);</span>
+<span class="nc" id="L230">		fieldSaldo.setColumns(10);</span>
+<span class="nc" id="L231">		fieldSaldo.setBounds(249, 306, 262, 29);</span>
+<span class="nc" id="L232">		contentPane.add(fieldSaldo);</span>
+<span class="nc" id="L233">		fieldSaldo.setText(Float.toString(userlog.getBalance()) + &quot; €&quot;);</span>
+
+<span class="nc" id="L235">		buttonModificar = new JButton(ResourceBundle.getBundle(&quot;Etiquetas&quot;).getString(&quot;ModificarDatosGUI.modificar&quot;));</span>
+<span class="nc" id="L236">		buttonModificar.setBounds(563, 463, 127, 29);</span>
+<span class="nc" id="L237">		contentPane.add(buttonModificar);</span>
+<span class="nc" id="L238">		buttonModificar.setBackground(SystemColor.textHighlight);</span>
+<span class="nc" id="L239">		buttonModificar.setForeground(Color.WHITE);</span>
+<span class="nc" id="L240">		buttonModificar.setFont(new Font(&quot;Dialog&quot;, Font.BOLD, 14));</span>
+
+<span class="nc" id="L242">		buttonCancelar = new JButton(ResourceBundle.getBundle(&quot;Etiquetas&quot;).getString(&quot;Close&quot;));</span>
+<span class="nc" id="L243">		buttonCancelar.setBounds(16, 463, 127, 29);</span>
+<span class="nc" id="L244">		contentPane.add(buttonCancelar);</span>
+<span class="nc" id="L245">		buttonCancelar.setBackground(SystemColor.controlShadow);</span>
+<span class="nc" id="L246">		buttonCancelar.setForeground(Color.WHITE);</span>
+<span class="nc" id="L247">		buttonCancelar.setFont(new Font(&quot;Dialog&quot;, Font.BOLD, 14));</span>
+
+<span class="nc" id="L249">		buttonGuardar = new JButton(ResourceBundle.getBundle(&quot;Etiquetas&quot;).getString(&quot;ModificarDatosGUI.guardar&quot;));</span>
+<span class="nc" id="L250">		buttonGuardar.setBounds(563, 463, 127, 29);</span>
+<span class="nc" id="L251">		contentPane.add(buttonGuardar);</span>
+<span class="nc" id="L252">		buttonGuardar.setForeground(Color.WHITE);</span>
+<span class="nc" id="L253">		buttonGuardar.setFont(new Font(&quot;Dialog&quot;, Font.BOLD, 14));</span>
+<span class="nc" id="L254">		buttonGuardar.setBackground(SystemColor.textHighlight);</span>
+
+<span class="nc" id="L256">		buttonGuardar.addActionListener(new ActionListener() {</span>
+			@Override
+			public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L259">				boolean resul = false;</span>
+<span class="nc" id="L260">				boolean resul2 = false;</span>
+<span class="nc bnc" id="L261" title="All 2 branches missed.">				if (fieldContraseña2.getText().equals(&quot;&quot;)) {</span>
+
+<span class="nc" id="L263">					resul2 = facade.editarPerfilUsuarioSinPass(fieldUsername.getText(), fieldNombre.getText(),</span>
+<span class="nc" id="L264">							fieldApellido.getText(), fieldEmail.getText(), fieldCuentaBancaria.getText());</span>
+
+<span class="nc" id="L266">				} else {</span>
+
+<span class="nc bnc" id="L268" title="All 2 branches missed.">					if (fieldContraseña2.getText().equals(fieldContraseña3.getText())) {</span>
+
+<span class="nc bnc" id="L270" title="All 2 branches missed.">						if (RegisterGUI.validoContraseña(fieldContraseña2.getText())) {</span>
+
+<span class="nc" id="L272">							resul = facade.editarPerfilUsuario(fieldContraseña2.getText(), fieldUsername.getText(),</span>
+<span class="nc" id="L273">									fieldNombre.getText(), fieldApellido.getText(), fieldEmail.getText(),</span>
+<span class="nc" id="L274">									fieldCuentaBancaria.getText());</span>
+
+<span class="nc" id="L276">						} else {</span>
+<span class="nc" id="L277">							JOptionPane.showMessageDialog(getContentPane(), &quot;Contraseña no válida!&quot;, &quot;Error&quot;,</span>
+<span class="nc" id="L278">									JOptionPane.ERROR_MESSAGE);</span>
+						}
+
+<span class="nc" id="L281">					} else {</span>
+<span class="nc" id="L282">						JOptionPane.showMessageDialog(getContentPane(), &quot;Las contraseñas no coinciden!&quot;, &quot;Error&quot;,</span>
+<span class="nc" id="L283">								JOptionPane.ERROR_MESSAGE);</span>
+
+					}
+
+				}
+
+<span class="nc bnc" id="L289" title="All 4 branches missed.">				if (resul || resul2) {</span>
+<span class="nc" id="L290">					JOptionPane.showMessageDialog(getContentPane(),</span>
+<span class="nc" id="L291">							&quot;Cambios guardados correctamente. \nSerá redirigido al menú principal...&quot;);</span>
+<span class="nc" id="L292">					RegularUser usuarioactualizado = facade.getRegularUserByUsername(fieldUsername.getText());</span>
+<span class="nc" id="L293">					Frame reg = new MainGUI(usuarioactualizado);</span>
+<span class="nc" id="L294">					reg.setAlwaysOnTop(true);</span>
+<span class="nc" id="L295">					reg.setVisible(true);</span>
+<span class="nc" id="L296">					dispose();</span>
+
+				}
+
+<span class="nc" id="L300">			}</span>
+		});
+<span class="nc" id="L302">		buttonGuardar.setVisible(false);</span>
+<span class="nc" id="L303">		buttonGuardar.setEnabled(false);</span>
+
+<span class="nc" id="L305">		buttonCancelar.addActionListener(new ActionListener() {</span>
+			@Override
+			public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L308">				Frame reg = new MainGUI(userlog);</span>
+<span class="nc" id="L309">				reg.setAlwaysOnTop(true);</span>
+<span class="nc" id="L310">				reg.setVisible(true);</span>
+<span class="nc" id="L311">				dispose();</span>
+<span class="nc" id="L312">				dispose();</span>
+<span class="nc" id="L313">			}</span>
+		});
+
+<span class="nc" id="L316">		buttonModificar.addActionListener(new ActionListener() {</span>
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+<span class="nc" id="L321">				fieldUsername.setBorder(border);</span>
+<span class="nc" id="L322">				fieldContraseña.setBorder(border);</span>
+<span class="nc" id="L323">				fieldNombre.setBorder(border2);</span>
+<span class="nc" id="L324">				fieldApellido.setBorder(border2);</span>
+<span class="nc" id="L325">				fieldEmail.setBorder(border2);</span>
+<span class="nc" id="L326">				fieldCuentaBancaria.setBorder(border2);</span>
+<span class="nc" id="L327">				fieldSaldo.setBorder(border);</span>
+<span class="nc" id="L328">				checkContraseña.setVisible(true);</span>
+
+<span class="nc" id="L330">				fieldContraseña2.setVisible(true);</span>
+<span class="nc" id="L331">				fieldContraseña3.setVisible(true);</span>
+
+<span class="nc" id="L333">				contentPane.add(fieldContraseña2);</span>
+<span class="nc" id="L334">				fieldContraseña2.setColumns(10);</span>
+<span class="nc" id="L335">				fieldContraseña2.setEditable(true);</span>
+
+<span class="nc" id="L337">				contentPane.add(fieldContraseña3);</span>
+<span class="nc" id="L338">				fieldContraseña3.setColumns(10);</span>
+<span class="nc" id="L339">				fieldContraseña3.setEditable(true);</span>
+
+<span class="nc" id="L341">				fieldNombre.setBounds(249, 222, 262, 29);</span>
+<span class="nc" id="L342">				fieldApellido.setBounds(249, 261, 262, 29);</span>
+<span class="nc" id="L343">				fieldEmail.setBounds(249, 300, 262, 29);</span>
+<span class="nc" id="L344">				fieldCuentaBancaria.setBounds(249, 339, 262, 29);</span>
+<span class="nc" id="L345">				fieldSaldo.setBounds(249, 380, 262, 29);</span>
+
+<span class="nc" id="L347">				fieldNombre.setEditable(true);</span>
+<span class="nc" id="L348">				fieldApellido.setEditable(true);</span>
+<span class="nc" id="L349">				fieldEmail.setEditable(true);</span>
+<span class="nc" id="L350">				fieldCuentaBancaria.setEditable(true);</span>
+
+<span class="nc" id="L352">				lblContraseña2.setVisible(true);</span>
+
+<span class="nc" id="L354">				lblContraseña3.setVisible(true);</span>
+
+<span class="nc" id="L356">				lblNombre.setBounds(10, 228, 133, 13);</span>
+<span class="nc" id="L357">				lblApellido.setBounds(10, 267, 133, 13);</span>
+<span class="nc" id="L358">				lblEmail.setBounds(10, 306, 133, 13);</span>
+<span class="nc" id="L359">				lblCuentaBancaria.setBounds(10, 345, 133, 13);</span>
+<span class="nc" id="L360">				lblSaldo.setBounds(10, 389, 133, 13);</span>
+
+<span class="nc" id="L362">				buttonModificar.setEnabled(false);</span>
+<span class="nc" id="L363">				buttonModificar.setVisible(false);</span>
+<span class="nc" id="L364">				buttonGuardar.setVisible(true);</span>
+<span class="nc" id="L365">				buttonGuardar.setEnabled(true);</span>
+<span class="nc" id="L366">			}</span>
+		});
+
+<span class="nc" id="L369">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span>deleteEventDa2Test (19 Oct 2021 10:47:35)</div></body></html>

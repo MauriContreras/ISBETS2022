@@ -1,11 +1,15 @@
 
-null#isCellEditable(II)Zx
-lC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/gui/FindQuestionsInvitadoGUI.javaπ π( "1*Ç
-1x
-lC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/gui/FindQuestionsInvitadoGUI.java∫ ∫("Ç
-x
-lC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/gui/FindQuestionsInvitadoGUI.java∫ ∫(
-"":
-"":
-""B(&
-$Lgui/FindQuestionsInvitadoGUI$10797;
+çdataAccess.DataAccess#editarPerfilUsuarioSinPass(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Zd
+XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java§	 §	(*"3*Ÿ
+3d
+XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaÆ	
+ Æ	("n
+d
+XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaÆ	 Æ	(
+"":
+	pUsernamejava.lang.String:
+pNombrejava.lang.String:
+	pApellidojava.lang.String:
+pEmailjava.lang.String:#
+pCuentaBancariajava.lang.StringB
+dataAccess.DataAccess

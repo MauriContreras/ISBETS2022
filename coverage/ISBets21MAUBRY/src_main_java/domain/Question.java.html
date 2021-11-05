@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>Question.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">deleteEventDa2Test (19 Oct 2021 10:47:35)</a> &gt; <a href="../../index.html" class="el_group">ISBets21MAUBRY</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">domain</a> &gt; <span class="el_source">Question.java</span></div><h1>Question.java</h1><pre class="source lang-java linenums">package domain;
+
+import java.io.Serializable;
+import java.util.Vector;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+@SuppressWarnings(&quot;serial&quot;)
+@XmlAccessorType(XmlAccessType.FIELD)
+@Entity
+public class Question implements Serializable {
+
+	@Id
+	@XmlJavaTypeAdapter(IntegerAdapter.class)
+	@GeneratedValue
+	private Integer questionNumber;
+	private String question;
+	private float betMinimum;
+	private String result;
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+<span class="pc" id="L29">	private Vector&lt;Forecast&gt; forecasts = new Vector&lt;Forecast&gt;();</span>
+	private Event event;
+	private boolean hasResult;
+
+	public boolean hasResult() {
+<span class="nc" id="L34">		return hasResult;</span>
+	}
+
+	public void hasResult(boolean hasResult) {
+<span class="nc" id="L38">		this.hasResult = hasResult;</span>
+<span class="nc" id="L39">	}</span>
+
+	public Question() {
+<span class="fc" id="L42">		super();</span>
+<span class="fc" id="L43">	}</span>
+
+	public Question(Integer queryNumber, String query, float betMinimum, Event event) {
+<span class="nc" id="L46">		super();</span>
+<span class="nc" id="L47">		this.questionNumber = queryNumber;</span>
+<span class="nc" id="L48">		this.question = query;</span>
+<span class="nc" id="L49">		this.betMinimum = betMinimum;</span>
+<span class="nc" id="L50">		this.event = event;</span>
+<span class="nc" id="L51">		this.hasResult=false;</span>
+<span class="nc" id="L52">	}</span>
+
+	public Question(String query, float betMinimum, Event event) {
+<span class="fc" id="L55">		super();</span>
+<span class="fc" id="L56">		this.question = query;</span>
+<span class="fc" id="L57">		this.betMinimum = betMinimum;</span>
+<span class="fc" id="L58">		this.hasResult=false;</span>
+
+<span class="fc" id="L60">		this.event = event;</span>
+<span class="fc" id="L61">	}</span>
+
+	/**
+	 * Get the number of the question
+	 * 
+	 * @return the question number
+	 */
+	public Integer getQuestionNumber() {
+<span class="nc" id="L69">		return questionNumber;</span>
+	}
+
+	/**
+	 * Set the bet number to a question
+	 * 
+	 * @param questionNumber to be setted
+	 */
+	public void setQuestionNumber(Integer questionNumber) {
+<span class="nc" id="L78">		this.questionNumber = questionNumber;</span>
+<span class="nc" id="L79">	}</span>
+
+	/**
+	 * Get the question description of the bet
+	 * 
+	 * @return the bet question
+	 */
+
+	public String getQuestion() {
+<span class="nc" id="L88">		return question;</span>
+	}
+
+	/**
+	 * Set the question description of the bet
+	 * 
+	 * @param question to be setted
+	 */
+	public void setQuestion(String question) {
+<span class="nc" id="L97">		this.question = question;</span>
+<span class="nc" id="L98">	}</span>
+
+	/**
+	 * Get the minimun ammount of the bet
+	 * 
+	 * @return the minimum bet ammount
+	 */
+
+	public float getBetMinimum() {
+<span class="nc" id="L107">		return betMinimum;</span>
+	}
+
+	/**
+	 * Get the minimun ammount of the bet
+	 * 
+	 * @param betMinimum minimum bet ammount to be setted
+	 */
+
+	public void setBetMinimum(float betMinimum) {
+<span class="nc" id="L117">		this.betMinimum = betMinimum;</span>
+<span class="nc" id="L118">	}</span>
+
+	/**
+	 * Get the result of the query
+	 * 
+	 * @return the the query result
+	 */
+	public String getResult() {
+<span class="nc" id="L126">		return result;</span>
+	}
+
+	/**
+	 * Get the result of the query
+	 * 
+	 * @param result of the query to be setted
+	 */
+
+	public void setResult(String result) {
+<span class="nc" id="L136">		this.result = result;</span>
+<span class="nc" id="L137">	}</span>
+
+	/**
+	 * Get the event associated to the bet
+	 * 
+	 * @return the associated event
+	 */
+	public Event getEvent() {
+<span class="fc" id="L145">		return event;</span>
+	}
+
+	/**
+	 * Set the event associated to the bet
+	 * 
+	 * @param event to associate to the bet
+	 */
+	public void setEvent(Event event) {
+<span class="nc" id="L154">		this.event = event;</span>
+<span class="nc" id="L155">	}</span>
+
+	public Vector&lt;Forecast&gt; getForecasts() {
+<span class="nc" id="L158">		return forecasts;</span>
+	}
+
+	public void setForecasts(Vector&lt;Forecast&gt; forecasts) {
+<span class="nc" id="L162">		this.forecasts = forecasts;</span>
+<span class="nc" id="L163">	}</span>
+
+	public Forecast addForecast(String forecast, float fee) {
+<span class="nc" id="L166">		Forecast f = new Forecast(forecast, fee, this);</span>
+<span class="nc" id="L167">		forecasts.add(f);</span>
+<span class="nc" id="L168">		return f;</span>
+	}
+
+	public Forecast addForecast(Forecast forecast) {
+<span class="nc" id="L172">		forecasts.add(forecast);</span>
+<span class="nc" id="L173">		return forecast;</span>
+	}
+
+	public boolean DoesForecastExists(String forecast) {
+<span class="nc bnc" id="L177" title="All 2 branches missed.">		for (Forecast f : this.getForecasts()) {</span>
+<span class="nc bnc" id="L178" title="All 2 branches missed.">			if (f.getForecast().compareTo(forecast) == 0)</span>
+<span class="nc" id="L179">				return true;</span>
+		}
+<span class="nc" id="L181">		return false;</span>
+	}
+
+	@Override
+	public String toString() {
+<span class="fc" id="L186">		return questionNumber + &quot;; &quot; + question + &quot;; &quot; + Float.toString(betMinimum) + &quot; ➪ &quot; + event.getDescription();</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span>deleteEventDa2Test (19 Oct 2021 10:47:35)</div></body></html>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>LoginGUI.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">deleteEventDa2Test (19 Oct 2021 10:47:35)</a> &gt; <a href="../../index.html" class="el_group">ISBets21MAUBRY</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">gui</a> &gt; <span class="el_source">LoginGUI.java</span></div><h1>LoginGUI.java</h1><pre class="source lang-java linenums">package gui;
+
+import java.awt.Font;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+
+import businessLogic.BLFacade;
+import domain.AdminUser;
+import domain.RegularUser;
+import java.awt.Color;
+import java.awt.SystemColor;
+
+public class LoginGUI extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textUser;
+	private JPasswordField textPass;
+	private static BLFacade facade;
+	private static RegularUser userlog;
+
+<span class="nc" id="L34">	private JLabel lblUser = new JLabel(&quot;Usuario:&quot;);</span>
+<span class="nc" id="L35">	private JLabel lblPass = new JLabel(&quot;Contraseña:&quot;);</span>
+
+<span class="nc" id="L37">	private JButton buttonLogin = new JButton(&quot;Login&quot;);</span>
+<span class="nc" id="L38">	private JButton buttonRegister = new JButton(&quot;Registrarse&quot;);</span>
+	private JButton btnInvitado;
+
+	public LoginGUI() {
+<span class="nc" id="L42">		super();</span>
+
+<span class="nc" id="L44">		addWindowListener(new WindowAdapter() {</span>
+			@Override
+			public void windowClosing(WindowEvent e) {
+				try {
+					// if (ConfigXML.getInstance().isBusinessLogicLocal()) facade.close();
+				} catch (Exception e1) {
+					System.out.println(
+							&quot;Error: &quot; + e1.toString() + &quot; , probably problems with Business Logic or Database&quot;);
+				}
+<span class="nc" id="L53">				System.exit(1);</span>
+<span class="nc" id="L54">			}</span>
+		});
+
+<span class="nc" id="L57">		initialize();</span>
+		// this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+<span class="nc" id="L59">	}</span>
+
+	public void initialize() {
+<span class="nc" id="L62">		setTitle(&quot;Login&quot;);</span>
+
+<span class="nc" id="L64">		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L65">		setBounds(100, 100, 460, 300);</span>
+<span class="nc" id="L66">		contentPane = new JPanel();</span>
+<span class="nc" id="L67">		contentPane.setBackground(Color.WHITE);</span>
+<span class="nc" id="L68">		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
+<span class="nc" id="L69">		setContentPane(contentPane);</span>
+<span class="nc" id="L70">		contentPane.setLayout(null);</span>
+
+<span class="nc" id="L72">		lblUser.setHorizontalAlignment(SwingConstants.RIGHT);</span>
+<span class="nc" id="L73">		lblUser.setBounds(65, 66, 100, 14);</span>
+<span class="nc" id="L74">		contentPane.add(lblUser);</span>
+
+<span class="nc" id="L76">		lblPass.setHorizontalAlignment(SwingConstants.RIGHT);</span>
+<span class="nc" id="L77">		lblPass.setBounds(89, 106, 76, 14);</span>
+<span class="nc" id="L78">		contentPane.add(lblPass);</span>
+
+<span class="nc" id="L80">		textUser = new JTextField(&quot;&quot;);</span>
+<span class="nc" id="L81">		textUser.setForeground(Color.GRAY);</span>
+<span class="nc" id="L82">		textUser.setFont(new Font(&quot;Arial&quot;, Font.PLAIN, 16));</span>
+<span class="nc" id="L83">		textUser.setBounds(175, 57, 135, 30);</span>
+<span class="nc" id="L84">		contentPane.add(textUser);</span>
+<span class="nc" id="L85">		textUser.setColumns(10);</span>
+
+<span class="nc" id="L87">		textPass = new JPasswordField(&quot;&quot;);</span>
+<span class="nc" id="L88">		textPass.setForeground(Color.GRAY);</span>
+<span class="nc" id="L89">		textPass.setFont(new Font(&quot;Arial&quot;, Font.PLAIN, 16));</span>
+<span class="nc" id="L90">		textPass.setBounds(175, 97, 135, 30);</span>
+<span class="nc" id="L91">		contentPane.add(textPass);</span>
+<span class="nc" id="L92">		textPass.setColumns(10);</span>
+<span class="nc" id="L93">		buttonLogin.setForeground(Color.WHITE);</span>
+<span class="nc" id="L94">		buttonLogin.setFont(new Font(&quot;Dialog&quot;, Font.BOLD, 14));</span>
+<span class="nc" id="L95">		buttonLogin.setBackground(SystemColor.textHighlight);</span>
+
+<span class="nc" id="L97">		buttonLogin.addActionListener(new ActionListener() {</span>
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+<span class="nc" id="L100">				String pass = String.valueOf(textPass.getPassword());</span>
+<span class="nc" id="L101">				String userName = textUser.getText();</span>
+<span class="nc bnc" id="L102" title="All 4 branches missed.">				if (pass.equals(&quot;&quot;) || userName.equals(&quot;&quot;)) {</span>
+<span class="nc" id="L103">					JOptionPane.showMessageDialog(contentPane, &quot;Usuario o contraseña no introducida&quot;, &quot;Error&quot;,</span>
+<span class="nc" id="L104">							JOptionPane.ERROR_MESSAGE);</span>
+<span class="nc" id="L105">				} else {</span>
+<span class="nc" id="L106">					boolean b = facade.doLogin(userName, pass);</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed.">					if (b) {</span>
+
+						// Check user permissions
+<span class="nc bnc" id="L110" title="All 2 branches missed.">						if (facade.isAdmin(userName, pass)) {</span>
+
+<span class="nc" id="L112">							AdminUser au = facade.getAdminUserByUsername(userName);</span>
+<span class="nc" id="L113">							JFrame a = new MainAdminGUI(au);</span>
+							// a.setLocationRelativeTo(null);
+<span class="nc" id="L115">							a.setVisible(true);</span>
+<span class="nc" id="L116">							textUser.setText(&quot;&quot;);</span>
+<span class="nc" id="L117">							textPass.setText(&quot;&quot;);</span>
+
+<span class="nc" id="L119">						} else {</span>
+
+<span class="nc" id="L121">							RegularUser ru = facade.getRegularUserByUsername(userName);</span>
+<span class="nc" id="L122">							JFrame a = new MainGUI(ru);</span>
+							// a.setLocationRelativeTo(null);
+<span class="nc" id="L124">							a.setVisible(true);</span>
+<span class="nc" id="L125">							textUser.setText(&quot;&quot;);</span>
+<span class="nc" id="L126">							textPass.setText(&quot;&quot;);</span>
+						}
+<span class="nc" id="L128">					} else {</span>
+
+<span class="nc" id="L130">						JOptionPane.showMessageDialog(null, &quot;Usuario y contraseña no coinciden&quot;, &quot;LOGIN INFO&quot;,</span>
+<span class="nc" id="L131">								JOptionPane.ERROR_MESSAGE, null);</span>
+					}
+				}
+<span class="nc" id="L134">			}</span>
+		});
+
+<span class="nc" id="L137">		buttonLogin.setBounds(97, 155, 89, 27);</span>
+<span class="nc" id="L138">		contentPane.add(buttonLogin);</span>
+<span class="nc" id="L139">		buttonRegister.setFont(new Font(&quot;Dialog&quot;, Font.BOLD, 14));</span>
+<span class="nc" id="L140">		buttonRegister.setForeground(Color.WHITE);</span>
+<span class="nc" id="L141">		buttonRegister.setBackground(SystemColor.textHighlight);</span>
+
+<span class="nc" id="L143">		buttonRegister.addActionListener(new ActionListener() {</span>
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+<span class="nc" id="L147">				Frame reg = new RegisterGUI();</span>
+<span class="nc" id="L148">				reg.setAlwaysOnTop(true);</span>
+<span class="nc" id="L149">				reg.setVisible(true);</span>
+				// dispose();
+<span class="nc" id="L151">			}</span>
+		});
+
+<span class="nc" id="L154">		buttonRegister.setBounds(220, 155, 135, 27);</span>
+<span class="nc" id="L155">		contentPane.add(buttonRegister);</span>
+
+<span class="nc" id="L157">		btnInvitado = new JButton(&quot;Invitado&quot;);</span>
+<span class="nc" id="L158">		btnInvitado.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent arg0) {
+<span class="nc" id="L160">				Frame reg = new FindQuestionsInvitadoGUI();</span>
+<span class="nc" id="L161">				reg.setAlwaysOnTop(true);</span>
+<span class="nc" id="L162">				reg.setVisible(true);</span>
+
+<span class="nc" id="L164">			}</span>
+		});
+<span class="nc" id="L166">		btnInvitado.setForeground(Color.WHITE);</span>
+<span class="nc" id="L167">		btnInvitado.setFont(new Font(&quot;Dialog&quot;, Font.BOLD, 14));</span>
+<span class="nc" id="L168">		btnInvitado.setBackground(SystemColor.textHighlight);</span>
+<span class="nc" id="L169">		btnInvitado.setBounds(145, 204, 120, 27);</span>
+<span class="nc" id="L170">		contentPane.add(btnInvitado);</span>
+
+<span class="nc" id="L172">	}</span>
+
+	public static void setBusinessLogic(BLFacade pfacade) {
+<span class="nc" id="L175">		facade = pfacade;</span>
+<span class="nc" id="L176">	}</span>
+
+	public static BLFacade getBusinessLogic() {
+<span class="nc" id="L179">		return facade;</span>
+	}
+
+	public void setRegularUserLog(RegularUser user) {
+<span class="nc" id="L183">		LoginGUI.userlog = user;</span>
+<span class="nc" id="L184">	}</span>
+
+	public static RegularUser getUserLog() {
+<span class="nc" id="L187">		return userlog;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span>deleteEventDa2Test (19 Oct 2021 10:47:35)</div></body></html>

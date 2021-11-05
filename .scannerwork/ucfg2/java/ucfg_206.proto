@@ -1,16 +1,11 @@
 
-3configuration.ConfigXML#getUser()Ljava/lang/String;q
-gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java9 9("1*ƒ
-1q
-gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java:	 :(ª
-∏
-q
-gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java:	 :(
-%0java.lang.String"__id*%*#
-configuration.ConfigXML"
-user"ç
-q
-gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java: :(
-
-%0java.lang.StringB
-configuration.ConfigXML
+@dataAccess.DataAccess#aplicarBonoBienvenida(Ljava/lang/String;)Zd
+XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java∏ ∏(%"2*Ÿ
+2d
+XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaø
+ ø("n
+d
+XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaø ø(
+"":
+userjava.lang.StringB
+dataAccess.DataAccess

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>CreateQuestionBLMockTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">deleteEventDa2Test (19 Oct 2021 10:47:35)</a> &gt; <a href="../../index.html" class="el_group">ISBets21MAUBRY</a> &gt; <a href="../index.html" class="el_bundle">src/test/java</a> &gt; <a href="index.source.html" class="el_package">test</a> &gt; <span class="el_source">CreateQuestionBLMockTest.java</span></div><h1>CreateQuestionBLMockTest.java</h1><pre class="source lang-java linenums">package test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.fail;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Mockito;
+
+import businessLogic.BLFacade;
+import businessLogic.BLFacadeImplementation;
+import dataAccess.DataAccess;
+import domain.Event;
+import domain.Question;
+import exceptions.EventFinished;
+import exceptions.QuestionAlreadyExist;
+
+<span class="nc" id="L25">class CreateQuestionBLMockTest {</span>
+<span class="nc" id="L26">	DataAccess dataAccess = Mockito.mock(DataAccess.class);</span>
+<span class="nc" id="L27">	Event mockedEvent = Mockito.mock(Event.class);</span>
+
+<span class="nc" id="L29">	BLFacade sut = new BLFacadeImplementation(dataAccess);</span>
+
+	@DisplayName(&quot;sut.createQuestion: The event has one question with a queryText.&quot;)
+	@Test
+	void test1() {
+		try {
+			// define paramaters
+<span class="nc" id="L36">			SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</span>
+<span class="nc" id="L37">			Date oneDate = sdf.parse(&quot;05/10/2022&quot;);</span>
+
+			try {
+				// configure Mock
+<span class="nc" id="L41">				Mockito.doReturn(oneDate).when(mockedEvent).getEventDate();</span>
+//				Mockito.when(dataAccess.createQuestion(Mockito.any(Event.class), Mockito.any(String.class),
+//						Mockito.any(Integer.class))).thenThrow(QuestionAlreadyExist.class);
+<span class="nc" id="L44">				Mockito.doThrow(QuestionAlreadyExist.class).when(dataAccess).createQuestion(Mockito.any(Event.class),</span>
+<span class="nc" id="L45">						Mockito.any(String.class), Mockito.any(Float.class));</span>
+				// invoke System Under Test (sut)
+<span class="nc" id="L47">				String queryText = &quot;Query Text&quot;;</span>
+<span class="nc" id="L48">				Float betMinimum = 2f;</span>
+<span class="nc" id="L49">				assertThrows(QuestionAlreadyExist.class, () -&gt; sut.createQuestion(mockedEvent, queryText, betMinimum));</span>
+<span class="nc" id="L50">			} catch (QuestionAlreadyExist e) {</span>
+				// if the program goes to this point fail, the first createQuestion of Mock
+<span class="nc" id="L52">				fail(&quot;Not possible&quot;);</span>
+			}
+<span class="nc" id="L54">		} catch (ParseException e) {</span>
+<span class="nc" id="L55">			fail(&quot;It should be correct: check the date format&quot;);</span>
+		}
+
+<span class="nc" id="L58">	}</span>
+
+	@Test
+	@DisplayName(&quot;sut.createQuestion: The event has NOT a question with a queryText.&quot;)
+	void test2() {
+		try {
+			// define paramaters
+<span class="nc" id="L65">			SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</span>
+<span class="nc" id="L66">			Date oneDate = sdf.parse(&quot;05/10/2022&quot;);</span>
+
+			// configure Mock
+<span class="nc" id="L69">			Mockito.doReturn(oneDate).when(mockedEvent).getEventDate();</span>
+<span class="nc" id="L70">			String queryText = &quot;Query Text&quot;;</span>
+<span class="nc" id="L71">			Float betMinimum = 2f;</span>
+			try {
+<span class="nc" id="L73">				Mockito.doReturn(new Question(queryText, betMinimum, mockedEvent)).when(dataAccess).createQuestion(</span>
+<span class="nc" id="L74">						Mockito.any(Event.class), Mockito.any(String.class), Mockito.any(Integer.class));</span>
+
+				// invoke System Under Test (sut)
+<span class="nc" id="L77">				sut.createQuestion(mockedEvent, queryText, betMinimum);</span>
+
+				// verify the results
+<span class="nc" id="L80">				ArgumentCaptor&lt;Event&gt; eventCaptor = ArgumentCaptor.forClass(Event.class);</span>
+<span class="nc" id="L81">				ArgumentCaptor&lt;String&gt; questionStringCaptor = ArgumentCaptor.forClass(String.class);</span>
+<span class="nc" id="L82">				ArgumentCaptor&lt;Float&gt; betMinimunCaptor = ArgumentCaptor.forClass(Float.class);</span>
+
+<span class="nc" id="L84">				Mockito.verify(dataAccess, Mockito.times(1)).createQuestion(eventCaptor.capture(),</span>
+<span class="nc" id="L85">						questionStringCaptor.capture(), betMinimunCaptor.capture());</span>
+
+<span class="nc" id="L87">				assertEquals(mockedEvent, eventCaptor.getValue());</span>
+<span class="nc" id="L88">				assertEquals(queryText, questionStringCaptor.getValue());</span>
+<span class="nc" id="L89">				assertEquals(betMinimum, betMinimunCaptor.getValue());</span>
+
+<span class="nc" id="L91">			} catch (QuestionAlreadyExist e) {</span>
+<span class="nc" id="L92">				fail(&quot;Mock DataAccess should not raise the exception QuestionAlreadyExist&quot;);</span>
+<span class="nc" id="L93">			} catch (EventFinished e) {</span>
+<span class="nc" id="L94">				fail(&quot;Mock DataAccess should not raise the exception EventFinished&quot;);</span>
+			}
+<span class="nc" id="L96">		} catch (ParseException e) {</span>
+<span class="nc" id="L97">			fail(&quot;It should be correct: check the date format&quot;);</span>
+		}
+<span class="nc" id="L99">	}</span>
+
+	@Test
+	@DisplayName(&quot; sut.createQuestion: The event is null.&quot;)
+	void test3() {
+
+		try {
+			// define paramaters
+<span class="nc" id="L107">			SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</span>
+<span class="nc" id="L108">			Date oneDate = sdf.parse(&quot;05/10/2022&quot;);</span>
+
+			// configure Mock
+<span class="nc" id="L111">			Mockito.doReturn(oneDate).when(mockedEvent).getEventDate();</span>
+			try {
+<span class="nc" id="L113">				String queryText = &quot;Query Text&quot;;</span>
+<span class="nc" id="L114">				Float betMinimum = 2f;</span>
+<span class="nc" id="L115">				Mockito.doReturn(null).when(dataAccess).createQuestion(Mockito.any(Event.class),</span>
+<span class="nc" id="L116">						Mockito.any(String.class), Mockito.any(Integer.class));</span>
+
+				// invoke System Under Test (sut)
+<span class="nc" id="L119">				Question q = sut.createQuestion(mockedEvent, queryText, betMinimum);</span>
+
+<span class="nc" id="L121">				assertNull(q);</span>
+
+<span class="nc" id="L123">			} catch (QuestionAlreadyExist e) {</span>
+<span class="nc" id="L124">				fail(&quot;Mock DataAccess should not raise the exception QuestionAlreadyExist&quot;);</span>
+<span class="nc" id="L125">			} catch (EventFinished e) {</span>
+<span class="nc" id="L126">				fail(&quot;Mock DataAccess should not raise the exception EventFinished&quot;);</span>
+			}
+<span class="nc" id="L128">		} catch (ParseException e) {</span>
+<span class="nc" id="L129">			fail(&quot;It should be correct: check the date format&quot;);</span>
+		}
+<span class="nc" id="L131">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span>deleteEventDa2Test (19 Oct 2021 10:47:35)</div></body></html>

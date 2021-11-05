@@ -1,9 +1,16 @@
 
-/configuration.ConfigXML#isBusinessLogicLocal()Zq
-gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaE E($"1*Û
-1q
-gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaF	 F("{
-q
-gC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaF F(
-""B
-configuration.ConfigXML
+3domain.RegularUser#getBirthDate()Ljava/lang/String;_
+UC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/RegularUser.java# #("1*ç
+1_
+UC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/RegularUser.java$	 $(©
+¶
+_
+UC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/RegularUser.java$	 $(
+%0java.lang.String"__id*%*#
+domain.RegularUser"
+	birthDate"{
+_
+UC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/RegularUser.java$ $(
+
+%0java.lang.StringB
+domain.RegularUser

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>DeleteEventMockTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">deleteEventDa2Test (19 Oct 2021 10:47:35)</a> &gt; <a href="../../index.html" class="el_group">ISBets21MAUBRY</a> &gt; <a href="../index.html" class="el_bundle">src/test/java</a> &gt; <a href="index.source.html" class="el_package">test</a> &gt; <span class="el_source">DeleteEventMockTest.java</span></div><h1>DeleteEventMockTest.java</h1><pre class="source lang-java linenums">package test;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+import businessLogic.BLFacade;
+import businessLogic.BLFacadeImplementation;
+import dataAccess.DataAccess;
+import domain.Event;
+
+<span class="nc" id="L20">class DeleteEventMockTest {</span>
+
+<span class="nc" id="L22">	DataAccess dataAccess = Mockito.mock(DataAccess.class);</span>
+<span class="nc" id="L23">	Event mockedEvent = Mockito.mock(Event.class);</span>
+
+<span class="nc" id="L25">	BLFacade sut = new BLFacadeImplementation(dataAccess);</span>
+
+	@Test
+	void test1() {
+		try {
+			// define paramaters
+<span class="nc" id="L31">			SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</span>
+<span class="nc" id="L32">			Date oneDate = sdf.parse(&quot;05/10/2022&quot;);</span>
+
+			// configure Mock
+<span class="nc" id="L35">			Mockito.doReturn(true).when(dataAccess).deleteEvent(Mockito.any(Event.class));</span>
+
+			// invoke System Under Test (sut)
+<span class="nc" id="L38">			Event ev1 = new Event(&quot;partido1&quot;, oneDate);</span>
+<span class="nc" id="L39">			assertTrue(sut.deleteEvent(ev1));</span>
+<span class="nc" id="L40">		} catch (ParseException e) {</span>
+<span class="nc" id="L41">			fail(&quot;It should be correct: check the date format&quot;);</span>
+		}
+<span class="nc" id="L43">	}</span>
+
+//	@Test
+//	void test2() {
+//		try {
+//			// define paramaters
+//			SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);
+//			Date oneDate = sdf.parse(&quot;05/10/2022&quot;);
+//
+//			// configure Mock
+//			Mockito.doReturn(false).when(dataAccess).deleteEvent(Mockito.any(Event.class));
+//
+//			// invoke System Under Test (sut)
+//			Event ev1 = new Event(&quot;partido1&quot;, UtilDate.newDate(2022, 12, 22));
+//			assertFalse(sut.deleteEvent(ev1));
+//		} catch (ParseException e) {
+//			fail(&quot;It should be correct: check the date format&quot;);
+//		}
+//	}
+//
+//
+	@Test
+	void test4() {
+		try {
+			// define paramaters
+<span class="nc" id="L68">			SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</span>
+<span class="nc" id="L69">			Date oneDate = sdf.parse(&quot;05/10/2022&quot;);</span>
+<span class="nc" id="L70">			Event ev1 = new Event(&quot;partido1&quot;, oneDate);</span>
+<span class="nc" id="L71">			ev1.addQuestion(&quot;¿sí?&quot;, 10f);</span>
+<span class="nc" id="L72">			ev1.addQuestion(&quot;¿no?&quot;, 5f);</span>
+
+			// configure Mock
+<span class="nc" id="L75">			Mockito.doReturn(true).when(dataAccess).deleteEvent(Mockito.any(Event.class));</span>
+
+			// invoke System Under Test (sut)
+<span class="nc" id="L78">			assertTrue(sut.deleteEvent(ev1));</span>
+<span class="nc" id="L79">		} catch (ParseException e) {</span>
+<span class="nc" id="L80">			fail(&quot;It should be correct: check the date format&quot;);</span>
+		}
+<span class="nc" id="L82">	}</span>
+
+	@Test
+	@DisplayName(&quot;Se intenta eliminar un evento que no pertenece a la BD&quot;)
+	void test5() {
+
+		try {
+			// define paramaters
+<span class="nc" id="L90">			SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</span>
+<span class="nc" id="L91">			Date oneDate = sdf.parse(&quot;05/10/2022&quot;);</span>
+
+			// configure Mock
+<span class="nc" id="L94">			Mockito.doReturn(false).when(dataAccess).deleteEvent(Mockito.any(Event.class));</span>
+
+			// invoke System Under Test (sut)
+<span class="nc" id="L97">			Event ev1 = new Event(&quot;yes&quot;, oneDate);</span>
+
+<span class="nc" id="L99">			assertFalse(sut.deleteEvent(ev1));</span>
+<span class="nc" id="L100">		} catch (ParseException e) {</span>
+<span class="nc" id="L101">			fail(&quot;It should be correct: check the date format&quot;);</span>
+		}
+
+<span class="nc" id="L104">	}</span>
+
+	@Test
+	@DisplayName(&quot;Se intenta eliminar un evento cuyo identificador es null&quot;)
+	void test6() {
+
+		// configure Mock
+<span class="nc" id="L111">		Mockito.doReturn(false).when(dataAccess).deleteEvent(Mockito.any(Event.class));</span>
+
+		// invoke System Under Test (sut)
+<span class="nc" id="L114">		Event ev1 = null;</span>
+<span class="nc" id="L115">		assertFalse(sut.deleteEvent(ev1));</span>
+<span class="nc" id="L116">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span>deleteEventDa2Test (19 Oct 2021 10:47:35)</div></body></html>

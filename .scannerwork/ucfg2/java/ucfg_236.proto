@@ -1,11 +1,17 @@
 
-@dataAccess.DataAccess#aplicarBonoBienvenida(Ljava/lang/String;)Zq
-eC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java¸ ¸(%"2*ó
-2q
-eC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java¿
- ¿("{
-q
-eC:/Users/Jorshua/OneDrive/Uni/III/IS2/eclipse/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java¿ ¿(
-"":
-userjava.lang.StringB
-dataAccess.DataAccess
++domain.User#getUserName()Ljava/lang/String;X
+NC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/User.java ("1*ð
+1X
+NC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/User.java	 (š
+—
+X
+NC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/User.java	 (
+%0java.lang.String"__id**
+domain.User"
+
+userName"t
+X
+NC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/User.java (
+
+%0java.lang.StringB
+domain.User

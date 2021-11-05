@@ -155,7 +155,7 @@ class CreateQuestionDATest {
 
 				// verify the results returned
 				assertNull(q);
-//
+
 				// verify DB
 				// puede que en algun momento de la llamada a createQuestión la BD se cierre,
 				// por ello la vuelvo a abrir, puede ser porque en la linea 147 se cierre?

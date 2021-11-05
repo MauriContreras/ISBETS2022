@@ -28,7 +28,6 @@ class CreateQuestionDATest {
 
 	private Event ev;
 
-	//
 	@Test
 	// sut.createQuestion: The event has one question with a queryText.
 	void test1() {

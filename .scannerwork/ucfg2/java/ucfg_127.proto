@@ -1,9 +1,18 @@
 
-domain.Forecast#getFee()F\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Forecast.javaO O("1*É
-1\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Forecast.javaP	 P("f
-\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Forecast.javaP P(
-""B
-domain.Forecast
+Fdomain.IntegerAdapter#unmarshal(Ljava/lang/String;)Ljava/lang/Integer;c
+YC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/IntegerAdapter.java ("1*³
+1c
+YC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/IntegerAdapter.java (Ô
+Ñ
+c
+YC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/IntegerAdapter.java ("	
+%0int"/java.lang.Integer#parseInt(Ljava/lang/String;)I*"
+java.lang.Integer*
+
+sjava.lang.String"r
+c
+YC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/IntegerAdapter.java (#
+	
+%0int:
+sjava.lang.StringB
+domain.IntegerAdapter

@@ -1,16 +1,16 @@
 
-3configuration.ConfigXML#getUser()Ljava/lang/String;d
-ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java9 9("1*ù
-1d
-ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java:	 :(Æ
-´
-d
-ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java:	 :(
-%0java.lang.String"__id*%*#
-configuration.ConfigXML"
-user"Ä
-d
-ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java: :(
+@configuration.ConfigXML#getBusinessLogicName()Ljava/lang/String;g
+[C:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/configuration/ConfigXML.javaó ó(#"1*≥
+1g
+[C:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/configuration/ConfigXML.javaò	 ò(æ
+ª
+g
+[C:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/configuration/ConfigXML.javaò	 ò(
+%0java.lang.String"__id*2*0
+configuration.ConfigXML"
+businessLogicName"É
+g
+[C:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/configuration/ConfigXML.javaò ò(
 
 %0java.lang.StringB
 configuration.ConfigXML

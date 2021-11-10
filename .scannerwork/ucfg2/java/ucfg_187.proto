@@ -1,16 +1,9 @@
 
-?configuration.ConfigXML#getDataBaseOpenMode()Ljava/lang/String;f
-ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaü ü(""1*Ø
-1f
-ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java†	 †(º
-π
-f
-ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java†	 †(
-%0java.lang.String"__id*1*/
-configuration.ConfigXML"
-dataBaseOpenMode"Ç
-f
-ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java† †(
-
-%0java.lang.StringB
-configuration.ConfigXML
+(dataAccess.DataAccess#getNumberEvents()Ie
+YC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/dataAccess/DataAccess.javaé é("1*€
+1e
+YC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/dataAccess/DataAccess.javaè è("o
+e
+YC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/dataAccess/DataAccess.javaë ë(&
+""B
+dataAccess.DataAccess

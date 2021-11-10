@@ -1,16 +1,16 @@
 
-5configuration.ConfigXML#getLocale()Ljava/lang/String;d
-ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java1 1("1*ü
-1d
-ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java2	 2(∞
-≠
-d
-ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java2	 2(
-%0java.lang.String"__id*'*%
-configuration.ConfigXML"
-locale"Ä
-d
-ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java2 2(
+@configuration.ConfigXML#getBusinessLogicNode()Ljava/lang/String;g
+[C:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/configuration/ConfigXML.javaè è(#"1*≥
+1g
+[C:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/configuration/ConfigXML.javaê	 ê(æ
+ª
+g
+[C:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/configuration/ConfigXML.javaê	 ê(
+%0java.lang.String"__id*2*0
+configuration.ConfigXML"
+businessLogicNode"É
+g
+[C:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/configuration/ConfigXML.javaê ê(
 
 %0java.lang.StringB
 configuration.ConfigXML

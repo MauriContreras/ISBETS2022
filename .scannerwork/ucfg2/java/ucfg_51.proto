@@ -1,107 +1,130 @@
 
-Cgui.MainAdminGUI#getRdbtnNewRadioButton()Ljavax/swing/JRadioButton;_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaó ó(,"3*Æ
-2_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaô* ô(3ûõ
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaô ô()
-%1javax.swing.JRadioButton"javax.swing.JRadioButtonœ
-Ã
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaô ô(4
-%2"4javax.swing.JRadioButton#<init>(Ljava/lang/String;)V* 
-
-%1javax.swing.JRadioButton*	
-Englishπ
-∂
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaô ô(4+
-gui.MainAdminGUI"
-rdbtnNewRadioButton"__id* 
-
-%1javax.swing.JRadioButtonπ
-∂
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaö ö(
-%3javax.swing.JRadioButton"__id*-*+
-gui.MainAdminGUI"
-rdbtnNewRadioButtonà
-Ö
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaö% ö(0
+/gui.MainAdminGUI#getPanel()Ljavax/swing/JPanel;`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.java   ("3*õ
+2`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaÃ Ã(ìê
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaÃ Ã(
+%1javax.swing.JPanel"javax.swing.JPanel•
+¢
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaÃ Ã(
+%2"javax.swing.JPanel#<init>()V*
+
+%1javax.swing.JPanel¶
+£
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaÃ Ã(
+gui.MainAdminGUI"
+panel"__id*
+
+%1javax.swing.JPanel¶
+£
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaÕ Õ(
+%3javax.swing.JPanel"__id**
+gui.MainAdminGUI"
+panelâ
+Ü
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaÕ Õ("
 %4java.awt.Color"__id*
-""ÑÅ
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaö ö(1
+""ˇ¸
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaÕ Õ(#
 
-%5void"7javax.swing.JComponent#setBackground(Ljava/awt/Color;)V* 
-
-%3javax.swing.JRadioButton*
+%5void"7javax.swing.JComponent#setBackground(Ljava/awt/Color;)V*
+
+%3javax.swing.JPanel*
 
-%4java.awt.Color2setBackground(Ljava/awt/Color;)π
-∂
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaõ õ(
-%6javax.swing.JRadioButton"__id*-*+
-gui.MainAdminGUI"
-rdbtnNewRadioButtonúô
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaõ- õ(;
-%7Lgui/MainAdminGUI$8262;"Lgui/MainAdminGUI$8262;ß
-§
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaõ) ¢(
-%8"java.lang.Object#<init>()V*
-
-%7Lgui/MainAdminGUI$8262;∑¥
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaõ ¢(
+%4java.awt.Color2setBackground(Ljava/awt/Color;)¶
+£
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaŒ Œ(
+%6javax.swing.JPanel"__id**
+gui.MainAdminGUI"
+panel›⁄
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaŒ Œ($
 
-%9void"Njavax.swing.AbstractButton#addActionListener(Ljava/awt/event/ActionListener;)V* 
+%7void"#java.awt.Component#setBounds(IIII)V*
+
+%6javax.swing.JPanel*2&*2æ*2Ü*2&2setBounds(IIII)¶
+£
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaœ œ(
+%8javax.swing.JPanel"__id**
+gui.MainAdminGUI"
+panel‚
+ﬂ
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaœ œ('
+%9javax.swing.JRadioButton"Egui.MainAdminGUI#getRdbtnNewRadioButton_1()Ljavax/swing/JRadioButton;*
+gui.MainAdminGUIõò
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaœ œ((
+%10java.awt.Component"@java.awt.Container#add(Ljava/awt/Component;)Ljava/awt/Component;*
+
+%8javax.swing.JPanel* 
 
-%6javax.swing.JRadioButton*
-
-%7Lgui/MainAdminGUI$8262;22addActionListener(Ljava/awt/event/ActionListener;)±
-Æ
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.java£ £(
-%10javax.swing.ButtonGroup"__id*%*#
-gui.MainAdminGUI"
-buttonGroup∫
-∑
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.java£ £(&
-%11javax.swing.JRadioButton"__id*-*+
-gui.MainAdminGUI"
-rdbtnNewRadioButtonïí
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.java£ £('
-%12void":javax.swing.ButtonGroup#add(Ljavax/swing/AbstractButton;)V* 
-
-%10javax.swing.ButtonGroup*!
+%9javax.swing.JRadioButton2add(Ljava/awt/Component;)ß
+§
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.java– –(
+%11javax.swing.JPanel"__id**
+gui.MainAdminGUI"
+panel„
+‡
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.java– –('
+%12javax.swing.JRadioButton"Egui.MainAdminGUI#getRdbtnNewRadioButton_2()Ljavax/swing/JRadioButton;*
+gui.MainAdminGUIùö
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.java– –((
+%13java.awt.Component"@java.awt.Container#add(Ljava/awt/Component;)Ljava/awt/Component;*
+
+%11javax.swing.JPanel*!
 
-%11javax.swing.JRadioButton2!add(Ljavax/swing/AbstractButton;)*
-1*®
-3_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaò ò(π
-∂
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaò ò(
-%0javax.swing.JRadioButton"__id*-*+
-gui.MainAdminGUI"
-rdbtnNewRadioButton*
+%12javax.swing.JRadioButton2add(Ljava/awt/Component;)ß
+§
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.java— —(
+%14javax.swing.JPanel"__id**
+gui.MainAdminGUI"
+panel·
+ﬁ
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.java— —(%
+%15javax.swing.JRadioButton"Cgui.MainAdminGUI#getRdbtnNewRadioButton()Ljavax/swing/JRadioButton;*
+gui.MainAdminGUIùö
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.java— —(&
+%16java.awt.Component"@java.awt.Container#add(Ljava/awt/Component;)Ljava/awt/Component;*
+
+%14javax.swing.JPanel*!
+
+%15javax.swing.JRadioButton2add(Ljava/awt/Component;)*
+1*ñ
+3`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaÀ À(¶
+£
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaÀ À(
+%0javax.swing.JPanel"__id**
+gui.MainAdminGUI"
+panel*
 2
-1*®
-1_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.java•	 •(∫
-∑
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.java•	 •(
-%13javax.swing.JRadioButton"__id*-*+
-gui.MainAdminGUI"
-rdbtnNewRadioButton"Ñ
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.java• •(!
-
-%13javax.swing.JRadioButtonB
+1*ê
+1`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.java”	 ”(ß
+§
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.java”	 ”(
+%17javax.swing.JPanel"__id**
+gui.MainAdminGUI"
+panel"
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.java” ”(
+
+%17javax.swing.JPanelB
 gui.MainAdminGUI

@@ -1,17 +1,17 @@
 
-/domain.Question#getQuestion()Ljava/lang/String;\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Question.javaW W("1*€
-1\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Question.javaX	 X(¢
-Ÿ
-\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Question.javaX	 X(
-%0java.lang.String"__id*!*
-domain.Question"
++domain.User#getUserName()Ljava/lang/String;Y
+OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/User.java ("1*ó
+1Y
+OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/User.java	 (›
+˜
+Y
+OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/User.java	 (
+%0java.lang.String"__id**
+domain.User"
 
-question"x
-\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Question.javaX X(
+userName"u
+Y
+OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/User.java (
 
-%0java.lang.StringB
-domain.Question
+%0java.lang.StringB
+domain.User

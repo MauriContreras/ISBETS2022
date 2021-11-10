@@ -1,15 +1,16 @@
 
-çdataAccess.DataAccess#editarPerfilUsuarioSinPass(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Zd
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java§	 §	(*"3*Ÿ
-3d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaÆ	
- Æ	("n
-d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaÆ	 Æ	(
-"":
-	pUsernamejava.lang.String:
-pNombrejava.lang.String:
-	pApellidojava.lang.String:
-pEmailjava.lang.String:#
-pCuentaBancariajava.lang.StringB
-dataAccess.DataAccess
+3domain.RegularUser#getBirthDate()Ljava/lang/String;`
+VC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/RegularUser.java# #("1*ê
+1`
+VC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/RegularUser.java$	 $(™
+ß
+`
+VC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/RegularUser.java$	 $(
+%0java.lang.String"__id*%*#
+domain.RegularUser"
+	birthDate"|
+`
+VC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/RegularUser.java$ $(
+
+%0java.lang.StringB
+domain.RegularUser

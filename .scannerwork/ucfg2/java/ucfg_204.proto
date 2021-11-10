@@ -1,35 +1,16 @@
 
-DdataAccess.DataAccess#doLogin(Ljava/lang/String;Ljava/lang/String;)Zd
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java±
- ±
-("3"9"1*Ù
-3d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaÁ
- Á
-("n
-d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaÁ
- Á
-(
-""*Ù
-9d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java¸
- ¸
-("n
-d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java¸
- ¸
-(
-""*Ù
-1d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaÅ
-	 Å
-("n
-d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.javaÅ
- Å
-(
-"":
-usernamejava.lang.String:
-passjava.lang.StringB
-dataAccess.DataAccess
+5domain.RegularUser#getBankAccount()Ljava/lang/String;`
+VC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/RegularUser.java3 3("1*’
+1`
+VC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/RegularUser.java4	 4(¬
+©
+`
+VC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/RegularUser.java4	 4(
+%0java.lang.String"__id*'*%
+domain.RegularUser"
+bankAccount"|
+`
+VC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/RegularUser.java4 4(
+
+%0java.lang.StringB
+domain.RegularUser

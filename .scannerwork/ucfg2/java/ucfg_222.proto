@@ -1,9 +1,16 @@
 
-domain.Question#hasResult()Z\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Question.java! !("1*…
-1\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Question.java"	 "("f
-\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Question.java" "(
-""B
+-domain.Question#getResult()Ljava/lang/String;]
+SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/Question.java} }("1*Å
+1]
+SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/Question.java~	 ~(°
+û
+]
+SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/Question.java~	 ~(
+%0java.lang.String"__id**
+domain.Question"
+result"y
+]
+SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/Question.java~ ~(
+
+%0java.lang.StringB
 domain.Question

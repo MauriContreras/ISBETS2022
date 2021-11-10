@@ -1,9 +1,16 @@
 
-*configuration.ConfigXML#isDatabaseLocal()Zd
-ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaA A("1*Ù
-1d
-ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaB	 B("n
-d
-ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.javaB B(
-""B
+?configuration.ConfigXML#getDataBaseOpenMode()Ljava/lang/String;g
+[C:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/configuration/ConfigXML.javaŸ Ÿ(""1*²
+1g
+[C:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/configuration/ConfigXML.java 	  (½
+º
+g
+[C:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/configuration/ConfigXML.java 	  (
+%0java.lang.String"__id*1*/
+configuration.ConfigXML"
+dataBaseOpenMode"ƒ
+g
+[C:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/configuration/ConfigXML.java   (
+
+%0java.lang.StringB
 configuration.ConfigXML

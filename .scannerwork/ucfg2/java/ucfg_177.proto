@@ -1,17 +1,17 @@
 
-7configuration.ConfigXML#getPassword()Ljava/lang/String;d
-ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java= =("1*¡
-1d
-ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java>	 >(²
-¯
-d
-ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java>	 >(
-%0java.lang.String"__id*)*'
-configuration.ConfigXML"
+9configuration.ConfigXML#getDbFilename()Ljava/lang/String;g
+[C:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/configuration/ConfigXML.java› ›("1*¬
+1g
+[C:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/configuration/ConfigXML.javaœ	 œ(·
+´
+g
+[C:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/configuration/ConfigXML.javaœ	 œ(
+%0java.lang.String"__id*+*)
+configuration.ConfigXML"
 
-password"€
-d
-ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java> >(
+dbFilename"ƒ
+g
+[C:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/configuration/ConfigXML.javaœ œ(
 
 %0java.lang.StringB
 configuration.ConfigXML

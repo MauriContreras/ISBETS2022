@@ -1,16 +1,28 @@
 
-6domain.Question#getQuestionNumber()Ljava/lang/Integer;\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Question.javaD D(!"1*ˆ
-1\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Question.javaE	 E(©
-¦
-\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Question.javaE	 E(
+,domain.Question#toString()Ljava/lang/String;_
+SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/Question.java¹ ¹("1*ñ
+1_
+SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/Question.javaº	 º(¬
+©
+_
+SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/Question.javaº	 º(
 %0java.lang.Integer"__id*'*%
 domain.Question"
-questionNumber"y
-\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Question.javaE E(
-
-%0java.lang.IntegerB
+questionNumber¥
+¢
+_
+SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/Question.javaº! º()
+%1java.lang.String"__id*!*
+domain.Question"
+
+questionÈ
+Å
+_
+SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/Question.javaº3 º(M
+%2java.lang.String"-java.lang.Float#toString(F)Ljava/lang/String;*"
+java.lang.Float*
+"""i
+_
+SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/Question.javaº º(o
+""B
 domain.Question

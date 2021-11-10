@@ -2883,14 +2883,7 @@ KmatchString(Ljava/lang/String;IILjava/util/Map;Ljava/text/CalendarBuilder;)gja
 OmatchString(Ljava/lang/String;II[Ljava/lang/String;Ljava/text/CalendarBuilder;)kjava.text.SimpleDateFormat#matchString(Ljava/lang/String;II[Ljava/lang/String;Ljava/text/CalendarBuilder;)I³
 exceptions.EventFinishedjava.lang.Exception.
 <init>()"exceptions.EventFinished#<init>()VR
-<init>(Ljava/lang/String;)4exceptions.EventFinished#<init>(Ljava/lang/String;)VÞ
-test.CreateApuestaDAMockTestjava.lang.Object0
-test5()%test.CreateApuestaDAMockTest#test5()V0
-test3()%test.CreateApuestaDAMockTest#test3()V2
-<init>()&test.CreateApuestaDAMockTest#<init>()V0
-test4()%test.CreateApuestaDAMockTest#test4()V0
-test1()%test.CreateApuestaDAMockTest#test1()V0
-test2()%test.CreateApuestaDAMockTest#test2()V¼
+<init>(Ljava/lang/String;)4exceptions.EventFinished#<init>(Ljava/lang/String;)V¼
 test.CreateQuestionBLTestjava.lang.Object/
 <init>()#test.CreateQuestionBLTest#<init>()V-
 test1()"test.CreateQuestionBLTest#test1()V-
@@ -3133,14 +3126,7 @@ $remove(Ljavax/swing/AbstractButton;)=javax.swing.ButtonGroup#remove(Ljavax/swi
 )mouseEntered(Ljava/awt/event/MouseEvent;)/null#mouseEntered(Ljava/awt/event/MouseEvent;)VÍ
 Lgui/MainAdminGUI$13084;java.awt.event.ActionListenerjava.lang.Object
 <init>()null#<init>()Vd
--actionPerformed(Ljava/awt/event/ActionEvent;)3null#actionPerformed(Ljava/awt/event/ActionEvent;)VÂ
-test.CreateApuestaDATestjava.lang.Object,
-test5()!test.CreateApuestaDATest#test5()V,
-test3()!test.CreateApuestaDATest#test3()V.
-<init>()"test.CreateApuestaDATest#<init>()V,
-test4()!test.CreateApuestaDATest#test4()V,
-test1()!test.CreateApuestaDATest#test1()V,
-test2()!test.CreateApuestaDATest#test2()V…
+-actionPerformed(Ljava/awt/event/ActionEvent;)3null#actionPerformed(Ljava/awt/event/ActionEvent;)V…
 gui.MainGUIjavax.swing.JFrame;
 getBoton2(),gui.MainGUI#getBoton2()Ljavax/swing/JButton;>
 getlblSaldo()-gui.MainGUI#getlblSaldo()Ljavax/swing/JLabel;F
@@ -4426,16 +4412,7 @@ $setEstadoApuesta(Ljava/lang/String;)0domain.Bet#setEstadoApuesta(Ljava/lang/St
 getAmount()domain.Bet#getAmount()F×
 $exceptions.UserAlreadyExistExceptionjava.lang.Exception:
 <init>().exceptions.UserAlreadyExistException#<init>()V^
-<init>(Ljava/lang/String;)@exceptions.UserAlreadyExistException#<init>(Ljava/lang/String;)V•
-test.deleteEventDa2Testjava.lang.Object+
-test5() test.deleteEventDa2Test#test5()V+
-test6() test.deleteEventDa2Test#test6()V+
-test3() test.deleteEventDa2Test#test3()V-
-<init>()!test.deleteEventDa2Test#<init>()V+
-test4() test.deleteEventDa2Test#test4()V+
-test1() test.deleteEventDa2Test#test1()V+
-test2() test.deleteEventDa2Test#test2()V+
-setUp() test.deleteEventDa2Test#setUp()VÈ
+<init>(Ljava/lang/String;)@exceptions.UserAlreadyExistException#<init>(Ljava/lang/String;)VÈ
 exceptions.QuestionAlreadyExistjava.lang.Exception5
 <init>())exceptions.QuestionAlreadyExist#<init>()VY
 <init>(Ljava/lang/String;);exceptions.QuestionAlreadyExist#<init>(Ljava/lang/String;)V«
@@ -4907,16 +4884,7 @@ $setContentPane(Ljava/awt/Container;);javax.swing.JRootPane#setContentPane(Ljav
 paramString()5javax.swing.JRootPane#paramString()Ljava/lang/String;T
 createContentPane()=javax.swing.JRootPane#createContentPane()Ljava/awt/Container;V
 createRootLayout()@javax.swing.JRootPane#createRootLayout()Ljava/awt/LayoutManager;Z
-createLayeredPane()Cjavax.swing.JRootPane#createLayeredPane()Ljavax/swing/JLayeredPane;Û
-test.CreateApuestaDAUtilityTestjava.lang.Object3
-test5()(test.CreateApuestaDAUtilityTest#test5()V1
-setQ()'test.CreateApuestaDAUtilityTest#setQ()V3
-test3()(test.CreateApuestaDAUtilityTest#test3()V5
-<init>())test.CreateApuestaDAUtilityTest#<init>()V3
-test4()(test.CreateApuestaDAUtilityTest#test4()V3
-test1()(test.CreateApuestaDAUtilityTest#test1()V3
-test2()(test.CreateApuestaDAUtilityTest#test2()V3
-setUp()(test.CreateApuestaDAUtilityTest#setUp()Vß
+createLayeredPane()Cjavax.swing.JRootPane#createLayeredPane()Ljavax/swing/JLayeredPane;ß
 gui.FindQuestionsGUIjavax.swing.JFrame†
 6jButton2_actionPerformed(Ljava/awt/event/ActionEvent;)Lgui.FindQuestionsGUI#jButton2_actionPerformed(Ljava/awt/event/ActionEvent;)V*
 jbInit()gui.FindQuestionsGUI#jbInit()VÐ

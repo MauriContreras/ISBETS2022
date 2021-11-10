@@ -1,127 +1,140 @@
 
-1gui.MainAdminGUI#getBoton2()Ljavax/swing/JButton;_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaÀ À("3*–
-2_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaÕ Õ((îë
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaÕ Õ(&
-%1javax.swing.JButton"javax.swing.JButton¶
-£
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaÕ Õ((
-%2"javax.swing.JButton#<init>()V*
-
-%1javax.swing.JButton∂
-≥
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaÕ Õ((-
-gui.MainAdminGUI"
-jButtonCreateQuestion"__id*
-
-%1javax.swing.JButton∂
-≥
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaŒ Œ(
-%3javax.swing.JButton"__id*/*-
-gui.MainAdminGUI"
-jButtonCreateQuestionúô
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaŒ. Œ(:
-%4Lgui/MainAdminGUI$5871;"Lgui/MainAdminGUI$5871;≤
-Ø
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaŒ* ÿ(
-%5"%java.awt.event.MouseAdapter#<init>()V*
-
-%4Lgui/MainAdminGUI$5871;¶£
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaŒ ÿ(
-
-%6void"Djava.awt.Component#addMouseListener(Ljava/awt/event/MouseListener;)V*
-
-%3javax.swing.JButton*
-
-%4Lgui/MainAdminGUI$5871;20addMouseListener(Ljava/awt/event/MouseListener;)∂
-≥
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaŸ Ÿ(
-%7javax.swing.JButton"__id*/*-
-gui.MainAdminGUI"
-jButtonCreateQuestion‹Ÿ
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaŸ Ÿ(4
-
-%8void"#java.awt.Component#setBounds(IIII)V*
-
-%7javax.swing.JButton*2"*2l*2ã*2&2setBounds(IIII)∂
-≥
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.java⁄ ⁄(
-%9javax.swing.JButton"__id*/*-
-gui.MainAdminGUI"
-jButtonCreateQuestionÑ
+5gui.MainAdminGUI#getLblNewLabel()Ljavax/swing/JLabel;`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaã ã("3*¥
+2`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaç# ç(1Ñ
 Å
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.java⁄! ⁄(F
-%10java.util.ResourceBundle"Pjava.util.ResourceBundle#getBundle(Ljava/lang/String;)Ljava/util/ResourceBundle;*"
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaç# ç(H
+%1java.util.ResourceBundle"Pjava.util.ResourceBundle#getBundle(Ljava/lang/String;)Ljava/util/ResourceBundle;*"
 java.util.ResourceBundle*
-	Etiquetasùö
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.java⁄! ⁄(b
-%11java.lang.String"Hjava.util.ResourceBundle#getString(Ljava/lang/String;)Ljava/lang/String;*!
-
-%10java.util.ResourceBundle*
-CreateQuestion2getString(Ljava/lang/String;)ˇ¸
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.java⁄ ⁄(c
-%12void"7javax.swing.AbstractButton#setText(Ljava/lang/String;)V*
+	Etiquetasöó
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaç# ç(b
+%2java.lang.String"Hjava.util.ResourceBundle#getString(Ljava/lang/String;)Ljava/lang/String;* 
+
+%1java.util.ResourceBundle*
+SelectOption2getString(Ljava/lang/String;)ìê
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaç ç("
+%3javax.swing.JLabel"javax.swing.JLabel—
+Œ
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaç ç(c
+%4".javax.swing.JLabel#<init>(Ljava/lang/String;)V*
+
+%3javax.swing.JLabel*
+
+%2java.lang.String≥
+∞
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaç ç(c*
+gui.MainAdminGUI"
+jLabelSelectOption"__id*
+
+%3javax.swing.JLabel≥
+∞
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaé é(
+%5javax.swing.JLabel"__id*,**
+gui.MainAdminGUI"
+jLabelSelectOption‹Ÿ
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaé é(/
+
+%6void"#java.awt.Component#setBounds(IIII)V*
+
+%5javax.swing.JLabel*2'*2*2Ü*2L2setBounds(IIII)≥
+∞
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaè è(
+%7javax.swing.JLabel"__id*,**
+gui.MainAdminGUI"
+jLabelSelectOption}
+{
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaè1 è(:	
+%8int"__id*
+""âÜ
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaè" è(&
+%9java.awt.Font"java.awt.Fontœ
+Ã
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaè è(?
+%10"+java.awt.Font#<init>(Ljava/lang/String;II)V*
+
+%9java.awt.Font*
+
+Tahoma*
+	
+%8int*2ÒÓ
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaè è(@
+%11void"0javax.swing.JComponent#setFont(Ljava/awt/Font;)V*
+
+%7javax.swing.JLabel*
+
+%9java.awt.Font2setFont(Ljava/awt/Font;)¥
+±
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaê ê(
+%12javax.swing.JLabel"__id*,**
+gui.MainAdminGUI"
+jLabelSelectOptionä
+á
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaê$ ê(/
+%13java.awt.Color"__id*
+""Çˇ
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaê ê(0
+%14void"7javax.swing.JComponent#setForeground(Ljava/awt/Color;)V*
 
-%9javax.swing.JButton*
-
-%11java.lang.String2setText(Ljava/lang/String;)∑
-¥
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.java€ €(
-%13javax.swing.JButton"__id*/*-
-gui.MainAdminGUI"
-jButtonCreateQuestionùö
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.java€/ €(L
-%14Lgui/MainAdminGUI$6316;"Lgui/MainAdminGUI$6316;©
-¶
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.java€+ „(
-%15"java.lang.Object#<init>()V* 
-
-%14Lgui/MainAdminGUI$6316;µ≤
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.java€ „(
-%16void"Njavax.swing.AbstractButton#addActionListener(Ljava/awt/event/ActionListener;)V*
-
-%13javax.swing.JButton* 
-
-%14Lgui/MainAdminGUI$6316;22addActionListener(Ljava/awt/event/ActionListener;)*
-1*•
-3_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaÃ Ã(∂
-≥
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaÃ Ã(
-%0javax.swing.JButton"__id*/*-
-gui.MainAdminGUI"
-jButtonCreateQuestion*
+%12javax.swing.JLabel*
+
+%13java.awt.Color2setForeground(Ljava/awt/Color;)¥
+±
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaë ë(
+%15javax.swing.JLabel"__id*,**
+gui.MainAdminGUI"
+jLabelSelectOption~
+|
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaë- ë(B
+
+%16int"__id*
+""Á‰
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaë ë(C
+%17void"-javax.swing.JLabel#setHorizontalAlignment(I)V*
+
+%15javax.swing.JLabel*
+
+
+%16int2setHorizontalAlignment(I)*
+1*£
+3`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaå å(≥
+∞
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaå å(
+%0javax.swing.JLabel"__id*,**
+gui.MainAdminGUI"
+jLabelSelectOption*
 2
-1*ü
-1_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaÂ	 Â(∑
-¥
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaÂ	 Â(
-%17javax.swing.JButton"__id*/*-
-gui.MainAdminGUI"
-jButtonCreateQuestion"
-_
-SC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/gui/MainAdminGUI.javaÂ Â(
-
-%17javax.swing.JButtonB
+1*ù
+1`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaî	 î(¥
+±
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaî	 î(
+%18javax.swing.JLabel"__id*,**
+gui.MainAdminGUI"
+jLabelSelectOption"
+`
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/MainAdminGUI.javaî î(
+
+%18javax.swing.JLabelB
 gui.MainAdminGUI

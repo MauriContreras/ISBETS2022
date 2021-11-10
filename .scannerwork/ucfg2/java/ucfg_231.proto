@@ -1,16 +1,16 @@
 
--domain.Question#getResult()Ljava/lang/String;\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Question.java} }("1*˛
-1\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Question.java~	 ~(†
-ù
-\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Question.java~	 ~(
-%0java.lang.String"__id**
-domain.Question"
-result"x
-\
-RC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/domain/Question.java~ ~(
+,domain.User#getFirstName()Ljava/lang/String;Y
+OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/User.java( (("1*Ù
+1Y
+OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/User.java)	 )(ú
+ô
+Y
+OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/User.java)	 )(
+%0java.lang.String"__id**
+domain.User"
+	firstName"u
+Y
+OC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/User.java) )(
 
-%0java.lang.StringB
-domain.Question
+%0java.lang.StringB
+domain.User

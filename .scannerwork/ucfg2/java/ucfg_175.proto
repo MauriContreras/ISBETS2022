@@ -1,9 +1,16 @@
 
-*configuration.ConfigXML#getDatabasePort()Id
-ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java5 5("1*Ù
-1d
-ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java6	 6("n
-d
-ZC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/configuration/ConfigXML.java6 6(
-""B
+@configuration.ConfigXML#getBusinessLogicPort()Ljava/lang/String;g
+[C:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/configuration/ConfigXML.java“ “(#"1*³
+1g
+[C:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/configuration/ConfigXML.java”	 ”(¾
+»
+g
+[C:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/configuration/ConfigXML.java”	 ”(
+%0java.lang.String"__id*2*0
+configuration.ConfigXML"
+businessLogicPort"ƒ
+g
+[C:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/configuration/ConfigXML.java” ”(
+
+%0java.lang.StringB
 configuration.ConfigXML

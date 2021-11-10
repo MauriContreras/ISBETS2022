@@ -1,11 +1,16 @@
 
-@dataAccess.DataAccess#aplicarBonoBienvenida(Ljava/lang/String;)Zd
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java¸ ¸(%"2*Ù
-2d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java¿
- ¿("n
-d
-XC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY/src/main/java/dataAccess/DataAccess.java¿ ¿(
-"":
-userjava.lang.StringB
-dataAccess.DataAccess
+4domain.RegularUser#getPhoneNumb()Ljava/lang/Integer;`
+VC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/RegularUser.java; ;("1*’
+1`
+VC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/RegularUser.java<	 <(«
+¨
+`
+VC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/RegularUser.java<	 <(
+%0java.lang.Integer"__id*%*#
+domain.RegularUser"
+	phoneNumb"}
+`
+VC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/domain/RegularUser.java< <(
+
+%0java.lang.IntegerB
+domain.RegularUser

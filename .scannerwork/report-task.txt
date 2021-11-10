@@ -3,5 +3,5 @@ projectKey=ISBets21MAUBRY0
 serverUrl=https://sonarcloud.io
 serverVersion=8.0.0.24741
 dashboardUrl=https://sonarcloud.io/dashboard?id=ISBets21MAUBRY0
-ceTaskId=AX0Jsmny7-JuQFhVPvbw
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AX0Jsmny7-JuQFhVPvbw
+ceTaskId=AX0J5U2YVxFghrvooIH7
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AX0J5U2YVxFghrvooIH7

@@ -271,12 +271,3 @@ class DeleteEventDATest {
 	}
 
 }
-
-////para los mock
-////define Argument captors
-//			ArgumentCaptor<Event> eventCaptor = ArgumentCaptor.forClass(Event.class);
-//			// verify call numbers and capture parameters
-//			Mockito.verify(sut, Mockito.times(1)).deleteEvent(eventCaptor.capture());
-//			// verify parameter values as usual using JUnit asserts
-//			assertEquals(ev, eventCaptor.getValue());
-//

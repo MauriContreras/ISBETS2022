@@ -1,0 +1,44 @@
+
+SbusinessLogic.BLFacadeImplementation#doLogin(Ljava/lang/String;Ljava/lang/String;)Zt
+hC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/businessLogic/BLFacadeImplementation.javaº º("startingBlock*î
+startingBlockt
+hC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/businessLogic/BLFacadeImplementation.javaº º(5Ã
+À
+t
+hC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/businessLogic/BLFacadeImplementation.java¹ ¹(
+
+%0"
+__annotate*
+java.lang.Override*
+
+usernamejava.lang.String­
+ª
+t
+hC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/businessLogic/BLFacadeImplementation.javaº º('
+usernamejava.lang.String"__annotation*
+
+%0¿
+¼
+t
+hC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/businessLogic/BLFacadeImplementation.java¹ ¹(
+
+%1"
+__annotate*
+java.lang.Override*
+
+passjava.lang.String©
+¦
+t
+hC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/businessLogic/BLFacadeImplementation.javaº0 º(4
+passjava.lang.String"__annotation*
+
+%1*
+1*ù
+1t
+hC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/businessLogic/BLFacadeImplementation.java» »("~
+t
+hC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/businessLogic/BLFacadeImplementation.java¾ ¾(
+"":
+usernamejava.lang.String:
+passjava.lang.StringB(&
+$businessLogic.BLFacadeImplementation

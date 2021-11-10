@@ -43,7 +43,7 @@ YC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/Administrati
 e
 YC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/AdministrationGUI.javaÏ Ï(.(
 %2"javax.swing.table.TableColumnModel"Gjavax.swing.JTable#getColumnModel()Ljavax/swing/table/TableColumnModel;*!
-Lgui/AdministrationGUI$10614;2getColumnModel()¡ž
+Lgui/AdministrationGUI$10611;2getColumnModel()¡ž
 e
 YC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/AdministrationGUI.javaÏ Ï(@#
 %3javax.swing.table.TableColumn"Njavax.swing.table.TableColumnModel#getColumn(I)Ljavax/swing/table/TableColumn;**
@@ -59,7 +59,7 @@ YC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/Administrati
 e
 YC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/AdministrationGUI.javaÑ Ñ(4
 %4java.awt.Dimension"<javax.swing.JTable#getIntercellSpacing()Ljava/awt/Dimension;*!
-Lgui/AdministrationGUI$10614;2getIntercellSpacing()îë
+Lgui/AdministrationGUI$10611;2getIntercellSpacing()îë
 e
 YC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/AdministrationGUI.javaÑ< Ñ([	
 %5int"2javax.swing.table.TableColumn#getPreferredWidth()I*.
@@ -88,4 +88,4 @@ YC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/Administrati
 renderer#javax.swing.table.TableCellRenderer:
 "":
 ""B!
-Lgui/AdministrationGUI$10614;
+Lgui/AdministrationGUI$10611;

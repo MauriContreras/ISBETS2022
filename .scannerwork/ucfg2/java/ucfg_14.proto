@@ -6,7 +6,7 @@ TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI
 `
 TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaü$ ü(4
 %34java.awt.Container"7javax.swing.JFrame#getContentPane()Ljava/awt/Container;*
-Lgui/CreateBetGUI$12861;2getContentPane()§
+Lgui/CreateBetGUI$12856;2getContentPane()§
 °
 `
 TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaü ü(W
@@ -19,7 +19,7 @@ TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI
 `
 TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.java† †(
 %36javax.swing.JTextField"__id*)*'
-Lgui/CreateBetGUI$12861;"	
+Lgui/CreateBetGUI$12856;"	
 textBet∫
 ∑
 `
@@ -34,26 +34,26 @@ TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI
 %36javax.swing.JTextField*
 
 %372setText(Ljava/lang/String;)*
-0*Ù	
+0*Ú	
 4`
 TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaú ú(ÈÊ
 `
 TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaú$ ú(4
 %29java.awt.Container"7javax.swing.JFrame#getContentPane()Ljava/awt/Container;*
-Lgui/CreateBetGUI$12861;2getContentPane()≤
-Ø
+Lgui/CreateBetGUI$12856;2getContentPane()∞
+≠
 `
-TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaú ú(c
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaú ú(b
 %30void"Rjavax.swing.JOptionPane#showMessageDialog(Ljava/awt/Component;Ljava/lang/Object;)V*"
 javax.swing.JOptionPane*
 
-%29java.awt.Container*0.
-,No puedes apostar por debajo de lo m√É¬≠nimoµ
+%29java.awt.Container*.,
+*No puedes apostar por debajo de lo m√≠nimoµ
 ≤
 `
 TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaù ù(
 %31javax.swing.JTextField"__id*)*'
-Lgui/CreateBetGUI$12861;"	
+Lgui/CreateBetGUI$12856;"	
 textBet∫
 ∑
 `
@@ -74,7 +74,7 @@ TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI
 `
 TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaô$ ô(4
 %24java.awt.Container"7javax.swing.JFrame#getContentPane()Ljava/awt/Container;*
-Lgui/CreateBetGUI$12861;2getContentPane()©
+Lgui/CreateBetGUI$12856;2getContentPane()©
 ¶
 `
 TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaô ô(\
@@ -87,7 +87,7 @@ TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI
 `
 TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaö ö(
 %26javax.swing.JTextField"__id*)*'
-Lgui/CreateBetGUI$12861;"	
+Lgui/CreateBetGUI$12856;"	
 textBet∫
 ∑
 `
@@ -108,7 +108,7 @@ TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI
 `
 TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaí$ í(4
 %11java.awt.Container"7javax.swing.JFrame#getContentPane()Ljava/awt/Container;*
-Lgui/CreateBetGUI$12861;2getContentPane()µ
+Lgui/CreateBetGUI$12856;2getContentPane()µ
 ≤
 `
 TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaí6 í(^
@@ -124,7 +124,7 @@ TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI
 Has apostado a Ç
 ˇ
 `
-TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaí ì(N
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaí ì(L
 %14"Rjavax.swing.JOptionPane#showMessageDialog(Ljava/awt/Component;Ljava/lang/Object;)V*"
 javax.swing.JOptionPane*
 
@@ -145,7 +145,7 @@ TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI
 `
 TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaï ï(
 %17javax.swing.JLabel"__id***(
-Lgui/CreateBetGUI$12861;"
+Lgui/CreateBetGUI$12856;"
 
 lblSaldoÖ
 Ç
@@ -161,7 +161,7 @@ TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI
 %18java.util.ResourceBundle* 
 CreateBetGUI.lblSaldo_2.text2getString(Ljava/lang/String;)ﬂ‹
 `
-TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaï ñ(A
+TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaï ñ(?
 %20"/javax.swing.JLabel#setText(Ljava/lang/String;)V*
 
 %17javax.swing.JLabel*
@@ -170,7 +170,7 @@ TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI
 `
 TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaó ó(
 %21javax.swing.JTextField"__id*)*'
-Lgui/CreateBetGUI$12861;"	
+Lgui/CreateBetGUI$12856;"	
 textBet∫
 ∑
 `
@@ -185,26 +185,26 @@ TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI
 %21javax.swing.JTextField*
 
 %222setText(Ljava/lang/String;)*
-0*¶
+0*§
 10`
 TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaç ç(ËÂ
 `
 TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaç# ç(3
 %8java.awt.Container"7javax.swing.JFrame#getContentPane()Ljava/awt/Container;*
-Lgui/CreateBetGUI$12861;2getContentPane()}
+Lgui/CreateBetGUI$12856;2getContentPane()}
 {
 `
 TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaé é( 	
 %9int"__id*
-""Œ
-À
+""Ã
+…
 `
 TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaç é(!
 %10void"ejavax.swing.JOptionPane#showMessageDialog(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;I)V*"
 javax.swing.JOptionPane*
 
-%8java.awt.Container*" 
-El bet no puede estar vac√É¬≠o*	
+%8java.awt.Container* 
+El bet no puede estar vac√≠o*	
 Error*
 	
 %9int*
@@ -227,7 +227,7 @@ TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI
 `
 TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaà" à()
 %2javax.swing.JTextField"__id*)*'
-Lgui/CreateBetGUI$12861;"	
+Lgui/CreateBetGUI$12856;"	
 textBetÂ‚
 `
 TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaà" à(3
@@ -245,7 +245,7 @@ TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI
 `
 TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaâ â(
 %5javax.swing.JTextField"__id*)*'
-Lgui/CreateBetGUI$12861;"	
+Lgui/CreateBetGUI$12856;"	
 textBetÂ‚
 `
 TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.javaâ â( 
@@ -274,4 +274,4 @@ TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI
 TC:/Users/mauri/eclipse-workspace/ISBets21MAUBRY0/src/main/java/gui/CreateBetGUI.java¶ ¶(
 implicit return:
 ejava.awt.event.ActionEventB
-Lgui/CreateBetGUI$12861;
+Lgui/CreateBetGUI$12856;

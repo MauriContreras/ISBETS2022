@@ -74,11 +74,11 @@
 
 	<!-- https://mvnrepository.com/artifact/junit/junit -->
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-engine -->
+		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
 		<dependency>
-			<groupId>org.junit.platform</groupId>
-			<artifactId>junit-platform-engine</artifactId>
-			<version>1.8.1</version>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.8.1</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>

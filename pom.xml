@@ -70,6 +70,7 @@
 		<sonar.login>6056a92e1751a45bfa54b7ab0851d8ec53b04f8e</sonar.login>
 		<sonar.coverage.jacoco.xmlReportPaths>coverage.xml</sonar.coverage.jacoco.xmlReportPaths>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 	</properties>
 

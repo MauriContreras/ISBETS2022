@@ -49,7 +49,6 @@ public class DataAccess {
 
 	}
 
-//wig
 	public DataAccess() {
 		new DataAccess(false);
 	}

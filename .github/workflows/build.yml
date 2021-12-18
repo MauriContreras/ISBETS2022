@@ -37,5 +37,5 @@ jobs:
         #run samu
         #run: mvn -Dsonar.projectKey=ISBets21MAUBRY0 clean org.jacoco:jacoco-maven-plugin:prepare-agent install org.jacoco:jacoco-maven-plugin:report org.sonarsource.scanner.maven:sonar-maven-plugin:sonar 
         #run ion
-        run: mvn -Dsonar.projectKey=ISBets21MAUBRY0 clean org.jacoco:jacoco-maven-plugin:prepare-agent install org.jacoco:jacoco-maven-plugin:report install sonar:sonar
+          run: mvn -Dsonar.projectKey=ISBets21MAUBRY0 clean org.jacoco:jacoco-maven-plugin:prepare-agent install org.jacoco:jacoco-maven-plugin:report install sonar:sonar
         

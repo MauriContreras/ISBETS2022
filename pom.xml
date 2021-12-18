@@ -2,8 +2,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>ISBets21MAUBRY0</groupId>
-	<artifactId>ISBets21MAUBRY0</artifactId>
+	<groupId>ISBets21MAU</groupId>
+	<artifactId>ISBets21MAUB</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<build>
@@ -67,11 +67,11 @@
 		<maven.compiler.source>11</maven.compiler.source>
 		<sonar.organization>mauricontreras</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-		<sonar.login>6056a92e1751a45bfa54b7ab0851d8ec53b04f8e</sonar.login>
-		<sonar.coverage.jacoco.xmlReportPaths>coverage.xml</sonar.coverage.jacoco.xmlReportPaths>
+		<sonar.login>9cb0399882ce42891e172458a9283f76f7a73fc7</sonar.login>
+		<!-- <sonar.coverage.jacoco.xmlReportPaths>coverage.xml</sonar.coverage.jacoco.xmlReportPaths>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
+        -->
 	</properties>
 
 	<!-- https://mvnrepository.com/artifact/junit/junit -->

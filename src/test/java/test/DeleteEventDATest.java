@@ -269,5 +269,4 @@ class DeleteEventDATest {
 		testDA.deleteAllEvents();
 		testDA.close();
 	}
-
 }

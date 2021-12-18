@@ -49,7 +49,6 @@ public class DataAccess {
 
 	}
 
-//Wiggggggg
 	public DataAccess() {
 		new DataAccess(false);
 	}

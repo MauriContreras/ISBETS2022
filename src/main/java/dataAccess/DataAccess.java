@@ -49,6 +49,7 @@ public class DataAccess {
 
 	}
 
+//wig
 	public DataAccess() {
 		new DataAccess(false);
 	}
@@ -629,7 +630,7 @@ public class DataAccess {
 //			db.persist(q11);
 //			db.persist(q12);
 //			db.persist(q13);
-			
+
 //			db.persist(q14);
 //			db.persist(q15);
 //			db.persist(q16);
@@ -1066,48 +1067,47 @@ public class DataAccess {
 		}
 
 	}
-	
+
 	public boolean deleteEvent(Event evento) {
-        try {
-            db.getTransaction().begin();
+		try {
+			db.getTransaction().begin();
 
-            // se ha cmbiado de evento.getEventDate() a evento.getEventNumber()
-            try {
-                Event event1 = db.find(Event.class, evento.getEventNumber());
-                if (event1 == null) {
-                    return false;
-                }
-            } catch (IllegalArgumentException ex) {
-                return false;
-            }
+			// se ha cmbiado de evento.getEventDate() a evento.getEventNumber()
+			try {
+				Event event1 = db.find(Event.class, evento.getEventNumber());
+				if (event1 == null) {
+					return false;
+				}
+			} catch (IllegalArgumentException ex) {
+				return false;
+			}
 
-            Query query1 = db.createQuery("DELETE FROM Event e WHERE e.getEventNumber()=?1");
-            query1.setParameter(1, evento.getEventNumber());
+			Query query1 = db.createQuery("DELETE FROM Event e WHERE e.getEventNumber()=?1");
+			query1.setParameter(1, evento.getEventNumber());
 
-            TypedQuery<Question> query2 = db.createQuery("SELECT qu FROM Question qu", Question.class);
-            List<Question> preguntasDB = query2.getResultList();
+			TypedQuery<Question> query2 = db.createQuery("SELECT qu FROM Question qu", Question.class);
+			List<Question> preguntasDB = query2.getResultList();
 
-            for (Question q : preguntasDB) {
-                if (q.getEvent().equals(evento)) {
-                    System.out.println("pregunta eliminada: " + q);
-                    db.remove(q);
-                } else {
-                    System.out.println("pregunta NO ELIMINADA");
-                }
-            }
+			for (Question q : preguntasDB) {
+				if (q.getEvent().equals(evento)) {
+					System.out.println("pregunta eliminada: " + q);
+					db.remove(q);
+				} else {
+					System.out.println("pregunta NO ELIMINADA");
+				}
+			}
 
-            int events = query1.executeUpdate();
-            db.getTransaction().commit();
-            System.out.println("Evento eliminado: " + evento);
+			int events = query1.executeUpdate();
+			db.getTransaction().commit();
+			System.out.println("Evento eliminado: " + evento);
 
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 
-    }
-	
+	}
 
 	public Forecast insertForecast(Question q, String forecast, float fee) {
 		System.out.println(">> DataAccess: insertForecast=> question= " + q + " forecast= " + forecast + " fee=" + fee);
@@ -1239,22 +1239,23 @@ public class DataAccess {
 
 		return forecasts.get(forecasts.size() - 1).getForecastNumber();
 	}
-	
+
 	public Forecast findForecast(int forecastNumber) {
 		Forecast fore = db.find(Forecast.class, forecastNumber);
 		return fore;
 	}
+
 	/**/
 	public User findUser(String name) {
 		User u = db.find(User.class, name);
 		return u;
 	}
-	
+
 	public float getBetMin(Question q) {
 		return q.getBetMinimum();
 	}
-	
-	public Forecast registrarForecast(String name, Float fee, Question q)  {
+
+	public Forecast registrarForecast(String name, Float fee, Question q) {
 		db.getTransaction().begin();
 		Forecast fo = new Forecast(name, fee, q);
 
@@ -1262,7 +1263,7 @@ public class DataAccess {
 		db.getTransaction().commit();
 		return fo;
 	}
-	
+
 	public void deleteUser(String name) {
 		try {
 			db.getTransaction().begin();
@@ -1276,7 +1277,7 @@ public class DataAccess {
 		}
 
 	}
-	
+
 	public int createApuesta(Forecast pSelectedForecast, RegularUser pselectedClient, Float pselectedAmount) {
 		// VALIDACIÓN DE NÚMERO POSITIVO
 		if (pselectedAmount < 0) {
@@ -1295,14 +1296,15 @@ public class DataAccess {
 					// 2 - FALTA DE SALDO
 					return 2;
 				} else {
-					//System.out.println(">> DataAccess: createApuesta=> answer= " + pSelectedForecast + " client= "
-						//	+ clientdb.getUserName() + " amount=" + pselectedAmount + "€");
+					// System.out.println(">> DataAccess: createApuesta=> answer= " +
+					// pSelectedForecast + " client= "
+					// + clientdb.getUserName() + " amount=" + pselectedAmount + "€");
 					try {
 						db.getTransaction().begin();
-						//Forecast fore = insertForecast(pSelectedForecast);
+						// Forecast fore = insertForecast(pSelectedForecast);
 						Forecast fore = db.find(Forecast.class, pSelectedForecast);
-						//Forecast fore = findForecast(pSelectedForecast.getForecastNumber());
-						
+						// Forecast fore = findForecast(pSelectedForecast.getForecastNumber());
+
 						Bet ap = fore.addBet(pSelectedForecast, pselectedClient, pselectedAmount);
 						clientdb.addBet(ap);
 						db.persist(ap);
@@ -1417,7 +1419,7 @@ public class DataAccess {
 		return false;
 
 	}
-	
+
 	public boolean closeEvent(Event e, Question q, Forecast f) {
 		try {
 			db.getTransaction().begin();

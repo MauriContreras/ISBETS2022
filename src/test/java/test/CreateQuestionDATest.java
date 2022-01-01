@@ -31,7 +31,7 @@ class CreateQuestionDATest {
 	@Test
 	// sut.createQuestion: The event has one question with a queryText.
 	void test1() {
-
+//hola
 		try {
 			// configure the state of the system (create object in the dabatase)
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");

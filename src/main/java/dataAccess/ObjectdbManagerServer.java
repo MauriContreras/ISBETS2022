@@ -33,7 +33,6 @@ public class ObjectdbManagerServer extends JDialog {
 		}
 	}
 
-//wig
 	public ObjectdbManagerServer() {
 		setTitle("objectDBManagerServer: running the database server");
 		setBounds(100, 100, 486, 180);
